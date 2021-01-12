@@ -28,6 +28,8 @@ mkdir -p $RPM_BUILD_ROOT/usr/lib64/R/library
 %{_bindir}/R CMD INSTALL -l $RPM_BUILD_ROOT/usr/lib64/R/library/ %{packname}
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -rf $RPM_BUILD_ROOT%{_libdir}/R/library/R.css
+rm -rf $RPM_BUILD_ROOT/usr/lib64/R/library/%{packname}/mac*
+
 
 %check
 
