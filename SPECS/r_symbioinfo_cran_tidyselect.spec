@@ -1,18 +1,18 @@
-%global packname lattice
+%global packname tidyselect
 %global rversion  4.0.3
-%global packrel 41
+%global packrel 1
 %global debug_package %{nil}
 
-Name:             r_symbioinfo_cran_lattice
-Version:          0.20
+Name:             r_symbioinfo_cran_tidyselect
+Version:          1.1.0
 Release:          %{packrel}%{?dist}
-Source0:          https://cran.r-project.org/web/packages/lattice/../../../src/contrib/lattice_0.20-41.tar.gz
-License:          GPL-2 | GPL-3 [expanded from: GPL (≥ 2)]
-URL:              https://cran.r-project.org/web/packages/lattice/index.html
+Source0:          https://cran.r-project.org/web/packages/tidyselect/../../../src/contrib/tidyselect_1.1.0.tar.gz
+License:          GPL-3
+URL:              https://cran.r-project.org/web/packages/tidyselect/index.html
 Group:            Applications/Bioinformatics
-Summary:          PackYak build of R-package [lattice] version [0.20-41]
-BuildRequires:    tex(latex) R-core = %{rversion}
-Requires:         tex(latex) R-core = %{rversion}
+Summary:          PackYak build of R-package [tidyselect] version [1.1.0]
+BuildRequires:    tex(latex) R-core = %{rversion} r_symbioinfo_cran_ellipsis r_symbioinfo_cran_glue r_symbioinfo_cran_purrr r_symbioinfo_cran_rlang r_symbioinfo_cran_vctrs
+Requires:         tex(latex) R-core = %{rversion} r_symbioinfo_cran_ellipsis r_symbioinfo_cran_glue r_symbioinfo_cran_purrr r_symbioinfo_cran_rlang r_symbioinfo_cran_vctrs
 
 %description
 
@@ -41,7 +41,7 @@ rm -fR %{_builddir}/%{packname}*
 
 %changelog
 * Tue Jan 12 2021 sagrudd <stephen@mnemosyne.co.uk>
-- updated [lattice] package version to [0.20-41] by PackYak
+- updated [tidyselect] package version to [1.1.0-1] by PackYak
 - updated to R version [4.0.3]
 * Mon Jan 11 2021 Stephen Rudd <stephen@mnemosyne.co.uk>
 - resurrecting the symbioinfo concept for arm64 usage
