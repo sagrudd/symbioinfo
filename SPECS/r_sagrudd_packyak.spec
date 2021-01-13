@@ -4,13 +4,13 @@
 %global debug_package %{nil}
 
 Name:             r_sagrudd_packyak
-Version:          0.0.1.9004
+Version:          0.0.1.9005
 Release:          %{packrel}%{?dist}
-Source0:          packyak_0.0.1.9004.tar.gz
+Source0:          packyak_0.0.1.9005.tar.gz
 License:          MPL-2.0
 URL:              https://github.com/sagrudd/packyak
 Group:            Applications/Bioinformatics
-Summary:          PackYak v0.0.1.9004
+Summary:          PackYak v0.0.1.9005
 BuildRequires:    tex(latex) R-core = %{rversion} r_symbioinfo_cran_cli r_symbioinfo_cran_stringr r_symbioinfo_cran_r6 r_symbioinfo_cran_httr r_symbioinfo_cran_rvest r_symbioinfo_cran_lubridate r_symbioinfo_cran_git2r
 Requires:         tex(latex) R-core = %{rversion} r_symbioinfo_cran_cli r_symbioinfo_cran_stringr r_symbioinfo_cran_r6 r_symbioinfo_cran_httr r_symbioinfo_cran_rvest r_symbioinfo_cran_lubridate r_symbioinfo_cran_git2r
 
