@@ -1,0 +1,12 @@
+diff -up Rhtslib/Rhtslib/src/Makevars.common.fix Rhtslib/Rhtslib/src/Makevars.common
+--- Rhtslib/Rhtslib/src/Makevars.common.fix	2019-12-18 13:57:35.497779960 -0500
++++ Rhtslib/Rhtslib/src/Makevars.common	2019-12-18 13:58:37.750674875 -0500
+@@ -9,7 +9,7 @@ R_ETC_MAKECONF=${R_HOME}/etc${R_ARCH}/Ma
+ 
+ ## Preprocessor and linker options. Make sure the Rhtslib::pkgconfig() function
+ ## (defined in R/zzz.R) produces the same PKG_CPPFLAGS and PKG_LIBS values.
+-PKG_CPPFLAGS=-D_FILE_OFFSET_BITS=64 -I"${INCLUDE_DIR}"
++PKG_CPPFLAGS=-D_FILE_OFFSET_BITS=64 -Ihtslib-1.7
+ PKG_LIBS="${USRLIB_DIR}/libhts.a"
+ 
+ .PHONY: all htslib mk-include-dir mk-usrlib-dir mk-testdata-dir populate-include-dir populate-usrlib-dir populate-testdata-dir clean
