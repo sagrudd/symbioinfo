@@ -40,6 +40,8 @@ rm -fR %{_builddir}/%{packname}*
 /usr/lib64/R/library/%{packname}
 
 %changelog
+* Wed Jan 13 2021  <>
+- forced rebuild of SPEC file by PackYak v0.0.1.9004
 * Wed Jan 13 2021 sagrudd <stephen@mnemosyne.co.uk>
 - updated [IRanges] package version to [2.24.1-1] by PackYak v0.0.1.9004
 - updated to R version [4.0.3]

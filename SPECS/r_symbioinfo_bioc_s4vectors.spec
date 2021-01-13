@@ -10,7 +10,7 @@ Source0:          https://www.bioconductor.org/packages/release/bioc/html/../src
 License:          Artistic-2.0
 URL:              https://www.bioconductor.org/packages/release/bioc/html/S4Vectors.html
 Group:            Applications/Bioinformatics
-Summary:          PackYak v0.0.1.9005 build of R-package [S4Vectors] version [0.28.1]
+Summary:          PackYak v0.0.1.9004 build of R-package [S4Vectors] version [0.28.1]
 BuildRequires:    tex(latex) R-core = %{rversion} r_symbioinfo_bioc_biocgenerics
 Requires:         tex(latex) R-core = %{rversion} r_symbioinfo_bioc_biocgenerics
 
@@ -40,6 +40,8 @@ rm -fR %{_builddir}/%{packname}*
 /usr/lib64/R/library/%{packname}
 
 %changelog
+* Wed Jan 13 2021  <>
+- forced rebuild of SPEC file by PackYak v0.0.1.9004
 * Wed Jan 13 2021 sagrudd <stephen@mnemosyne.co.uk>
 - updated [S4Vectors] package version to [0.28.1-1] by PackYak v0.0.1.9005
 - updated to R version [4.0.3]
