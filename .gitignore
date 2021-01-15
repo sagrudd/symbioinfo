@@ -3,3 +3,4 @@ BUILD/
 BUILDROOT/
 SRPMS/
 .Rproj.user
+.Rhistory
