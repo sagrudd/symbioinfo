@@ -25,7 +25,9 @@ the location if you're not me ...
 ```
 
 ```
-sudo yum install rpm-build
+sudo yum install rpm-build libgit2-devel libcurl-devel openssl icu zlib-devel \
+    libpng-devel freetype bzip2-devel libjpeg-turbo libsodium-devel \
+    xclip libpq-devel pandoc
 git clone https://github.com/$SYMBIOINFO rpmbuild
 
 ```
@@ -50,7 +52,8 @@ as the `PackYak` throws errors and dependencies need to be installed and ideally
 the associated SPEC files should be manually updated ...
 
 ```
-Rscript -e 'packyak::PackYak$new(build_rpm=TRUE, create_repo=TRUE)'
+build_file <- system.file("extdata/rpm_targets.yaml", package="packyak")
+Rscript -e 'packyak::PackYak$new(build_file, build_rpm=TRUE)'
 ```
 
 ## 3. Update and publish the repo
