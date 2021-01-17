@@ -2,14 +2,11 @@
 title: "symbioinfo - fedora RPMs for genome bioinformatics"
 ---
 
-This is John.
+The github pages for symbioinfo can be found at
+[https://github.com/sagrudd/symbioinfo/](https://github.com/sagrudd/symbioinfo/).
 
-
-
-This is Pete.
-
-
-
-They are brothers!
+The pages at symbioinfo have been built using the 
+[PackYak](https://github.com/sagrudd/packyak) - an experimental framework to
+simplify the production of R-environments in slow `aarch64` computer setups.
 
 

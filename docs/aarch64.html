@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="sagrudd" />
+
+
+<title>aarch64</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/darkly.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 60px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h2 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h3 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h4 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h5 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h6 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">symbioinfo - fedora bioinformatics RPMs for arm64</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="aarch64.html">arm64/aarch</a>
+</li>
+<li>
+  <a href="x86_64.html">x86_64</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="mailto:&lt;stephen@mnemosyne.co.uk&gt;">
+    <span class="fas fa-envelope fa-lg"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="http://github.com/sagrudd/">
+    <span class="fab fa-r-project"></span>
+     
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">aarch64</h1>
+<h4 class="author">sagrudd</h4>
+<h4 class="date">1/17/2021</h4>
+
+</div>
+
+<div id="TOC">
+<ul>
+<li><a href="#bioinformatics-rpm-packages-for-the-aarch64-platform.">Bioinformatics RPM packages for the <code>aarch64</code> platform.</a></li>
+</ul>
+</div>
+
+<div id="bioinformatics-rpm-packages-for-the-aarch64-platform." class="section level2">
+<h2>Bioinformatics RPM packages for the <code>aarch64</code> platform.</h2>
+<p>This page displays the RPM packages available in the current <code>symbioinfo</code> release.</p>
+<ul>
+<li><a href="./RPMS/aarch64/r_affy-1.68.0-1.fc33.aarch64.rpm"><code>r_affy-1.68.0-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_affyio-1.60.0-1.fc33.aarch64.rpm"><code>r_affyio-1.60.0-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_askpass-1.1-1.fc33.aarch64.rpm"><code>r_askpass-1.1-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_assertthat-0.2.1-1.fc33.aarch64.rpm"><code>r_assertthat-0.2.1-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_aws.s3-0.3.21-1.fc33.aarch64.rpm"><code>r_aws.s3-0.3.21-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_aws.signature-0.6.0-1.fc33.aarch64.rpm"><code>r_aws.signature-0.6.0-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_base64enc-0.1-3.fc33.aarch64.rpm"><code>r_base64enc-0.1-3.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_bh-1.75.0-0.fc33.aarch64.rpm"><code>r_bh-1.75.0-0.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_biobase-2.50.0-1.fc33.aarch64.rpm"><code>r_biobase-2.50.0-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_biocgenerics-0.36.0-1.fc33.aarch64.rpm"><code>r_biocgenerics-0.36.0-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_biocmanager-1.30.10-1.fc33.aarch64.rpm"><code>r_biocmanager-1.30.10-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_biocparallel-1.24.1-1.fc33.aarch64.rpm"><code>r_biocparallel-1.24.1-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_biostrings-2.58.0-1.fc33.aarch64.rpm"><code>r_biostrings-2.58.0-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_bit-4.0.4-1.fc33.aarch64.rpm"><code>r_bit-4.0.4-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_bit64-4.0.5-1.fc33.aarch64.rpm"><code>r_bit64-4.0.5-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_bitops-1.0-6.fc33.aarch64.rpm"><code>r_bitops-1.0-6.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_blob-1.2.1-1.fc33.aarch64.rpm"><code>r_blob-1.2.1-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_brew-1.0-6.fc33.aarch64.rpm"><code>r_brew-1.0-6.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_brio-1.1.0-1.fc33.aarch64.rpm"><code>r_brio-1.1.0-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_callr-3.5.1-1.fc33.aarch64.rpm"><code>r_callr-3.5.1-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_cli-2.2.0-1.fc33.aarch64.rpm"><code>r_cli-2.2.0-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_clipr-0.7.1-1.fc33.aarch64.rpm"><code>r_clipr-0.7.1-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_colorspace-2.0-0.fc33.aarch64.rpm"><code>r_colorspace-2.0-0.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_commonmark-1.7-1.fc33.aarch64.rpm"><code>r_commonmark-1.7-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_covr-3.5.1-1.fc33.aarch64.rpm"><code>r_covr-3.5.1-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_cpp11-0.2.5-1.fc33.aarch64.rpm"><code>r_cpp11-0.2.5-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_crayon-1.3.4-1.fc33.aarch64.rpm"><code>r_crayon-1.3.4-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_credentials-1.3.0-1.fc33.aarch64.rpm"><code>r_credentials-1.3.0-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_crosstalk-1.1.1-1.fc33.aarch64.rpm"><code>r_crosstalk-1.1.1-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_curl-4.3-1.fc33.aarch64.rpm"><code>r_curl-4.3-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_dbi-1.1.1-1.fc33.aarch64.rpm"><code>r_dbi-1.1.1-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_dbplyr-2.0.0-1.fc33.aarch64.rpm"><code>r_dbplyr-2.0.0-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_delayedarray-0.16.0-1.fc33.aarch64.rpm"><code>r_delayedarray-0.16.0-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_desc-1.2.0-1.fc33.aarch64.rpm"><code>r_desc-1.2.0-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_devtools-2.3.2-1.fc33.aarch64.rpm"><code>r_devtools-2.3.2-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_diffobj-0.3.3-1.fc33.aarch64.rpm"><code>r_diffobj-0.3.3-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_digest-0.6.27-1.fc33.aarch64.rpm"><code>r_digest-0.6.27-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_dplyr-1.0.3-1.fc33.aarch64.rpm"><code>r_dplyr-1.0.3-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_dt-0.17-1.fc33.aarch64.rpm"><code>r_dt-0.17-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_ellipsis-0.3.1-1.fc33.aarch64.rpm"><code>r_ellipsis-0.3.1-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_emojifont-0.5.3-1.fc33.aarch64.rpm"><code>r_emojifont-0.5.3-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_evaluate-0.14-1.fc33.aarch64.rpm"><code>r_evaluate-0.14-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_fansi-0.4.2-1.fc33.aarch64.rpm"><code>r_fansi-0.4.2-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_farver-2.0.3-1.fc33.aarch64.rpm"><code>r_farver-2.0.3-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_filelock-1.0.2-1.fc33.aarch64.rpm"><code>r_filelock-1.0.2-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_formatr-1.7-1.fc33.aarch64.rpm"><code>r_formatr-1.7-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_fs-1.5.0-1.fc33.aarch64.rpm"><code>r_fs-1.5.0-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_futile.logger-1.4.3-1.fc33.aarch64.rpm"><code>r_futile.logger-1.4.3-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_futile.options-1.0.1-1.fc33.aarch64.rpm"><code>r_futile.options-1.0.1-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_generics-0.1.0-1.fc33.aarch64.rpm"><code>r_generics-0.1.0-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_genomeinfodb-1.26.2-1.fc33.aarch64.rpm"><code>r_genomeinfodb-1.26.2-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_genomeinfodbdata-1.2.4-1.fc33.aarch64.rpm"><code>r_genomeinfodbdata-1.2.4-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_genomicalignments-1.26.0-1.fc33.aarch64.rpm"><code>r_genomicalignments-1.26.0-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_genomicranges-1.42.0-1.fc33.aarch64.rpm"><code>r_genomicranges-1.42.0-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_gert-1.0.2-1.fc33.aarch64.rpm"><code>r_gert-1.0.2-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_getopt-1.20.3-1.fc33.aarch64.rpm"><code>r_getopt-1.20.3-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_getpass-0.2-2.fc33.aarch64.rpm"><code>r_getpass-0.2-2.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_ggplot2-3.3.3-1.fc33.aarch64.rpm"><code>r_ggplot2-3.3.3-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_gh-1.2.0-1.fc33.aarch64.rpm"><code>r_gh-1.2.0-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_git2r-0.28.0-1.fc33.aarch64.rpm"><code>r_git2r-0.28.0-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_gitcreds-0.1.1-1.fc33.aarch64.rpm"><code>r_gitcreds-0.1.1-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_glue-1.4.2-1.fc33.aarch64.rpm"><code>r_glue-1.4.2-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_gtable-0.3.0-1.fc33.aarch64.rpm"><code>r_gtable-0.3.0-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_highr-0.8-1.fc33.aarch64.rpm"><code>r_highr-0.8-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_hms-1.0.0-1.fc33.aarch64.rpm"><code>r_hms-1.0.0-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_htmltools-0.5.1-1.fc33.aarch64.rpm"><code>r_htmltools-0.5.1-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_htmlwidgets-1.5.3-1.fc33.aarch64.rpm"><code>r_htmlwidgets-1.5.3-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_httr-1.4.2-1.fc33.aarch64.rpm"><code>r_httr-1.4.2-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_hwriter-1.3.2-1.fc33.aarch64.rpm"><code>r_hwriter-1.3.2-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_ini-0.3.1-1.fc33.aarch64.rpm"><code>r_ini-0.3.1-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_iranges-2.24.1-1.fc33.aarch64.rpm"><code>r_iranges-2.24.1-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_isoband-0.2.3-1.fc33.aarch64.rpm"><code>r_isoband-0.2.3-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_jpeg-0.1-8.1.fc33.aarch64.rpm"><code>r_jpeg-0.1-8.1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_jsonlite-1.7.2-1.fc33.aarch64.rpm"><code>r_jsonlite-1.7.2-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_keyring-1.1.0-1.fc33.aarch64.rpm"><code>r_keyring-1.1.0-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_knitr-1.30-1.fc33.aarch64.rpm"><code>r_knitr-1.30-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_labeling-0.4.2-1.fc33.aarch64.rpm"><code>r_labeling-0.4.2-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_lambda.r-1.2.4-1.fc33.aarch64.rpm"><code>r_lambda.r-1.2.4-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_later-1.1.0.1-1.fc33.aarch64.rpm"><code>r_later-1.1.0.1-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_latticeextra-0.6-29.fc33.aarch64.rpm"><code>r_latticeextra-0.6-29.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_lazyeval-0.2.2-1.fc33.aarch64.rpm"><code>r_lazyeval-0.2.2-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_lifecycle-0.2.0-1.fc33.aarch64.rpm"><code>r_lifecycle-0.2.0-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_lubridate-1.7.9.2-1.fc33.aarch64.rpm"><code>r_lubridate-1.7.9.2-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_magrittr-2.0.1-1.fc33.aarch64.rpm"><code>r_magrittr-2.0.1-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_markdown-1.1-1.fc33.aarch64.rpm"><code>r_markdown-1.1-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_matrixgenerics-1.2.0-1.fc33.aarch64.rpm"><code>r_matrixgenerics-1.2.0-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_matrixstats-0.57.0-1.fc33.aarch64.rpm"><code>r_matrixstats-0.57.0-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_memoise-1.1.0-1.fc33.aarch64.rpm"><code>r_memoise-1.1.0-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_mime-0.9-1.fc33.aarch64.rpm"><code>r_mime-0.9-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_munsell-0.5.0-1.fc33.aarch64.rpm"><code>r_munsell-0.5.0-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_openssl-1.4.3-1.fc33.aarch64.rpm"><code>r_openssl-1.4.3-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_optparse-1.6.6-1.fc33.aarch64.rpm"><code>r_optparse-1.6.6-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_packyak-0.0.3-1.fc33.aarch64.rpm"><code>r_packyak-0.0.3-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_pillar-1.4.7-1.fc33.aarch64.rpm"><code>r_pillar-1.4.7-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_pkgbuild-1.2.0-1.fc33.aarch64.rpm"><code>r_pkgbuild-1.2.0-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_pkgconfig-2.0.3-1.fc33.aarch64.rpm"><code>r_pkgconfig-2.0.3-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_pkgload-1.1.0-1.fc33.aarch64.rpm"><code>r_pkgload-1.1.0-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_plogr-0.2.0-1.fc33.aarch64.rpm"><code>r_plogr-0.2.0-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_plyr-1.8.6-1.fc33.aarch64.rpm"><code>r_plyr-1.8.6-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_png-0.1-7.fc33.aarch64.rpm"><code>r_png-0.1-7.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_praise-1.0.0-1.fc33.aarch64.rpm"><code>r_praise-1.0.0-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_preprocesscore-1.52.1-1.fc33.aarch64.rpm"><code>r_preprocesscore-1.52.1-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_prettyunits-1.1.1-1.fc33.aarch64.rpm"><code>r_prettyunits-1.1.1-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_processx-3.4.5-1.fc33.aarch64.rpm"><code>r_processx-3.4.5-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_promises-1.1.1-1.fc33.aarch64.rpm"><code>r_promises-1.1.1-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_proto-1.0.0-1.fc33.aarch64.rpm"><code>r_proto-1.0.0-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_ps-1.5.0-1.fc33.aarch64.rpm"><code>r_ps-1.5.0-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_purrr-0.3.4-1.fc33.aarch64.rpm"><code>r_purrr-0.3.4-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_r6-2.5.0-1.fc33.aarch64.rpm"><code>r_r6-2.5.0-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_rappdirs-0.3.1-1.fc33.aarch64.rpm"><code>r_rappdirs-0.3.1-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_rcmdcheck-1.3.3-1.fc33.aarch64.rpm"><code>r_rcmdcheck-1.3.3-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_rcolorbrewer-1.1-2.fc33.aarch64.rpm"><code>r_rcolorbrewer-1.1-2.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_rcpp-1.0.6-1.fc33.aarch64.rpm"><code>r_rcpp-1.0.6-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_rcurl-1.98-1.2.fc33.aarch64.rpm"><code>r_rcurl-1.98-1.2.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_readr-1.4.0-1.fc33.aarch64.rpm"><code>r_readr-1.4.0-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_rematch2-2.1.2-1.fc33.aarch64.rpm"><code>r_rematch2-2.1.2-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_remotes-2.2.0-1.fc33.aarch64.rpm"><code>r_remotes-2.2.0-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_reshape2-1.4.4-1.fc33.aarch64.rpm"><code>r_reshape2-1.4.4-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_rex-1.2.0-1.fc33.aarch64.rpm"><code>r_rex-1.2.0-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_rhtslib-1.22.0-1.fc33.aarch64.rpm"><code>r_rhtslib-1.22.0-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_rlang-0.4.10-1.fc33.aarch64.rpm"><code>r_rlang-0.4.10-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_rmarkdown-2.6-1.fc33.aarch64.rpm"><code>r_rmarkdown-2.6-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_roxygen2-7.1.1-1.fc33.aarch64.rpm"><code>r_roxygen2-7.1.1-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_rpostgres-1.3.0-1.fc33.aarch64.rpm"><code>r_rpostgres-1.3.0-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_rprojroot-2.0.2-1.fc33.aarch64.rpm"><code>r_rprojroot-2.0.2-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_rsamtools-2.6.0-1.fc33.aarch64.rpm"><code>r_rsamtools-2.6.0-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_rstudioapi-0.13-1.fc33.aarch64.rpm"><code>r_rstudioapi-0.13-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_rversions-2.0.2-1.fc33.aarch64.rpm"><code>r_rversions-2.0.2-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_rvest-0.3.6-1.fc33.aarch64.rpm"><code>r_rvest-0.3.6-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_s4vectors-0.28.1-1.fc33.aarch64.rpm"><code>r_s4vectors-0.28.1-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_scales-1.1.1-1.fc33.aarch64.rpm"><code>r_scales-1.1.1-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_selectr-0.4-2.fc33.aarch64.rpm"><code>r_selectr-0.4-2.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_sessioninfo-1.1.1-1.fc33.aarch64.rpm"><code>r_sessioninfo-1.1.1-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_shortread-1.48.0-1.fc33.aarch64.rpm"><code>r_shortread-1.48.0-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_showtext-0.9-2.fc33.aarch64.rpm"><code>r_showtext-0.9-2.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_showtextdb-3.0-1.fc33.aarch64.rpm"><code>r_showtextdb-3.0-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_snow-0.4-3.fc33.aarch64.rpm"><code>r_snow-0.4-3.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_sodium-1.1-1.fc33.aarch64.rpm"><code>r_sodium-1.1-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_stringi-1.5.3-1.fc33.aarch64.rpm"><code>r_stringi-1.5.3-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_stringr-1.4.0-1.fc33.aarch64.rpm"><code>r_stringr-1.4.0-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_summarizedexperiment-1.20.0-1.fc33.aarch64.rpm"><code>r_summarizedexperiment-1.20.0-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_sys-3.4-1.fc33.aarch64.rpm"><code>r_sys-3.4-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_sysfonts-0.8.3-1.fc33.aarch64.rpm"><code>r_sysfonts-0.8.3-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_testthat-3.0.1-1.fc33.aarch64.rpm"><code>r_testthat-3.0.1-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_tibble-3.0.5-1.fc33.aarch64.rpm"><code>r_tibble-3.0.5-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_tidyr-1.1.2-1.fc33.aarch64.rpm"><code>r_tidyr-1.1.2-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_tidyselect-1.1.0-1.fc33.aarch64.rpm"><code>r_tidyselect-1.1.0-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_tinytex-0.28-1.fc33.aarch64.rpm"><code>r_tinytex-0.28-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_usethis-2.0.0-1.fc33.aarch64.rpm"><code>r_usethis-2.0.0-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_utf8-1.1.4-1.fc33.aarch64.rpm"><code>r_utf8-1.1.4-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_vctrs-0.3.6-1.fc33.aarch64.rpm"><code>r_vctrs-0.3.6-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_viridislite-0.3.0-1.fc33.aarch64.rpm"><code>r_viridislite-0.3.0-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_waldo-0.2.3-1.fc33.aarch64.rpm"><code>r_waldo-0.2.3-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_whisker-0.4-1.fc33.aarch64.rpm"><code>r_whisker-0.4-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_withr-2.4.0-1.fc33.aarch64.rpm"><code>r_withr-2.4.0-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_xfun-0.20-1.fc33.aarch64.rpm"><code>r_xfun-0.20-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_xml2-1.3.2-1.fc33.aarch64.rpm"><code>r_xml2-1.3.2-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_xopen-1.0.0-1.fc33.aarch64.rpm"><code>r_xopen-1.0.0-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_xvector-0.30.0-1.fc33.aarch64.rpm"><code>r_xvector-0.30.0-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_yaml-2.2.1-1.fc33.aarch64.rpm"><code>r_yaml-2.2.1-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_zip-2.1.1-1.fc33.aarch64.rpm"><code>r_zip-2.1.1-1.fc33.aarch64.rpm</code></a>- <a href="./RPMS/aarch64/r_zlibbioc-1.36.0-1.fc33.aarch64.rpm"><code>r_zlibbioc-1.36.0-1.fc33.aarch64.rpm</code></a></li>
+</ul>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

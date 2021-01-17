@@ -1,0 +1,25 @@
+---
+title: "aarch64"
+author: "sagrudd"
+date: "1/17/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(stringr)
+knitr::opts_chunk$set(echo = TRUE)
+target_location <- "./RPMS/aarch64"
+```
+
+## Bioinformatics RPM packages for the `aarch64` platform. 
+
+This page displays the RPM packages available in the current `symbioinfo`
+release.
+
+```{r create_links, results="asis", echo=FALSE}
+
+files <- list.files(target_location)
+for (file in files) {
+  cat(stringr::str_interp("- [`${file}`](${target_location}/${file})\n"))
+}
+```
