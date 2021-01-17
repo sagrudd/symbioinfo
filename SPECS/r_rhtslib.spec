@@ -8,6 +8,7 @@ Name:             r_rhtslib
 Version:          1.22.0
 Release:          %{packrel}%{?dist}
 Source0:          https://www.bioconductor.org/packages/release/bioc/html/../src/contrib/Rhtslib_1.22.0.tar.gz
+Patch0:           R-Rhtslib-buildroot-fix.patch
 License:          LGPL (>= 2)
 URL:              https://www.bioconductor.org/packages/release/bioc/html/Rhtslib.html
 Group:            Applications/Bioinformatics
@@ -20,6 +21,7 @@ Requires:         tex(latex) R-core = %{rversion} r_zlibbioc
 %prep
 echo "BUILDROOT = $RPM_BUILD_ROOT"
 %setup -q -c -n %{packname}_%{version}
+%patch0 -p1
 
 %build
 
@@ -41,6 +43,8 @@ rm -fR %{_builddir}/%{packname}*
 /usr/lib64/R/library/%{packname}
 
 %changelog
+* Sun Jan 17 2021 sagrudd <stephen@mnemosyne.co.uk>
+- buildroot correction via patch from https://koji.fedoraproject.org/koji/buildinfo?buildID=1547625
 * Sat Jan 16 2021 sagrudd <stephen@mnemosyne.co.uk>
 - updated [Rhtslib] package version to [1.22.0-1] by PackYak v0.0.2
 - updated to R version [4.0.3]
