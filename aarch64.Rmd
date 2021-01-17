@@ -20,6 +20,6 @@ release.
 
 files <- list.files(target_location)
 for (file in files) {
-  cat(stringr::str_interp("- [`${file}`](${target_location}/${file})\n"))
+  cat(stringr::str_interp("- [`${file}`](${target_location}/${file})\n\n"))
 }
 ```

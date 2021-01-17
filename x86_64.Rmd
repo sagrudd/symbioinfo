@@ -6,25 +6,20 @@ output: html_document
 ---
 
 ```{r setup, include=FALSE}
+library(stringr)
 knitr::opts_chunk$set(echo = TRUE)
+target_location <- "./RPMS/x86_64"
 ```
 
-## R Markdown
+## Bioinformatics RPM packages for the `x86_64` platform. 
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+This page displays the RPM packages available in the current `symbioinfo`
+release.
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+```{r create_links, results="asis", echo=FALSE}
 
-```{r cars}
-summary(cars)
+files <- list.files(target_location)
+for (file in files) {
+  cat(stringr::str_interp("- [`${file}`](${target_location}/${file})\n\n"))
+}
 ```
-
-## Including Plots
-
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
