@@ -79,7 +79,7 @@ createrepo --update ./RPMS/aarch64/
 $ cat /etc/yum.repos.d/symbioinfo.repo 
 [symbioinfo]
 name=SymBioInfo x86_64
-baseurl=https://sagrudd.github.io/symbioinfo/RPMS/x86_64/
+baseurl=https://sagrudd.github.io/symbioinfo/RPMS/aarch64/
 enabled=1
 gpgcheck=0
 

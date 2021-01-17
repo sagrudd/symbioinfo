@@ -1,6 +1,26 @@
 ---
-title: "symbioinfo - fedora RPMs for genome bioinformatics"
+title: "symbioinfo - `aarch64` RPMs and bioinformatics"
 ---
+
+The ambition for this project is to make life a little bit simpler when 
+performing bioinformatics analyses on a raspberry pi. As a Linux distribution
+of choice we are only supporting
+[Fedora](https://getfedora.org/en/workstation/download/) - the build is
+currently based on **`fc33`**. The aim is to faciliate the installation and
+maintenance of common bioinformatics software; the universe contained within the
+repository here is intended to R centric.
+
+To get started please create an entry in your `/etc/yum.repos.d/` folder and
+you should have `yum` or `dnf` access to the bioinformatics RPMs described on
+this page.
+
+```
+[symbioinfo]
+name=SymBioInfo
+baseurl=https://sagrudd.github.io/symbioinfo/RPMS/aarch64/
+enabled=1
+gpgcheck=0
+```
 
 The github pages for symbioinfo can be found at
 [https://github.com/sagrudd/symbioinfo/](https://github.com/sagrudd/symbioinfo/).

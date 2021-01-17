@@ -1,7 +1,7 @@
-name: "symbioinfo - fedora bioinformatics RPMs for arm64"
+name: "symbioinfo - bioinformatics RPMs for aarch4"
 output_dir: "docs"
 navbar:
-  title: "symbioinfo - fedora bioinformatics RPMs for arm64"
+  title: "symbioinfo - bioinformatics RPMs"
   left:
     - text: "arm64/aarch"
       href: aarch64.html

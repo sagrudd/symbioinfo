@@ -11,7 +11,7 @@
 
 
 
-<title>symbioinfo - fedora RPMs for genome bioinformatics</title>
+<title>symbioinfo - aarch64 RPMs and bioinformatics</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -279,7 +279,7 @@ $(document).ready(function () {
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">symbioinfo - fedora bioinformatics RPMs for arm64</a>
+      <a class="navbar-brand" href="index.html">symbioinfo - bioinformatics RPMs</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
@@ -312,11 +312,18 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">symbioinfo - fedora RPMs for genome bioinformatics</h1>
+<h1 class="title toc-ignore">symbioinfo - <code>aarch64</code> RPMs and bioinformatics</h1>
 
 </div>
 
 
+<p>The ambition for this project is to make life a little bit simpler when performing bioinformatics analyses on a raspberry pi. As a Linux distribution of choice we are only supporting <a href="https://getfedora.org/en/workstation/download/">Fedora</a> - the build is currently based on <strong><code>fc33</code></strong>. The aim is to faciliate the installation and maintenance of common bioinformatics software; the universe contained within the repository here is intended to R centric.</p>
+<p>To get started please create an entry in your <code>/etc/yum.repos.d/</code> folder and you should have <code>yum</code> or <code>dnf</code> access to the bioinformatics RPMs described on this page.</p>
+<pre><code>[symbioinfo]
+name=SymBioInfo x86_64
+baseurl=https://sagrudd.github.io/symbioinfo/RPMS/aarch64/
+enabled=1
+gpgcheck=0</code></pre>
 <p>The github pages for symbioinfo can be found at <a href="https://github.com/sagrudd/symbioinfo/">https://github.com/sagrudd/symbioinfo/</a>.</p>
 <p>The pages at symbioinfo have been built using the <a href="https://github.com/sagrudd/packyak">PackYak</a> - an experimental framework to simplify the production of R-environments in slow <code>aarch64</code> computer setups.</p>
 
