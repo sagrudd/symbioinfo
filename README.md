@@ -76,6 +76,13 @@ createrepo --update ./RPMS/aarch64/
 ## 4. Define the repo on a non build system
 
 ```
+$ cat /etc/yum.repos.d/symbioinfo.repo 
+[symbioinfo]
+name=SymBioInfo x86_64
+baseurl=https://sagrudd.github.io/symbioinfo/RPMS/x86_64/
+enabled=1
+gpgcheck=0
+
 
 ```
 
