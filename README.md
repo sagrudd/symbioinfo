@@ -8,6 +8,9 @@ only been tested on the following platforms
 
 * Raspberry pi (8Gb) running [fedora 33 (aarch)](https://download.fedoraproject.org/pub/fedora/linux/releases/33/Server/armhfp/images/Fedora-Server-armhfp-33-1.2-sda.raw.xz)
 
+The page that is produced by following these documentation may be found at
+[https://sagrudd.github.io/symbioinfo/](https://sagrudd.github.io/symbioinfo/)
+
 ## 1. Setup, configuration and installation
 
 This workflow is based on the `symbioinfo` development version hosted at 
