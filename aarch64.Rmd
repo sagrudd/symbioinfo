@@ -24,3 +24,16 @@ for (file in files) {
     cat(stringr::str_interp("- [`${file}`](${target_location}/${file})\n\n"))
 }
 ```
+
+
+These RPM files have been indexed to be used with tools such as `dnf` and `yum`;
+I am not sure how explicitly these files need to be linked - without pointers I
+am receiving 404 error messages - so, just for completeness sake ...
+
+```{r repo_content, results="asis", echo=FALSE}
+repopath <- file.path(target_location, "repodata")
+files <- list.files(repopath)
+for (file in files) {
+  cat(stringr::str_interp("- [`${file}`](${repopath}/${file})\n\n"))
+}
+```
