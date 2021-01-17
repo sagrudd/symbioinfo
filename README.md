@@ -30,7 +30,7 @@ the location if you're not me ...
 ```
 sudo yum install rpm-build libgit2-devel libcurl-devel openssl icu zlib-devel \
     libpng-devel freetype bzip2-devel libjpeg-turbo libsodium-devel \
-    xclip libpq-devel pandoc
+    xclip libpq-devel pandoc createrepo
 git clone https://github.com/$SYMBIOINFO rpmbuild
 
 ```
@@ -59,10 +59,18 @@ build_file <- system.file("extdata/rpm_targets.yaml", package="packyak")
 Rscript -e 'packyak::PackYak$new(build_file, build_rpm=TRUE)'
 ```
 
+and then of course we need to rebuild the repo
+
+```
+createrepo --update ./RPMS/x86_64/
+createrepo --update ./RPMS/aarch64/
+```
+
 ## 3. Update and publish the repo
 
 ```
  rmarkdown::render_site()
+ 
 ```
 
 ## 4. Define the repo on a non build system
@@ -70,3 +78,8 @@ Rscript -e 'packyak::PackYak$new(build_file, build_rpm=TRUE)'
 ```
 
 ```
+
+## 5. References and links
+
+- https://www.percona.com/blog/2020/01/02/how-to-create-your-own-repositories-for-packages/
+
