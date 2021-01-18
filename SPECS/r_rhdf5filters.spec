@@ -25,7 +25,13 @@ echo "BUILDROOT = $RPM_BUILD_ROOT"
 %install
 rm -rf $RPM_BUILD_ROOT
 mkdir -p $RPM_BUILD_ROOT/usr/lib64/R/library
+
+%ifarch aarch64
+%{_bindir}/R CMD INSTALL --configure-args="ax_cv_gcc_check_x86_cpu_init=yes ax_cv_gcc_x86_cpu_supports_sse2=no" -l $RPM_BUILD_ROOT/usr/lib64/R/library/ %{packname}
+%else
 %{_bindir}/R CMD INSTALL -l $RPM_BUILD_ROOT/usr/lib64/R/library/ %{packname}
+%endif
+
 test -d %{packname}/src && (cd %{packname}/src; rm -f *.o *.so)
 rm -rf $RPM_BUILD_ROOT%{_libdir}/R/library/R.css
 
@@ -40,6 +46,9 @@ rm -fR %{_builddir}/%{packname}*
 /usr/lib64/R/library/%{packname}
 
 %changelog
+* Mon Jan 18 2021 sagrudd <stephen@mnemosyne.co.uk>
+- updated build script with conditionals to accommodate different compiler flags
+- compiler flags borrowed from the debian install script
 * Sat Jan 16 2021 sagrudd <stephen@mnemosyne.co.uk>
 - updated [rhdf5filters] package version to [1.2.0-1] by PackYak v0.0.2
 - updated to R version [4.0.3]
