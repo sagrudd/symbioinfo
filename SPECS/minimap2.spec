@@ -28,7 +28,11 @@ Minimap does not replace mainstream aligners, but it can be useful when you want
 
 %build
 
+%ifarch aarch64
 make arm_neon=1 aarch64=1
+%else
+make
+%endif
 
 %install
 mkdir -p %{buildroot}/usr/local/bin/
