@@ -50,6 +50,7 @@ rm -fR %{_builddir}/%{name}-%{version}
 %changelog
 * Mon Jan 18 2021 sagrudd <stephen@mnemosyne.co.uk>
 - updated version to 2.17 - build for aarch64
+- note hasindu's comments on arm64 at https://github.com/hasindu2008/minimap2-arm
 * Fri Dec 9 2016 Stephen Rudd <stephen@mnemosyne.co.uk>
 - appended %define debug_package %{nil} to header of SPEC file
 * Wed Feb 03 2016 Stephen Rudd <stephen@mnemosyne.co.uk>
