@@ -1,0 +1,38 @@
+---
+title: "x86_64"
+author: "sagrudd"
+date: "1/17/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(stringr)
+knitr::opts_chunk$set(echo = TRUE)
+target_location <- "./RPMS/x86_64"
+```
+
+## Bioinformatics RPM packages for the `x86_64` platform. 
+
+This page displays the RPM packages available in the current `symbioinfo`
+release.
+
+```{r create_links, results="asis", echo=FALSE}
+
+files <- list.files(target_location)
+for (file in files) {
+  if (grepl(".rpm$", file))
+    cat(stringr::str_interp("- [`${file}`](${target_location}/${file})\n\n"))
+}
+```
+
+These RPM files have been indexed to be used with tools such as `dnf` and `yum`;
+I am not sure how explicitly these files need to be linked - without pointers I
+am receiving 404 error messages - so, just for completeness sake ...
+
+```{r repo_content, results="asis", echo=FALSE}
+repopath <- file.path(target_location, "repodata")
+files <- list.files(repopath)
+for (file in files) {
+  cat(stringr::str_interp("- [`${file}`](${repopath}/${file})\n\n"))
+}
+```
