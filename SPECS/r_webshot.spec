@@ -1,18 +1,18 @@
-%global packname tinytex
+%global packname webshot
 %global rversion  4.0.3
 %global packrel 1
 %global debug_package %{nil}
 
-Name:             r_tinytex
-Version:          0.29
+Name:             r_webshot
+Version:          0.5.2
 Release:          %{packrel}%{?dist}
-Source0:          https://cran.r-project.org/web/packages/tinytex/../../../src/contrib/tinytex_0.29.tar.gz
-License:          MIT + file LICENSE
-URL:              https://cran.r-project.org/web/packages/tinytex/index.html
+Source0:          https://cran.r-project.org/web/packages/webshot/../../../src/contrib/webshot_0.5.2.tar.gz
+License:          GPL-2
+URL:              https://cran.r-project.org/web/packages/webshot/index.html
 Group:            Applications/Bioinformatics
-Summary:          PackYak v0.0.4 build of R-package [tinytex] version [0.29]
-BuildRequires:    tex(latex) R-core = %{rversion} r_xfun
-Requires:         tex(latex) R-core = %{rversion} r_xfun
+Summary:          PackYak v0.0.4 build of R-package [webshot] version [0.5.2]
+BuildRequires:    tex(latex) R-core = %{rversion} r_magrittr r_jsonlite r_callr ImageMagick
+Requires:         tex(latex) R-core = %{rversion} r_magrittr r_jsonlite r_callr ImageMagick
 
 %description
 
@@ -41,9 +41,7 @@ rm -fR %{_builddir}/%{packname}*
 
 %changelog
 * Thu Jan 21 2021 sagrudd <stephen@mnemosyne.co.uk>
-- updated [tinytex] package version to [0.29-1] by PackYak v0.0.4
-* Sat Jan 16 2021 sagrudd <stephen@mnemosyne.co.uk>
-- updated [tinytex] package version to [0.28-1] by PackYak v0.0.2
+- updated [webshot] package version to [0.5.2-1] by PackYak v0.0.4
 - updated to R version [4.0.3]
 * Mon Jan 11 2021 Stephen Rudd <stephen@mnemosyne.co.uk>
 - resurrecting the symbioinfo concept for arm64 usage

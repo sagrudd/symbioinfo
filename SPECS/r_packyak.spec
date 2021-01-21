@@ -4,7 +4,7 @@
 %global debug_package %{nil}
 
 Name:             r_packyak
-Version:          0.0.3
+Version:          0.0.5
 Release:          %{packrel}%{?dist}
 License:          MPL-2.0
 URL:              https://github.com/sagrudd/packyak
@@ -36,6 +36,8 @@ rm -fR %{_builddir}/%{packname}*
 /usr/lib64/R/library/%{packname}
 
 %changelog
+* Thu Jan 21 2021 sagrudd <stephen@mnemosyne.co.uk>
+- manual version bump from git to 0.0.5 (lodestar)
 * Mon Jan 18 2021 sagrudd <stephen@mnemosyne.co.uk>
 - changed build script to just use a git clone as source ...
 * Wed Jan 13 2021 sagrudd <stephen@mnemosyne.co.uk>
