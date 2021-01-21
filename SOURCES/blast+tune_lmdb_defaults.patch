@@ -1,0 +1,36 @@
+--- a/c++/include/objtools/blast/seqdb_writer/writedb_lmdb.hpp
++++ b/c++/include/objtools/blast/seqdb_writer/writedb_lmdb.hpp
+@@ -48,6 +48,13 @@ USING_SCOPE(objects);
+ 
+ BEGIN_NCBI_SCOPE
+ 
++#if NCBI_PLATFORM_BITS >= 64
++#  define NCBI_WRITEDB_DEFAULT_MAP_SIZE (20UL * 1000 * 1000 * 1000)
++#elif defined(__mips__)
++#  define NCBI_WRITEDB_DEFAULT_MAP_SIZE (640 * 1024 * 1024)
++#else
++#  define NCBI_WRITEDB_DEFAULT_MAP_SIZE (750 * 1000 * 1000)
++#endif
+ 
+ /// This class supports creation of a string accession to integer OID
+ /// lmdb database
+@@ -59,7 +66,8 @@ public:
+ 
+     /// Constructor for LMDB write access
+     /// @param dbname Database name
+-    CWriteDB_LMDB(const string& dbname, Uint8 map_size = 300000000000, Uint8 capacity = 500000);
++    CWriteDB_LMDB(const string& dbname, Uint8 map_size = NCBI_WRITEDB_DEFAULT_MAP_SIZE,
++		  Uint8 capacity = 500000);
+ 
+     // Destructor
+     ~CWriteDB_LMDB();
+@@ -130,7 +138,8 @@ public:
+ 
+     /// Constructor for LMDB write access
+     /// @param dbname Database name
+-    CWriteDB_TaxID(const string& dbname, Uint8 map_size = 300000000000, Uint8 capacity = 500000);
++    CWriteDB_TaxID(const string& dbname, Uint8 map_size = NCBI_WRITEDB_DEFAULT_MAP_SIZE,
++		   Uint8 capacity = 500000);
+ 
+     // Destructor
+     ~CWriteDB_TaxID();

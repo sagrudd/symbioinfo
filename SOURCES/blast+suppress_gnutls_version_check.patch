@@ -1,0 +1,25 @@
+Author: Aaron M. Ucko <ucko@debian.org>
+Date:   Wed Dec 7 21:34:44 2016 -0500
+Description: suppress gnutls version check
+    
+    Prevent bailing when the exact compile-time and runtime GNU TLS versions
+    differ; trust dpkg to disallow combinations that are actually incompatible.
+
+--- a/c++/src/connect/ncbi_gnutls.c
++++ b/c++/src/connect/ncbi_gnutls.c
+@@ -665,6 +665,7 @@
+ 
+     assert(!s_GnuTlsCredAnon);
+ 
++#if 0
+     version = gnutls_check_version(0);
+     if (strcasecmp(GNUTLS_VERSION, version) != 0) {
+         CORE_LOGF(eLOG_Critical,
+@@ -672,6 +673,7 @@
+                    GNUTLS_VERSION, version));
+         assert(0);
+     }
++#endif
+ 
+     if (!pull  ||  !push)
+         return eIO_InvalidArg;

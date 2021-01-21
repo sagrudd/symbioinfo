@@ -1,0 +1,29 @@
+Author: Aaron M. Ucko <ucko@debian.org>
+Date:   Wed Dec 14 22:44:19 2016 -0500
+Description: Hang on to sequence data even if -parse_deflines recognized a non-local ID,
+    on the condition that the environment variable BLAST_ALWAYS_KEEP_SEQUENCE
+    (or configuration parameter [BLAST] always_keep_sequence) is set to a
+    "true" value (English-only, case-insensitive true, t, yes, y, or 1).
+--- a/c++/src/algo/blast/api/search_strategy.cpp
++++ b/c++/src/algo/blast/api/search_strategy.cpp
+@@ -544,6 +544,11 @@
+     m_QueueSearchRequest->SetService(new_service);
+ }
+ 
++NCBI_PARAM_DECL(bool, BLAST, always_keep_sequence);
++NCBI_PARAM_DEF_EX(bool, BLAST, always_keep_sequence, false, eParam_Default,
++                  BLAST_ALWAYS_KEEP_SEQUENCE);
++typedef NCBI_PARAM_TYPE(BLAST, always_keep_sequence) TAlwaysKeepSequence;
++
+ void CExportStrategy::x_Process_Query(CRef<IQueryFactory> & query)
+ {
+     if (query.Empty())
+@@ -565,7 +570,7 @@
+     // Check if there are any range restrictions applied and if local IDs are
+     // being used to determine how to specify the query sequence(s)
+ 
+-    bool has_local_ids = false;
++    bool has_local_ids = TAlwaysKeepSequence::GetDefault();
+ 
+     if (!seqloc_list.empty())
+     {

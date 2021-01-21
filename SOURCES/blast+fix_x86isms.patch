@@ -1,0 +1,18 @@
+--- a/c++/src/corelib/ncbi_system.cpp
++++ b/c++/src/corelib/ncbi_system.cpp
+@@ -1422,6 +1422,7 @@ CCpuFeatures::InstructionSet::Instructio
+       f81_ECX_  { 0 },
+       f81_EDX_  { 0 }
+ {
++#if defined(__i386__)  ||  defined(__x86_64__)
+     int nIds   = 0;
+     int nExIds = 0;
+ 
+@@ -1506,6 +1507,7 @@ CCpuFeatures::InstructionSet::Instructio
+         memcpy(brand + 32, m_ExtData[4].data(), sizeof(registers));
+         m_BrandStr = brand;
+     }
++#endif
+ };
+ 
+ 

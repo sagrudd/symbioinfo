@@ -1,0 +1,12 @@
+Author: Aaron M. Ucko <ucko@debian.org>
+Date:   Sun Apr 26 11:28:03 2020 -0400
+Description: Bypass env in Perl script shebangs.
+
+--- a/c++/src/app/blast/update_blastdb.pl
++++ b/c++/src/app/blast/update_blastdb.pl
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env perl
++#!/usr/bin/perl
+ # $Id: update_blastdb.pl 608134 2020-05-12 15:44:10Z ivanov $
+ # ===========================================================================
+ #
