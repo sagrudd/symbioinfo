@@ -30,7 +30,7 @@ the location if you're not me ...
 ```
 sudo yum install rpm-build libgit2-devel libcurl-devel openssl icu zlib-devel \
     libpng-devel freetype bzip2-devel libjpeg-turbo libsodium-devel \
-    xclip libpq-devel pandoc createrepo
+    xclip libpq-devel pandoc createrepo cairo-devel libXt-devel 
 git clone https://github.com/$SYMBIOINFO rpmbuild
 
 ```
