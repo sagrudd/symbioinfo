@@ -2,7 +2,7 @@
 
 Name:		minimap2
 Version:	2.17
-Release:	1%{?dist}
+Release:	2%{?dist}
 Summary:	minimap
 Group:          Applications/Bioinformatics
 License:	GPLv3
@@ -13,8 +13,8 @@ BuildRequires:	gcc
 Requires:	gcc
 
 %define debug_package %{nil}
-%define	_bindir	/bin
-%define _libdir /lib
+%define	_bindir	/usr/local/bin/
+%define _libdir /usr/lib64/
 %define _mandir /man
 %define _datarootdir /
 %description    
@@ -37,13 +37,22 @@ make
 %install
 mkdir -p %{buildroot}/usr/local/bin/
 
-%{__install} -d %{buildroot}/usr/local/bin/
-%{__install} -m0755 minimap2 %{buildroot}/usr/local/bin/
+%{__install} -d %{buildroot}%{_bindir}
+%{__install} -m0755 minimap2 %{buildroot}%{_bindir}
+%{__install} -d %{buildroot}%{_includedir}/%{name}
+%{__install} -m0644 *.h %{buildroot}%{_includedir}/%{name}/
+%{__install} -d %{buildroot}/%{_libdir}
+%{__install} -m0755 libminimap2.a %{buildroot}/%{_libdir}/
 
+%post -p /sbin/ldconfig
+
+%postun -p /sbin/ldconfig
 
 %files
 %defattr(-,root,root,-)
-/usr/local/bin/
+%{_bindir}/minimap2
+%{_includedir}/%{name}/*
+%{_libdir}/libminimap2.a
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -52,6 +61,9 @@ rm -fR %{_builddir}/%{name}-%{version}
 
 
 %changelog
+* Fri Jan 22 2021 sagrudd <stephen@mnemosyne.co.uk>
+- updated to include the libminimap2.a into /usr/lib64/minimap2
+- using this in the Nanopolish build
 * Mon Jan 18 2021 sagrudd <stephen@mnemosyne.co.uk>
 - updated version to 2.17 - build for aarch64
 - note hasindu's comments on arm64 at https://github.com/hasindu2008/minimap2-arm
