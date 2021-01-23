@@ -73,7 +73,6 @@ popd
 
 find %{buildroot} -name '*.la' -delete
 rm -f %{buildroot}/%{_libdir}/libhts.a
-
 %ldconfig_scriptlets
 
 %files
@@ -109,6 +108,10 @@ rm -f %{buildroot}/%{_libdir}/libhts.a
 %{_mandir}/man1/htsfile.1*
 %{_mandir}/man1/tabix.1*
 
+
+%clean
+rm -fR %{_builddir}/%{name}-%{version}
+rm -fR %{buildroot}
 
 %changelog
 * Fri Jan 22 2021 sagrudd <stephen@mnemosyne.co.uk>

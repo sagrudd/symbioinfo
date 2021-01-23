@@ -75,6 +75,11 @@ ldd samtools | grep -E '/lib(64)?/libhts\.so\.'
 %{_mandir}/man1/samtools*
 %{_mandir}/man1/wgsim.1.*
 
+%clean  
+rm -fR %{_builddir}/%{name}-%{version}
+rm -fR %{buildroot}
+
+
 %changelog
 * Fri Jan 22 2021 sagrudd <stephen@mnemosyne.co.uk>
 - updated to v1.11 for a nanopolish build

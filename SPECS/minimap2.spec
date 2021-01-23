@@ -36,6 +36,7 @@ export CXXFLAGS
 
 
 %ifarch aarch64
+sed -i -E 's/CFLAGS=.+/CFLAGS=         -g -Wall -O2 -Wc++-compat -fPIE -pie -Wextra/g' Makefile
 make arm_neon=1 aarch64=1
 %else
 sed -i -E 's/CFLAGS=.+/CFLAGS=         -g -Wall -O2 -Wc++-compat -fPIE -pie -Wextra/g' Makefile

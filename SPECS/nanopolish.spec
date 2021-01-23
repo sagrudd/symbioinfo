@@ -8,7 +8,7 @@ Group:          Applications/Bioinformatics
 License:	MIT
 URL:		https://github.com/jts/nanopolish
 BuildRequires:	gcc gcc-c++ hdf5-mpich-devel eigen3-devel minimap2 samtools htslib-devel
-Requires:	gcc
+Requires:	gcc minimap2 samtools htslib-devel
 
 %description    
 Software package for signal-level analysis of Oxford Nanopore sequencing data. Nanopolish can calculate an improved consensus sequence for a draft genome assembly, detect base modifications, call SNPs and indels with respect to a reference genome and more
@@ -29,7 +29,7 @@ rm -fR nanopolish
 git clone --recursive https://github.com/jts/nanopolish.git
 cd nanopolish
 
-sed -e 's/-fPIC//g' Makefile
+# sed -e 's/-fPIC//g' Makefile
 
 make -j5 HDF5=noinstall EIGEN=noinstall HTS=noinstall MINIMAP2=noinstall  H5_INCLUDE=-I/usr/include/mpich-%{_arch}/ EIGEN_INCLUDE=-I/usr/include/eigen3/ MINIMAP2_INCLUDE=-I/usr/include/minimap2
 
