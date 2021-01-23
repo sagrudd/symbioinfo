@@ -4,13 +4,13 @@
 %global debug_package %{nil}
 
 Name:             r_tinytex
-Version:          0.28
+Version:          0.29
 Release:          %{packrel}%{?dist}
-Source0:          https://cran.r-project.org/web/packages/tinytex/../../../src/contrib/tinytex_0.28.tar.gz
+Source0:          https://cran.r-project.org/web/packages/tinytex/../../../src/contrib/tinytex_0.29.tar.gz
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/web/packages/tinytex/index.html
 Group:            Applications/Bioinformatics
-Summary:          PackYak v0.0.2 build of R-package [tinytex] version [0.28]
+Summary:          PackYak v0.0.4 build of R-package [tinytex] version [0.29]
 BuildRequires:    tex(latex) R-core = %{rversion} r_xfun
 Requires:         tex(latex) R-core = %{rversion} r_xfun
 
@@ -40,6 +40,8 @@ rm -fR %{_builddir}/%{packname}*
 /usr/lib64/R/library/%{packname}
 
 %changelog
+* Thu Jan 21 2021 sagrudd <stephen@mnemosyne.co.uk>
+- updated [tinytex] package version to [0.29-1] by PackYak v0.0.4
 * Sat Jan 16 2021 sagrudd <stephen@mnemosyne.co.uk>
 - updated [tinytex] package version to [0.28-1] by PackYak v0.0.2
 - updated to R version [4.0.3]

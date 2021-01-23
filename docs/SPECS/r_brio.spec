@@ -4,13 +4,13 @@
 %global debug_package %{nil}
 
 Name:             r_brio
-Version:          1.1.0
+Version:          1.1.1
 Release:          %{packrel}%{?dist}
-Source0:          https://cran.r-project.org/web/packages/brio/../../../src/contrib/brio_1.1.0.tar.gz
+Source0:          https://cran.r-project.org/web/packages/brio/../../../src/contrib/brio_1.1.1.tar.gz
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/web/packages/brio/index.html
 Group:            Applications/Bioinformatics
-Summary:          PackYak v0.0.2 build of R-package [brio] version [1.1.0]
+Summary:          PackYak v0.0.4 build of R-package [brio] version [1.1.1]
 BuildRequires:    tex(latex) R-core = %{rversion}
 Requires:         tex(latex) R-core = %{rversion}
 
@@ -40,6 +40,8 @@ rm -fR %{_builddir}/%{packname}*
 /usr/lib64/R/library/%{packname}
 
 %changelog
+* Thu Jan 21 2021 sagrudd <stephen@mnemosyne.co.uk>
+- updated [brio] package version to [1.1.1-1] by PackYak v0.0.4
 * Fri Jan 15 2021 sagrudd <stephen@mnemosyne.co.uk>
 - updated [brio] package version to [1.1.0-1] by PackYak v0.0.2
 - updated to R version [4.0.3]
