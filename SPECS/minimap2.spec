@@ -25,12 +25,20 @@ Minimap does not replace mainstream aligners, but it can be useful when you want
 %prep
 %setup
 
-
 %build
+%set_build_flags
+
+CFLAGS="$RPM_OPT_FLAGS -fPIE -pie"
+CXXFLAGS="$RPM_OPT_FLAGS -fPIE -pie"
+
+export CFLAGS
+export CXXFLAGS
+
 
 %ifarch aarch64
 make arm_neon=1 aarch64=1
 %else
+sed -i -E 's/CFLAGS=.+/CFLAGS=         -g -Wall -O2 -Wc++-compat -fPIE -pie -Wextra/g' Makefile
 make
 %endif
 
