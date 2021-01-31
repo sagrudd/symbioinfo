@@ -4,13 +4,13 @@
 %global debug_package %{nil}
 
 Name:             r_withr
-Version:          2.4.0
+Version:          2.4.1
 Release:          %{packrel}%{?dist}
-Source0:          https://cran.r-project.org/web/packages/withr/../../../src/contrib/withr_2.4.0.tar.gz
+Source0:          https://cran.r-project.org/web/packages/withr/../../../src/contrib/withr_2.4.1.tar.gz
 License:          GPL-2 | GPL-3 [expanded from: GPL (≥ 2)]
 URL:              https://cran.r-project.org/web/packages/withr/index.html
 Group:            Applications/Bioinformatics
-Summary:          PackYak v0.0.2 build of R-package [withr] version [2.4.0]
+Summary:          PackYak v0.0.5 build of R-package [withr] version [2.4.1]
 BuildRequires:    tex(latex) R-core = %{rversion}
 Requires:         tex(latex) R-core = %{rversion}
 
@@ -40,6 +40,8 @@ rm -fR %{_builddir}/%{packname}*
 /usr/lib64/R/library/%{packname}
 
 %changelog
+* Sun Jan 31 2021 sagrudd <stephen@mnemosyne.co.uk>
+- updated [withr] package version to [2.4.1-1] by PackYak v0.0.5
 * Sat Jan 16 2021 sagrudd <stephen@mnemosyne.co.uk>
 - updated [withr] package version to [2.4.0-1] by PackYak v0.0.2
 * Fri Jan 15 2021 sagrudd <stephen@mnemosyne.co.uk>

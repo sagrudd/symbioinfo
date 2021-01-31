@@ -4,13 +4,13 @@
 %global debug_package %{nil}
 
 Name:             r_cpp11
-Version:          0.2.5
+Version:          0.2.6
 Release:          %{packrel}%{?dist}
-Source0:          https://cran.r-project.org/web/packages/cpp11/../../../src/contrib/cpp11_0.2.5.tar.gz
+Source0:          https://cran.r-project.org/web/packages/cpp11/../../../src/contrib/cpp11_0.2.6.tar.gz
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/web/packages/cpp11/index.html
 Group:            Applications/Bioinformatics
-Summary:          PackYak v0.0.2 build of R-package [cpp11] version [0.2.5]
+Summary:          PackYak v0.0.5 build of R-package [cpp11] version [0.2.6]
 BuildRequires:    tex(latex) R-core = %{rversion}
 Requires:         tex(latex) R-core = %{rversion}
 
@@ -40,6 +40,8 @@ rm -fR %{_builddir}/%{packname}*
 /usr/lib64/R/library/%{packname}
 
 %changelog
+* Sun Jan 31 2021 sagrudd <stephen@mnemosyne.co.uk>
+- updated [cpp11] package version to [0.2.6-1] by PackYak v0.0.5
 * Sat Jan 16 2021 sagrudd <stephen@mnemosyne.co.uk>
 - updated [cpp11] package version to [0.2.5-1] by PackYak v0.0.2
 - updated to R version [4.0.3]
