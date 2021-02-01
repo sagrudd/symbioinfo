@@ -4,13 +4,13 @@
 %global debug_package %{nil}
 
 Name:             r_matrixgenerics
-Version:          1.2.0
+Version:          1.2.1
 Release:          %{packrel}%{?dist}
-Source0:          https://www.bioconductor.org/packages/release/bioc/html/../src/contrib/MatrixGenerics_1.2.0.tar.gz
+Source0:          https://www.bioconductor.org/packages/release/bioc/html/../src/contrib/MatrixGenerics_1.2.1.tar.gz
 License:          Artistic-2.0
 URL:              https://www.bioconductor.org/packages/release/bioc/html/MatrixGenerics.html
 Group:            Applications/Bioinformatics
-Summary:          PackYak v0.0.2 build of R-package [MatrixGenerics] version [1.2.0]
+Summary:          PackYak v0.0.5 build of R-package [MatrixGenerics] version [1.2.1]
 BuildRequires:    tex(latex) R-core = %{rversion} r_matrixstats
 Requires:         tex(latex) R-core = %{rversion} r_matrixstats
 
@@ -40,6 +40,8 @@ rm -fR %{_builddir}/%{packname}*
 /usr/lib64/R/library/%{packname}
 
 %changelog
+* Mon Feb 1 2021 sagrudd <stephen@mnemosyne.co.uk>
+- updated [MatrixGenerics] package version to [1.2.1-1] by PackYak v0.0.5
 * Sat Jan 16 2021 sagrudd <stephen@mnemosyne.co.uk>
 - updated [MatrixGenerics] package version to [1.2.0-1] by PackYak v0.0.2
 - updated to R version [4.0.3]
