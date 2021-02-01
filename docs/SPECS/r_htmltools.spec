@@ -4,13 +4,13 @@
 %global debug_package %{nil}
 
 Name:             r_htmltools
-Version:          0.5.1
+Version:          0.5.1.1
 Release:          %{packrel}%{?dist}
-Source0:          https://cran.r-project.org/web/packages/htmltools/../../../src/contrib/htmltools_0.5.1.tar.gz
+Source0:          https://cran.r-project.org/web/packages/htmltools/../../../src/contrib/htmltools_0.5.1.1.tar.gz
 License:          GPL-2 | GPL-3 [expanded from: GPL (≥ 2)]
 URL:              https://cran.r-project.org/web/packages/htmltools/index.html
 Group:            Applications/Bioinformatics
-Summary:          PackYak v0.0.2 build of R-package [htmltools] version [0.5.1]
+Summary:          PackYak v0.0.5 build of R-package [htmltools] version [0.5.1.1]
 BuildRequires:    tex(latex) R-core = %{rversion} r_digest r_base64enc r_rlang
 Requires:         tex(latex) R-core = %{rversion} r_digest r_base64enc r_rlang
 
@@ -40,6 +40,8 @@ rm -fR %{_builddir}/%{packname}*
 /usr/lib64/R/library/%{packname}
 
 %changelog
+* Sun Jan 31 2021 sagrudd <stephen@mnemosyne.co.uk>
+- updated [htmltools] package version to [0.5.1.1-1] by PackYak v0.0.5
 * Fri Jan 15 2021 sagrudd <stephen@mnemosyne.co.uk>
 - updated [htmltools] package version to [0.5.1-1] by PackYak v0.0.2
 - updated to R version [4.0.3]

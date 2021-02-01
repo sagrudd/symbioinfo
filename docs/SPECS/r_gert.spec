@@ -4,13 +4,13 @@
 %global debug_package %{nil}
 
 Name:             r_gert
-Version:          1.0.2
+Version:          1.1.0
 Release:          %{packrel}%{?dist}
-Source0:          https://cran.r-project.org/web/packages/gert/../../../src/contrib/gert_1.0.2.tar.gz
+Source0:          https://cran.r-project.org/web/packages/gert/../../../src/contrib/gert_1.1.0.tar.gz
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/web/packages/gert/index.html
 Group:            Applications/Bioinformatics
-Summary:          PackYak v0.0.2 build of R-package [gert] version [1.0.2]
+Summary:          PackYak v0.0.5 build of R-package [gert] version [1.1.0]
 BuildRequires:    tex(latex) R-core = %{rversion} r_askpass r_credentials r_openssl r_rstudioapi r_zip libgit2
 Requires:         tex(latex) R-core = %{rversion} r_askpass r_credentials r_openssl r_rstudioapi r_zip libgit2
 
@@ -40,6 +40,8 @@ rm -fR %{_builddir}/%{packname}*
 /usr/lib64/R/library/%{packname}
 
 %changelog
+* Sun Jan 31 2021 sagrudd <stephen@mnemosyne.co.uk>
+- updated [gert] package version to [1.1.0-1] by PackYak v0.0.5
 * Fri Jan 15 2021 sagrudd <stephen@mnemosyne.co.uk>
 - updated [gert] package version to [1.0.2-1] by PackYak v0.0.2
 - updated to R version [4.0.3]

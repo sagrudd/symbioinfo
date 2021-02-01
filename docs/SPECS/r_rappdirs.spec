@@ -4,13 +4,13 @@
 %global debug_package %{nil}
 
 Name:             r_rappdirs
-Version:          0.3.1
+Version:          0.3.3
 Release:          %{packrel}%{?dist}
-Source0:          https://cran.r-project.org/web/packages/rappdirs/../../../src/contrib/rappdirs_0.3.1.tar.gz
+Source0:          https://cran.r-project.org/web/packages/rappdirs/../../../src/contrib/rappdirs_0.3.3.tar.gz
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/web/packages/rappdirs/index.html
 Group:            Applications/Bioinformatics
-Summary:          PackYak v0.0.2 build of R-package [rappdirs] version [0.3.1]
+Summary:          PackYak v0.0.5 build of R-package [rappdirs] version [0.3.3]
 BuildRequires:    tex(latex) R-core = %{rversion}
 Requires:         tex(latex) R-core = %{rversion}
 
@@ -40,6 +40,8 @@ rm -fR %{_builddir}/%{packname}*
 /usr/lib64/R/library/%{packname}
 
 %changelog
+* Sun Jan 31 2021 sagrudd <stephen@mnemosyne.co.uk>
+- updated [rappdirs] package version to [0.3.3-1] by PackYak v0.0.5
 * Fri Jan 15 2021 sagrudd <stephen@mnemosyne.co.uk>
 - updated [rappdirs] package version to [0.3.1-1] by PackYak v0.0.2
 - updated to R version [4.0.3]

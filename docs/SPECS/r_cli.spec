@@ -4,13 +4,13 @@
 %global debug_package %{nil}
 
 Name:             r_cli
-Version:          2.2.0
+Version:          2.3.0
 Release:          %{packrel}%{?dist}
-Source0:          https://cran.r-project.org/web/packages/cli/../../../src/contrib/cli_2.2.0.tar.gz
+Source0:          https://cran.r-project.org/web/packages/cli/../../../src/contrib/cli_2.3.0.tar.gz
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/web/packages/cli/index.html
 Group:            Applications/Bioinformatics
-Summary:          PackYak v0.0.2 build of R-package [cli] version [2.2.0]
+Summary:          PackYak v0.0.4 build of R-package [cli] version [2.3.0]
 BuildRequires:    tex(latex) R-core = %{rversion} r_assertthat r_crayon r_glue r_fansi
 Requires:         tex(latex) R-core = %{rversion} r_assertthat r_crayon r_glue r_fansi
 
@@ -40,6 +40,8 @@ rm -fR %{_builddir}/%{packname}*
 /usr/lib64/R/library/%{packname}
 
 %changelog
+* Sun Jan 31 2021 sagrudd <stephen@mnemosyne.co.uk>
+- updated [cli] package version to [2.3.0-1] by PackYak v0.0.4
 * Fri Jan 15 2021 sagrudd <stephen@mnemosyne.co.uk>
 - updated [cli] package version to [2.2.0-1] by PackYak v0.0.2
 - updated to R version [4.0.3]

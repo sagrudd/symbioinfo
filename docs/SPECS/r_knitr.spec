@@ -4,13 +4,13 @@
 %global debug_package %{nil}
 
 Name:             r_knitr
-Version:          1.30
+Version:          1.31
 Release:          %{packrel}%{?dist}
-Source0:          https://cran.r-project.org/web/packages/knitr/../../../src/contrib/knitr_1.30.tar.gz
+Source0:          https://cran.r-project.org/web/packages/knitr/../../../src/contrib/knitr_1.31.tar.gz
 License:          GPL-2 | GPL-3 [expanded from: GPL]
 URL:              https://cran.r-project.org/web/packages/knitr/index.html
 Group:            Applications/Bioinformatics
-Summary:          PackYak v0.0.2 build of R-package [knitr] version [1.30]
+Summary:          PackYak v0.0.5 build of R-package [knitr] version [1.31]
 BuildRequires:    tex(latex) R-core = %{rversion} r_evaluate r_highr r_markdown r_stringr r_yaml r_xfun
 Requires:         tex(latex) R-core = %{rversion} r_evaluate r_highr r_markdown r_stringr r_yaml r_xfun
 
@@ -40,6 +40,8 @@ rm -fR %{_builddir}/%{packname}*
 /usr/lib64/R/library/%{packname}
 
 %changelog
+* Sun Jan 31 2021 sagrudd <stephen@mnemosyne.co.uk>
+- updated [knitr] package version to [1.31-1] by PackYak v0.0.5
 * Fri Jan 15 2021 sagrudd <stephen@mnemosyne.co.uk>
 - updated [knitr] package version to [1.30-1] by PackYak v0.0.2
 - updated to R version [4.0.3]
