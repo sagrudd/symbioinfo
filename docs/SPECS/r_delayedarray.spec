@@ -4,13 +4,13 @@
 %global debug_package %{nil}
 
 Name:             r_delayedarray
-Version:          0.16.0
+Version:          0.16.1
 Release:          %{packrel}%{?dist}
-Source0:          https://www.bioconductor.org/packages/release/bioc/html/../src/contrib/DelayedArray_0.16.0.tar.gz
+Source0:          https://www.bioconductor.org/packages/release/bioc/html/../src/contrib/DelayedArray_0.16.1.tar.gz
 License:          Artistic-2.0
 URL:              https://www.bioconductor.org/packages/release/bioc/html/DelayedArray.html
 Group:            Applications/Bioinformatics
-Summary:          PackYak v0.0.2 build of R-package [DelayedArray] version [0.16.0]
+Summary:          PackYak v0.0.5 build of R-package [DelayedArray] version [0.16.1]
 BuildRequires:    tex(latex) R-core = %{rversion} r_biocgenerics r_matrixgenerics r_s4vectors r_iranges
 Requires:         tex(latex) R-core = %{rversion} r_biocgenerics r_matrixgenerics r_s4vectors r_iranges
 
@@ -40,6 +40,8 @@ rm -fR %{_builddir}/%{packname}*
 /usr/lib64/R/library/%{packname}
 
 %changelog
+* Sun Jan 31 2021 sagrudd <stephen@mnemosyne.co.uk>
+- updated [DelayedArray] package version to [0.16.1-1] by PackYak v0.0.5
 * Sat Jan 16 2021 sagrudd <stephen@mnemosyne.co.uk>
 - updated [DelayedArray] package version to [0.16.0-1] by PackYak v0.0.2
 - updated to R version [4.0.3]

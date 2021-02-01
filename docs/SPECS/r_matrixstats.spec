@@ -4,13 +4,13 @@
 %global debug_package %{nil}
 
 Name:             r_matrixstats
-Version:          0.57.0
+Version:          0.58.0
 Release:          %{packrel}%{?dist}
-Source0:          https://cran.r-project.org/web/packages/matrixStats/../../../src/contrib/matrixStats_0.57.0.tar.gz
+Source0:          https://cran.r-project.org/web/packages/matrixStats/../../../src/contrib/matrixStats_0.58.0.tar.gz
 License:          Artistic-2.0
 URL:              https://cran.r-project.org/web/packages/matrixStats/index.html
 Group:            Applications/Bioinformatics
-Summary:          PackYak v0.0.2 build of R-package [matrixStats] version [0.57.0]
+Summary:          PackYak v0.0.5 build of R-package [matrixStats] version [0.58.0]
 BuildRequires:    tex(latex) R-core = %{rversion}
 Requires:         tex(latex) R-core = %{rversion}
 
@@ -40,6 +40,8 @@ rm -fR %{_builddir}/%{packname}*
 /usr/lib64/R/library/%{packname}
 
 %changelog
+* Sun Jan 31 2021 sagrudd <stephen@mnemosyne.co.uk>
+- updated [matrixStats] package version to [0.58.0-1] by PackYak v0.0.5
 * Sat Jan 16 2021 sagrudd <stephen@mnemosyne.co.uk>
 - updated [matrixStats] package version to [0.57.0-1] by PackYak v0.0.2
 - updated to R version [4.0.3]
