@@ -1,13 +1,13 @@
 %define debug_package %{nil}
 
-Name:		spoa
-Version:	4.0.7
+Name:		isal
+Version:	2.30.0
 Release:	1%{?dist}
 Summary:	spoa
 Group:          Applications/Bioinformatics
-License:	MIT License 
-URL:		https://github.com/rvaser/spoa/
-Source0:        https://github.com/rvaser/spoa/archive/4.0.7.tar.gz
+License:	BSD-3
+URL:		https://github.com/intel/isa-l/
+Source0:        https://github.com/intel/isa-l/archive/v2.30.0.tar.gz
 
 BuildRequires:	gcc
 Requires:	gcc
@@ -19,22 +19,24 @@ Requires:	gcc
 %define _datarootdir /
 
 %description    
-Spoa (SIMD POA) is a c++ implementation of the partial order alignment (POA) algorithm (as described in 10.1093/bioinformatics/18.3.452) which is used to generate consensus sequences (as described in 10.1093/bioinformatics/btg109). It supports three alignment modes: local (Smith-Waterman), global (Needleman-Wunsch) and semi-global alignment (overlap), and three gap modes: linear, affine and convex (piecewise affine). It also supports Intel SSE4.1+ and AVX2 vectorization (marginally faster due to high latency shifts), SIMDe and dispatching.
 
 
 %prep
-rm -fR spoa-4.0.7
-git clone --recursive https://github.com/rvaser/spoa.git spoa-4.0.7
+%setup -q -n isa-l-2.30.0
+
 
 %build
-cd spoa-4.0.7
+
 %set_build_flags
-mkdir build && cd build
-cmake -Dspoa_build_executable=ON -DCMAKE_BUILD_TYPE=Release ..
+
+./autogen.sh
+./configure
 make
+# sudo make install
+
 
 %install
-cd spoa-4.0.7
+
 %{__install} -d %{buildroot}%{_bindir}
 %{__install} -m0755 build/bin/spoa %{buildroot}%{_bindir}
 %{__install} -d %{buildroot}/%{_libdir}

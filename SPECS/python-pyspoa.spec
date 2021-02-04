@@ -30,16 +30,25 @@ Requires:         python3.8
 %description -n python3-bio-%{packname} %_description
 
 %prep
-%autosetup -p1 -n %{packname}-%{version}
+rm -fR pyspoa-0.0.4
+git clone --recursive https://github.com/nanoporetech/pyspoa.git pyspoa-0.0.4
+cd pyspoa-0.0.4
 pathfix.py -pni "/usr/bin/python%{pyversion} -s" .
 
 %build
+cd pyspoa-0.0.4
+
+mkdir -p src/build
+cd src/build && cmake -D spoa_optimize_for_portability=ON -DCMAKE_BUILD_TYPE=Release -D CMAKE_CXX_FLAGS="-I ../vendor/cereal/include/ -fPIC" .. && make
+cd ../..
+
 CFLAGS="${CFLAGS:-${RPM_OPT_FLAGS}}" LDFLAGS="${LDFLAGS:-${RPM_LD_FLAGS}}"\
-  /usr/bin/python%{pyversion} setup.py  build --executable="/usr/bin/python%{pyversion} -s"
+  /usr/bin/python%{pyversion} setup.py build
 
 %install
+cd pyspoa-0.0.4
 CFLAGS="${CFLAGS:-${RPM_OPT_FLAGS}}" LDFLAGS="${LDFLAGS:-${RPM_LD_FLAGS}}"\
-  /usr/bin/python%{pyversion} setup.py  install -O1 --skip-build --root %{buildroot}
+  /usr/bin/python%{pyversion} setup.py  install -O1 --root %{buildroot}
 if ( [ -d %{buildroot}%{_bindir} ] ); then
     pathfix.py -pni "/usr/bin/python%{pyversion} -s" %{buildroot}/usr/lib/python%{pyversion}/site-packages/ %{buildroot}%{_bindir}/*
 fi
@@ -51,8 +60,8 @@ rm -rf $RPM_BUILD_ROOT
 rm -fR %{_builddir}/%{packname}*
 
 %files -n python3-bio-pyspoa
-/usr/lib/python%{pyversion}/site-packages/%{packname}*
-/usr/bin/*
+/usr/lib64/python%{pyversion}/site-packages/%{packname}*
+/usr/lib64/python%{pyversion}/site-packages/spoa*
 
 %changelog
 * Thu Feb 4 2021 sagrudd <stephen@mnemosyne.co.uk>
