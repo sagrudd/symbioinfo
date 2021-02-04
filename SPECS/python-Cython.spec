@@ -11,7 +11,7 @@ Source0:          https://files.pythonhosted.org/packages/6c/9f/f501ba9d178aeb1f
 License:          Apache Software License (Apache)
 URL:              https://pypi.org/project/Cython/
 Group:            Applications/Bioinformatics
-Summary:          PackYak v0.0.5 build of Python package [Cython] version [0.29.21]
+Summary:          PackYak v0.0.6 build of Python package [Cython] version [0.29.21]
 
 %global _description %{expand:
 This workflow has been prepared by the PackYak and description parsing has not
@@ -20,18 +20,18 @@ yet been implemented - this is a TODO
 
 %description %_description
 
-%package -n python3-%{packname}
-%{?python_provide:%python_provide python3-%{packname}}
+%package -n python3-bio-%{packname}
+%{?python_provide:%python_provide python3-bio-%{packname}}
 
-Summary:          PackYak v0.0.5 build of Python package [Cython] version [0.29.21]
-BuildRequires:    python-devel
-Requires:         python-devel
+Summary:          PackYak v0.0.6 build of Python package [Cython] version [0.29.21]
+BuildRequires:    python3.8
+Requires:         python3.8
 
-%description -n python3-%{packname} %_description
+%description -n python3-bio-%{packname} %_description
 
 %prep
 %autosetup -p1 -n %{packname}-%{version}
-pathfix.py -pni "%{__python3} %{py3_shbang_opts}" .
+pathfix.py -pni "/usr/bin/python%{pyversion} -s" .
 
 %build
 CFLAGS="${CFLAGS:-${RPM_OPT_FLAGS}}" LDFLAGS="${LDFLAGS:-${RPM_LD_FLAGS}}"\
@@ -41,7 +41,7 @@ CFLAGS="${CFLAGS:-${RPM_OPT_FLAGS}}" LDFLAGS="${LDFLAGS:-${RPM_LD_FLAGS}}"\
 CFLAGS="${CFLAGS:-${RPM_OPT_FLAGS}}" LDFLAGS="${LDFLAGS:-${RPM_LD_FLAGS}}"\
   /usr/bin/python%{pyversion} setup.py  install -O1 --skip-build --root %{buildroot}
 if ( [ -d %{buildroot}%{_bindir} ] ); then
-    pathfix.py -pni "%{__python3} %{py3_shbang_opts}" %{buildroot}/usr/lib64/python%{pyversion}/site-packages/ %{buildroot}%{_bindir}/*
+    pathfix.py -pni "/usr/bin/python%{pyversion} -s" %{buildroot}/usr/lib64/python%{pyversion}/site-packages/ %{buildroot}%{_bindir}/*
 fi
 
 %check
@@ -50,7 +50,7 @@ fi
 rm -rf $RPM_BUILD_ROOT
 rm -fR %{_builddir}/%{packname}*
 
-%files -n python3-Cython
+%files -n python3-bio-Cython
 /usr/lib64/python%{pyversion}/site-packages/%{packname}*
 /usr/lib64/python%{pyversion}/site-packages/cython*
 /usr/lib64/python%{pyversion}/site-packages/pyximport/*
@@ -59,8 +59,9 @@ rm -fR %{_builddir}/%{packname}*
 /usr/bin/*
 
 %changelog
-* Wed Feb 3 2021 sagrudd <stephen@mnemosyne.co.uk>
-- updated [Cython] package version to [0.29.21-1] by PackYak v0.0.5
+* Thu Feb 4 2021 sagrudd <stephen@mnemosyne.co.uk>
+- updated [Cython] package version to [0.29.21-1] by PackYak v0.0.6
+- rejig of all python libraries to use `python3-bio` product suffix
 * Mon Feb 1 2021 sagrudd <stephen@mnemosyne.co.uk>
 - updated the R template for usage in Python deployments
 - somewhat adherent to https://docs.fedoraproject.org/en-US/packaging-guidelines/Python/

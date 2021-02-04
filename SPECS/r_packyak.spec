@@ -4,7 +4,7 @@
 %global debug_package %{nil}
 
 Name:             r_packyak
-Version:          0.0.5
+Version:          0.0.6
 Release:          %{packrel}%{?dist}
 License:          MPL-2.0
 URL:              https://github.com/sagrudd/packyak

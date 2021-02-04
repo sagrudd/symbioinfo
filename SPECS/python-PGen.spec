@@ -32,7 +32,7 @@ Provides:	  python(abi) = 3.8
 
 %prep
 %autosetup -p1 -n %{packname}-%{version}
-pathfix.py -pni "%{__python3} %{py3_shbang_opts}" .
+pathfix.py -pni "/usr/bin/python%{pyversion} -s" .
 
 %build
 CFLAGS="${CFLAGS:-${RPM_OPT_FLAGS}}" LDFLAGS="${LDFLAGS:-${RPM_LD_FLAGS}}"\
@@ -41,9 +41,6 @@ CFLAGS="${CFLAGS:-${RPM_OPT_FLAGS}}" LDFLAGS="${LDFLAGS:-${RPM_LD_FLAGS}}"\
 %install
 CFLAGS="${CFLAGS:-${RPM_OPT_FLAGS}}" LDFLAGS="${LDFLAGS:-${RPM_LD_FLAGS}}"\
   /usr/bin/python%{pyversion} setup.py  install -O1 --skip-build --root %{buildroot}
-if ( [ -d %{buildroot}%{_bindir} ] ); then
-    pathfix.py -pni "%{__python3} %{py3_shbang_opts}" %{buildroot}/usr/lib/python%{pyversion}/site-packages/ %{buildroot}%{_bindir}/*
-fi
 
 %check
 
