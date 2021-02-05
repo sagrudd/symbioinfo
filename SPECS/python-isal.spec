@@ -24,7 +24,7 @@ yet been implemented - this is a TODO
 %{?python_provide:%python_provide python3-bio-%{packname}}
 
 Summary:          PackYak v0.0.6 build of Python package [isal] version [0.4.0]
-BuildRequires:    python3.8
+BuildRequires:    python3.8 nasm yasm
 Requires:         python3.8
 
 %description -n python3-bio-%{packname} %_description
@@ -51,11 +51,11 @@ rm -rf $RPM_BUILD_ROOT
 rm -fR %{_builddir}/%{packname}*
 
 %files -n python3-bio-isal
-/usr/lib/python%{pyversion}/site-packages/%{packname}*
+/usr/lib64/python%{pyversion}/site-packages/%{packname}*
 #/usr/bin/*
 
 %changelog
-* Thu Feb 4 2021  <>
+* Thu Feb 4 2021 sagrudd <stephen@mnemosyne.co.uk>
 - updated [isal] package version to [0.4.0-1] by PackYak v0.0.6
 * Thu Feb 4 2021 sagrudd <stephen@mnemosyne.co.uk>
 - rejig of all python libraries to use `python3-bio` product suffix
