@@ -4,6 +4,8 @@
 %global debug_package %{nil}
 %global _python_bytecompile_errors_terminate_build 0
 
+%global specfile_lock 1
+
 %undefine __brp_mangle_shebangs
 
 Name:             python-kaleido
