@@ -3,19 +3,16 @@
 %global packrel 1
 %global debug_package %{nil}
 %global _python_bytecompile_errors_terminate_build 0
+%define __brp_python_bytecompile %{nil}
 
 Name:             python-numpy
-Version:          1.20.0
+Version:          1.20.1
 Release:          %{packrel}%{?dist}
-Source0:          https://files.pythonhosted.org/packages/c3/97/fd507e48f8c7cab73a9f002e52e15983b5636b4ac6cf69b83ae240324b44/numpy-1.20.0.zip
+Source0:          https://files.pythonhosted.org/packages/d2/48/f445be426ccd9b2fb64155ac6730c7212358882e589cd3717477d739d9ff/numpy-1.20.1.zip
 License:          BSD License (BSD)
 URL:              https://pypi.org/project/numpy/
 Group:            Applications/Bioinformatics
-Summary:          PackYak v0.0.6 build of Python package [numpy] version [1.20.0]
-
-%global blaslib flexiblas
-	
-%global blasvar %{nil}
+Summary:          PackYak automated build of package = numpy (1.20.1)
 
 %global _description %{expand:
 This workflow has been prepared by the PackYak and description parsing has not
@@ -27,8 +24,9 @@ yet been implemented - this is a TODO
 %package -n python3-bio-%{packname}
 %{?python_provide:%python_provide python3-bio-%{packname}}
 
-Summary:          PackYak v0.0.6 build of Python package [numpy] version [1.20.0]
-BuildRequires:    python3.8 lapack-devel atlas-devel
+Summary:        %{summary}
+BuildRequires:    python3.8
+BuildRequires:  lapack-devel
 Requires:         python3.8
 
 %description -n python3-bio-%{packname} %_description
@@ -36,31 +34,14 @@ Requires:         python3.8
 %prep
 %autosetup -p1 -n %{packname}-%{version}
 pathfix.py -pni "/usr/bin/python%{pyversion} -s" .
-cat >> site.cfg <<EOF
-[openblas]
-libraries = %{blaslib}%{blasvar}
-library_dirs = %{_libdir}	
-EOF
-
 
 %build
-	
-%set_build_flags
-
-env OPENBLAS=%{_libdir} \
-    BLAS=%{_libdir} \
-    LAPACK=%{_libdir} CFLAGS="%{optflags}" \
-    CFLAGS="${CFLAGS:-${RPM_OPT_FLAGS}}" LDFLAGS="${LDFLAGS:-${RPM_LD_FLAGS}}"\
-    /usr/bin/python%{pyversion} setup.py  build --executable="/usr/bin/python%{pyversion} -s"
+CFLAGS="${CFLAGS:-${RPM_OPT_FLAGS}}" LDFLAGS="${LDFLAGS:-${RPM_LD_FLAGS}}"\
+  /usr/bin/python%{pyversion} setup.py  build --executable="/usr/bin/python%{pyversion} -s"
 
 %install
-env OPENBLAS=%{_libdir} \
-    FFTW=%{_libdir} BLAS=%{_libdir} \
-    LAPACK=%{_libdir} CFLAGS="%{optflags}" \
-  /usr/bin/python%{pyversion} setup.py  install --root %{buildroot}
-if ( [ -d %{buildroot}%{_bindir} ] ); then
-    pathfix.py -pni "/usr/bin/python%{pyversion} -s" %{buildroot}/usr/lib64/python%{pyversion}/site-packages/ %{buildroot}%{_bindir}/*
-fi
+CFLAGS="${CFLAGS:-${RPM_OPT_FLAGS}}" LDFLAGS="${LDFLAGS:-${RPM_LD_FLAGS}}"\
+  /usr/bin/python%{pyversion} setup.py install --single-version-externally-managed -O1 --root=$RPM_BUILD_ROOT --record=INSTALLED_FILES
 
 %check
 
@@ -68,13 +49,15 @@ fi
 rm -rf $RPM_BUILD_ROOT
 rm -fR %{_builddir}/%{packname}*
 
-%files -n python3-bio-numpy
-/usr/lib64/python%{pyversion}/site-packages/%{packname}*
-/usr/bin/*
+%files -n  python3-bio-numpy -f INSTALLED_FILES
+%defattr(-,root,root)
 
 %changelog
+* Fri Feb 12 2021 sagrudd <stephen@mnemosyne.co.uk>
+- first build of [numpy] version [1.20.1] by PackYak v0.0.7
+- rework of the python setup install to be less dependent on manual intervention
+  and finding files ...
 * Thu Feb 4 2021 sagrudd <stephen@mnemosyne.co.uk>
-- updated [numpy] package version to [1.20.0-1] by PackYak v0.0.6
 - rejig of all python libraries to use `python3-bio` product suffix
 * Mon Feb 1 2021 sagrudd <stephen@mnemosyne.co.uk>
 - updated the R template for usage in Python deployments
