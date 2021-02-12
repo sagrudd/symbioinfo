@@ -52,7 +52,7 @@ fi
 rm -rf $RPM_BUILD_ROOT
 rm -fR %{_builddir}/%{packname}*
 
-%files -f INSTALLED_FILES
+%files -n python3-bio-cycler -f INSTALLED_FILES
 %defattr(-,root,root)
 
 %changelog
