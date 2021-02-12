@@ -25,8 +25,8 @@ yet been implemented - this is a TODO
 %{?python_provide:%python_provide python3-bio-%{packname}}
 
 Summary:        %{summary}
+Provides:         python3.8dist(numpy)
 BuildRequires:    python3.8
-BuildRequires:  lapack-devel
 Requires:         python3.8
 
 %description -n python3-bio-%{packname} %_description
