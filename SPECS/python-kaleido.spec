@@ -4,6 +4,8 @@
 %global debug_package %{nil}
 %global _python_bytecompile_errors_terminate_build 0
 
+%undefine __brp_mangle_shebangs
+
 Name:             python-kaleido
 Version:          0.1.0
 Release:          %{packrel}%{?dist}
@@ -40,23 +42,11 @@ Requires:         python3.8
 
 python3.8 -m pip install -I %{SOURCE1} --root %{buildroot} --no-deps --no-index --no-warn-script-location
 rm -rfv %{buildroot}/usr/bin/__pycache__
-for distinfo in %{buildroot}/%{NAME}-%{VERSION}-%{RELEASE}.x86_64/usr/lib/python3.8/site-packages/*.dist-info %{buildroot}/%{NAME}-%{VERSION}-%{RELEASE}.x86_64/usr/lib64/python3.8/site-packages/*.dist-info; do
-  if [ -f ${distinfo}/direct_url.json ]; then
-    rm -fv ${distinfo}/direct_url.json
-    sed -i '/direct_url.json/d' ${distinfo}/RECORD
-  fi
-done
 
 %else
 
 python3.8 -m pip install -I %{SOURCE0} --root %{buildroot} --no-deps --no-index --no-warn-script-location
 rm -rfv %{buildroot}/usr/bin/__pycache__
-for distinfo in %{buildroot}/usr/lib/python3.8/site-packages/*.dist-info %{buildroot}/usr/lib64/python3.8/site-packages/*.dist-info; do
-  if [ -f ${distinfo}/direct_url.json ]; then
-    rm -fv ${distinfo}/direct_url.json
-    sed -i '/direct_url.json/d' ${distinfo}/RECORD
-  fi
-done
 
 %endif
 
