@@ -1,19 +1,17 @@
-%global packname idna
+%global packname Werkzeug
 %global pyversion 3.8
 %global packrel 1
 %global debug_package %{nil}
 %global _python_bytecompile_errors_terminate_build 0
-%define __brp_python_bytecompile %{nil}
-%global specfile_lock 1
 
-Name:             python-idna
-Version:          2.10
+Name:             python-Werkzeug
+Version:          1.0.1
 Release:          %{packrel}%{?dist}
-Source0:          https://files.pythonhosted.org/packages/ea/b7/e0e3c1c467636186c39925827be42f16fee389dc404ac29e930e9136be70/idna-2.10.tar.gz
+Source0:          https://files.pythonhosted.org/packages/10/27/a33329150147594eff0ea4c33c2036c0eadd933141055be0ff911f7f8d04/Werkzeug-1.0.1.tar.gz
 License:          BSD License (BSD-3-Clause)
-URL:              https://pypi.org/project/idna/
+URL:              https://pypi.org/project/Werkzeug/
 Group:            Applications/Bioinformatics
-Summary:          PackYak automated build of package = idna (3.1)
+Summary:          PackYak v0.0.6 build of Python package [Werkzeug] version [1.0.1]
 
 %global _description %{expand:
 This workflow has been prepared by the PackYak and description parsing has not
@@ -25,8 +23,7 @@ yet been implemented - this is a TODO
 %package -n python3-bio-%{packname}
 %{?python_provide:%python_provide python3-bio-%{packname}}
 
-Summary:        %{summary}
-Provides:         python3.8dist(idna)
+Summary:          PackYak v0.0.6 build of Python package [Werkzeug] version [1.0.1]
 BuildRequires:    python3.8
 Requires:         python3.8
 
@@ -42,7 +39,10 @@ CFLAGS="${CFLAGS:-${RPM_OPT_FLAGS}}" LDFLAGS="${LDFLAGS:-${RPM_LD_FLAGS}}"\
 
 %install
 CFLAGS="${CFLAGS:-${RPM_OPT_FLAGS}}" LDFLAGS="${LDFLAGS:-${RPM_LD_FLAGS}}"\
-  /usr/bin/python%{pyversion} setup.py install --single-version-externally-managed -O1 --root=$RPM_BUILD_ROOT --record=INSTALLED_FILES
+  /usr/bin/python%{pyversion} setup.py  install -O1 --skip-build --root %{buildroot}
+if ( [ -d %{buildroot}%{_bindir} ] ); then
+    pathfix.py -pni "/usr/bin/python%{pyversion} -s" %{buildroot}/usr/lib/python%{pyversion}/site-packages/ %{buildroot}%{_bindir}/*
+fi
 
 %check
 
@@ -50,15 +50,14 @@ CFLAGS="${CFLAGS:-${RPM_OPT_FLAGS}}" LDFLAGS="${LDFLAGS:-${RPM_LD_FLAGS}}"\
 rm -rf $RPM_BUILD_ROOT
 rm -fR %{_builddir}/%{packname}*
 
-%files -n  python3-bio-idna -f INSTALLED_FILES
-%defattr(-,root,root)
+%files -n python3-bio-Werkzeug
+/usr/lib/python%{pyversion}/site-packages/Werkzeug*
+/usr/lib/python%{pyversion}/site-packages/werkzeug*
+#/usr/bin/*
 
 %changelog
-* Sat Feb 13 2021 sagrudd <stephen@mnemosyne.co.uk>
-- first build of [idna] version [3.1] by PackYak v0.0.7
-* Fri Feb 12 2021 sagrudd <stephen@mnemosyne.co.uk>
-- rework of the python setup install to be less dependent on manual intervention
-  and finding files ...
+* Fri Feb 5 2021 sagrudd <stephen@mnemosyne.co.uk>
+- updated [Werkzeug] package version to [1.0.1-1] by PackYak v0.0.6
 * Thu Feb 4 2021 sagrudd <stephen@mnemosyne.co.uk>
 - rejig of all python libraries to use `python3-bio` product suffix
 * Mon Feb 1 2021 sagrudd <stephen@mnemosyne.co.uk>

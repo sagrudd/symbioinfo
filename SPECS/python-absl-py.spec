@@ -1,19 +1,18 @@
-%global packname idna
+%global packname absl-py
 %global pyversion 3.8
 %global packrel 1
 %global debug_package %{nil}
 %global _python_bytecompile_errors_terminate_build 0
 %define __brp_python_bytecompile %{nil}
-%global specfile_lock 1
 
-Name:             python-idna
-Version:          2.10
+Name:             python-absl-py
+Version:          0.11.0
 Release:          %{packrel}%{?dist}
-Source0:          https://files.pythonhosted.org/packages/ea/b7/e0e3c1c467636186c39925827be42f16fee389dc404ac29e930e9136be70/idna-2.10.tar.gz
-License:          BSD License (BSD-3-Clause)
-URL:              https://pypi.org/project/idna/
+Source0:          https://files.pythonhosted.org/packages/af/88/d97853ec7d4c487a7e3efe379b926b3c4d33fedc5d11d6a2fb6c2ab55646/absl-py-0.11.0.tar.gz
+License:          Apache Software License (Apache 2.0)
+URL:              https://pypi.org/project/absl-py/
 Group:            Applications/Bioinformatics
-Summary:          PackYak automated build of package = idna (3.1)
+Summary:          PackYak automated build of package = absl-py (0.11.0)
 
 %global _description %{expand:
 This workflow has been prepared by the PackYak and description parsing has not
@@ -26,9 +25,11 @@ yet been implemented - this is a TODO
 %{?python_provide:%python_provide python3-bio-%{packname}}
 
 Summary:        %{summary}
-Provides:         python3.8dist(idna)
+Provides:         python3.8dist(absl-py)
 BuildRequires:    python3.8
+BuildRequires:    python3-bio-six
 Requires:         python3.8
+Requires:         python3-bio-six
 
 %description -n python3-bio-%{packname} %_description
 
@@ -50,12 +51,12 @@ CFLAGS="${CFLAGS:-${RPM_OPT_FLAGS}}" LDFLAGS="${LDFLAGS:-${RPM_LD_FLAGS}}"\
 rm -rf $RPM_BUILD_ROOT
 rm -fR %{_builddir}/%{packname}*
 
-%files -n  python3-bio-idna -f INSTALLED_FILES
+%files -n  python3-bio-absl-py -f INSTALLED_FILES
 %defattr(-,root,root)
 
 %changelog
 * Sat Feb 13 2021 sagrudd <stephen@mnemosyne.co.uk>
-- first build of [idna] version [3.1] by PackYak v0.0.7
+- first build of [absl-py] version [0.11.0] by PackYak v0.0.7
 * Fri Feb 12 2021 sagrudd <stephen@mnemosyne.co.uk>
 - rework of the python setup install to be less dependent on manual intervention
   and finding files ...

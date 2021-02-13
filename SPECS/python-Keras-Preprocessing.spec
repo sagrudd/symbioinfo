@@ -1,19 +1,18 @@
-%global packname idna
+%global packname Keras-Preprocessing
 %global pyversion 3.8
 %global packrel 1
 %global debug_package %{nil}
 %global _python_bytecompile_errors_terminate_build 0
 %define __brp_python_bytecompile %{nil}
-%global specfile_lock 1
 
-Name:             python-idna
-Version:          2.10
+Name:             python-Keras-Preprocessing
+Version:          1.1.2
 Release:          %{packrel}%{?dist}
-Source0:          https://files.pythonhosted.org/packages/ea/b7/e0e3c1c467636186c39925827be42f16fee389dc404ac29e930e9136be70/idna-2.10.tar.gz
-License:          BSD License (BSD-3-Clause)
-URL:              https://pypi.org/project/idna/
+Source0:          https://files.pythonhosted.org/packages/5e/f1/b44337faca48874333769a29398fe4666686733c8880aa160b9fd5dfe600/Keras_Preprocessing-1.1.2.tar.gz
+License:          MIT License (MIT)
+URL:              https://pypi.org/project/Keras-Preprocessing/
 Group:            Applications/Bioinformatics
-Summary:          PackYak automated build of package = idna (3.1)
+Summary:          PackYak automated build of package = Keras-Preprocessing (1.1.2)
 
 %global _description %{expand:
 This workflow has been prepared by the PackYak and description parsing has not
@@ -26,14 +25,18 @@ yet been implemented - this is a TODO
 %{?python_provide:%python_provide python3-bio-%{packname}}
 
 Summary:        %{summary}
-Provides:         python3.8dist(idna)
+Provides:         python3.8dist(Keras-Preprocessing)
 BuildRequires:    python3.8
+BuildRequires:    python3-bio-six
+BuildRequires:    python3-bio-numpy
 Requires:         python3.8
+Requires:         python3-bio-six
+Requires:         python3-bio-numpy
 
 %description -n python3-bio-%{packname} %_description
 
 %prep
-%autosetup -p1 -n %{packname}-%{version}
+%autosetup -p1 -n Keras_Preprocessing-%{version}
 pathfix.py -pni "/usr/bin/python%{pyversion} -s" .
 
 %build
@@ -50,12 +53,12 @@ CFLAGS="${CFLAGS:-${RPM_OPT_FLAGS}}" LDFLAGS="${LDFLAGS:-${RPM_LD_FLAGS}}"\
 rm -rf $RPM_BUILD_ROOT
 rm -fR %{_builddir}/%{packname}*
 
-%files -n  python3-bio-idna -f INSTALLED_FILES
+%files -n  python3-bio-Keras-Preprocessing -f INSTALLED_FILES
 %defattr(-,root,root)
 
 %changelog
 * Sat Feb 13 2021 sagrudd <stephen@mnemosyne.co.uk>
-- first build of [idna] version [3.1] by PackYak v0.0.7
+- first build of [Keras-Preprocessing] version [1.1.2] by PackYak v0.0.7
 * Fri Feb 12 2021 sagrudd <stephen@mnemosyne.co.uk>
 - rework of the python setup install to be less dependent on manual intervention
   and finding files ...
