@@ -4,6 +4,7 @@
 %global debug_package %{nil}
 %global _python_bytecompile_errors_terminate_build 0
 %define __brp_python_bytecompile %{nil}
+%define __brp_mangle_shebangs %{nil}
 
 Name:             python-biopython
 Version:          1.78
