@@ -25,6 +25,8 @@ yet been implemented - this is a TODO
 %{?python_provide:%python_provide python3-bio-%{packname}}
 
 Summary:        %{summary}
+BuildRequires:  zlib-devel
+BuildRequires:  libjpeg-turbo-devel
 BuildRequires:    python3.8
 Requires:         python3.8
 
