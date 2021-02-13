@@ -26,8 +26,10 @@ yet been implemented - this is a TODO
 
 Summary:        %{summary}
 Provides:         python3.8dist(scipy)
+BuildRequires:  python3-bio-pybind11
 BuildRequires:    python3.8
 BuildRequires:    python3-bio-numpy
+Requires:       python3-bio-pybind11
 Requires:         python3.8
 Requires:         python3-bio-numpy
 
