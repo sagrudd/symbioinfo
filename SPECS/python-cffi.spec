@@ -3,15 +3,16 @@
 %global packrel 1
 %global debug_package %{nil}
 %global _python_bytecompile_errors_terminate_build 0
+%define __brp_python_bytecompile %{nil}
 
 Name:             python-cffi
-Version:          1.14.4
+Version:          1.14.5
 Release:          %{packrel}%{?dist}
-Source0:          https://files.pythonhosted.org/packages/66/6a/98e023b3d11537a5521902ac6b50db470c826c682be6a8c661549cb7717a/cffi-1.14.4.tar.gz
+Source0:          https://files.pythonhosted.org/packages/a8/20/025f59f929bbcaa579704f443a438135918484fffaacfaddba776b374563/cffi-1.14.5.tar.gz
 License:          MIT License (MIT)
 URL:              https://pypi.org/project/cffi/
 Group:            Applications/Bioinformatics
-Summary:          PackYak v0.0.6 build of Python package [cffi] version [1.14.4]
+Summary:          PackYak automated build of package = cffi (1.14.5)
 
 %global _description %{expand:
 This workflow has been prepared by the PackYak and description parsing has not
@@ -23,9 +24,12 @@ yet been implemented - this is a TODO
 %package -n python3-bio-%{packname}
 %{?python_provide:%python_provide python3-bio-%{packname}}
 
-Summary:          PackYak v0.0.6 build of Python package [cffi] version [1.14.4]
-BuildRequires:    python3.8 libffi-devel python3-bio-pycparser
-Requires:         python3.8 python3-bio-pycparser
+Summary:        %{summary}
+Provides:         python3.8dist(cffi)
+BuildRequires:    python3.8
+BuildRequires:    python3-bio-pycparser
+Requires:         python3.8
+Requires:         python3-bio-pycparser
 
 %description -n python3-bio-%{packname} %_description
 
@@ -39,10 +43,7 @@ CFLAGS="${CFLAGS:-${RPM_OPT_FLAGS}}" LDFLAGS="${LDFLAGS:-${RPM_LD_FLAGS}}"\
 
 %install
 CFLAGS="${CFLAGS:-${RPM_OPT_FLAGS}}" LDFLAGS="${LDFLAGS:-${RPM_LD_FLAGS}}"\
-  /usr/bin/python%{pyversion} setup.py  install -O1 --skip-build --root %{buildroot}
-if ( [ -d %{buildroot}%{_bindir} ] ); then
-    pathfix.py -pni "/usr/bin/python%{pyversion} -s" %{buildroot}/usr/lib/python%{pyversion}/site-packages/ %{buildroot}%{_bindir}/*
-fi
+  /usr/bin/python%{pyversion} setup.py install --single-version-externally-managed -O1 --root=$RPM_BUILD_ROOT --record=INSTALLED_FILES
 
 %check
 
@@ -50,14 +51,15 @@ fi
 rm -rf $RPM_BUILD_ROOT
 rm -fR %{_builddir}/%{packname}*
 
-%files -n python3-bio-cffi
-/usr/lib64/python%{pyversion}/site-packages/%{packname}*
-/usr/lib64/python%{pyversion}/site-packages/_%{packname}*
-#/usr/bin/*
+%files -n  python3-bio-cffi -f INSTALLED_FILES
+%defattr(-,root,root)
 
 %changelog
-* Fri Feb 5 2021  <>
-- updated [cffi] package version to [1.14.4-1] by PackYak v0.0.6
+* Sat Feb 13 2021 sagrudd <stephen@mnemosyne.co.uk>
+- first build of [cffi] version [1.14.5] by PackYak v0.0.7
+* Fri Feb 12 2021 sagrudd <stephen@mnemosyne.co.uk>
+- rework of the python setup install to be less dependent on manual intervention
+  and finding files ...
 * Thu Feb 4 2021 sagrudd <stephen@mnemosyne.co.uk>
 - rejig of all python libraries to use `python3-bio` product suffix
 * Mon Feb 1 2021 sagrudd <stephen@mnemosyne.co.uk>

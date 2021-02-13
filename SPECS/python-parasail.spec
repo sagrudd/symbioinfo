@@ -3,15 +3,16 @@
 %global packrel 1
 %global debug_package %{nil}
 %global _python_bytecompile_errors_terminate_build 0
+%define __brp_python_bytecompile %{nil}
 
 Name:             python-parasail
-Version:          1.2.3
+Version:          1.2.4
 Release:          %{packrel}%{?dist}
-Source0:          https://files.pythonhosted.org/packages/61/ad/588cbec74e86262677df5641f13d484cacbdeb00508a30b2e189985b5941/parasail-1.2.3.tar.gz
+Source0:          https://files.pythonhosted.org/packages/9b/92/70692c8f85ae442c977b4c4e7be0a4a1c49eeb1bae2f633ad737afdc4fb3/parasail-1.2.4.tar.gz
 License:          BSD License (BSD)
 URL:              https://pypi.org/project/parasail/
 Group:            Applications/Bioinformatics
-Summary:          PackYak v0.0.6 build of Python package [parasail] version [1.2.3]
+Summary:          PackYak automated build of package = parasail (1.2.4)
 
 %global _description %{expand:
 This workflow has been prepared by the PackYak and description parsing has not
@@ -23,9 +24,12 @@ yet been implemented - this is a TODO
 %package -n python3-bio-%{packname}
 %{?python_provide:%python_provide python3-bio-%{packname}}
 
-Summary:          PackYak v0.0.6 build of Python package [parasail] version [1.2.3]
-BuildRequires:    python3.8 python3-bio-numpy
-Requires:         python3.8 python3-bio-numpy
+Summary:        %{summary}
+Provides:         python3.8dist(parasail)
+BuildRequires:    python3.8
+BuildRequires:    python3-bio-numpy
+Requires:         python3.8
+Requires:         python3-bio-numpy
 
 %description -n python3-bio-%{packname} %_description
 
@@ -34,15 +38,11 @@ Requires:         python3.8 python3-bio-numpy
 pathfix.py -pni "/usr/bin/python%{pyversion} -s" .
 
 %build
-CFLAGS="${CFLAGS:-${RPM_OPT_FLAGS}}" LDFLAGS="${LDFLAGS:-${RPM_LD_FLAGS}}"\
-  /usr/bin/python%{pyversion} setup.py bdist_wheel
+CC=gcc /usr/bin/python%{pyversion} setup.py bdist_wheel
 
 %install
 CFLAGS="${CFLAGS:-${RPM_OPT_FLAGS}}" LDFLAGS="${LDFLAGS:-${RPM_LD_FLAGS}}"\
-  /usr/bin/python%{pyversion} setup.py  install -O1 --skip-build --root %{buildroot}
-if ( [ -d %{buildroot}%{_bindir} ] ); then
-    pathfix.py -pni "/usr/bin/python%{pyversion} -s" %{buildroot}/usr/lib/python%{pyversion}/site-packages/ %{buildroot}%{_bindir}/*
-fi
+  /usr/bin/python%{pyversion} setup.py install --single-version-externally-managed -O1 --root=$RPM_BUILD_ROOT --record=INSTALLED_FILES
 
 %check
 
@@ -50,13 +50,15 @@ fi
 rm -rf $RPM_BUILD_ROOT
 rm -fR %{_builddir}/%{packname}*
 
-%files -n python3-bio-parasail
-/usr/lib/python%{pyversion}/site-packages/%{packname}*
-#/usr/bin/*
+%files -n  python3-bio-parasail -f INSTALLED_FILES
+%defattr(-,root,root)
 
 %changelog
-* Thu Feb 4 2021  <>
-- updated [parasail] package version to [1.2.3-1] by PackYak v0.0.6
+* Sat Feb 13 2021 sagrudd <stephen@mnemosyne.co.uk>
+- first build of [parasail] version [1.2.4] by PackYak v0.0.7
+* Fri Feb 12 2021 sagrudd <stephen@mnemosyne.co.uk>
+- rework of the python setup install to be less dependent on manual intervention
+  and finding files ...
 * Thu Feb 4 2021 sagrudd <stephen@mnemosyne.co.uk>
 - rejig of all python libraries to use `python3-bio` product suffix
 * Mon Feb 1 2021 sagrudd <stephen@mnemosyne.co.uk>

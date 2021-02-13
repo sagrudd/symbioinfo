@@ -3,6 +3,7 @@
 %global packrel 1
 %global debug_package %{nil}
 %global _python_bytecompile_errors_terminate_build 0
+%define __brp_python_bytecompile %{nil}
 
 Name:             python-mappy
 Version:          2.17
@@ -11,7 +12,7 @@ Source0:          https://files.pythonhosted.org/packages/86/f7/a8ad5d723681c3e3
 License:          MIT License (MIT)
 URL:              https://pypi.org/project/mappy/
 Group:            Applications/Bioinformatics
-Summary:          PackYak v0.0.6 build of Python package [mappy] version [2.17]
+Summary:          PackYak automated build of package = mappy (2.17)
 
 %global _description %{expand:
 This workflow has been prepared by the PackYak and description parsing has not
@@ -23,7 +24,8 @@ yet been implemented - this is a TODO
 %package -n python3-bio-%{packname}
 %{?python_provide:%python_provide python3-bio-%{packname}}
 
-Summary:          PackYak v0.0.6 build of Python package [mappy] version [2.17]
+Summary:        %{summary}
+Provides:         python3.8dist(mappy)
 BuildRequires:    python3.8
 Requires:         python3.8
 
@@ -39,10 +41,7 @@ CFLAGS="${CFLAGS:-${RPM_OPT_FLAGS}}" LDFLAGS="${LDFLAGS:-${RPM_LD_FLAGS}}"\
 
 %install
 CFLAGS="${CFLAGS:-${RPM_OPT_FLAGS}}" LDFLAGS="${LDFLAGS:-${RPM_LD_FLAGS}}"\
-  /usr/bin/python%{pyversion} setup.py  install -O1 --skip-build --root %{buildroot}
-if ( [ -d %{buildroot}%{_bindir} ] ); then
-    pathfix.py -pni "/usr/bin/python%{pyversion} -s" %{buildroot}/usr/lib64/python%{pyversion}/site-packages/ %{buildroot}%{_bindir}/*
-fi
+  /usr/bin/python%{pyversion} setup.py install --single-version-externally-managed -O1 --root=$RPM_BUILD_ROOT --record=INSTALLED_FILES
 
 %check
 
@@ -50,13 +49,15 @@ fi
 rm -rf $RPM_BUILD_ROOT
 rm -fR %{_builddir}/%{packname}*
 
-%files -n python3-bio-mappy
-/usr/lib64/python%{pyversion}/site-packages/%{packname}*
-/usr/bin/*
+%files -n  python3-bio-mappy -f INSTALLED_FILES
+%defattr(-,root,root)
 
 %changelog
-* Thu Feb 4 2021  <>
-- updated [mappy] package version to [2.17-1] by PackYak v0.0.6
+* Sat Feb 13 2021 sagrudd <stephen@mnemosyne.co.uk>
+- first build of [mappy] version [2.17] by PackYak v0.0.7
+* Fri Feb 12 2021 sagrudd <stephen@mnemosyne.co.uk>
+- rework of the python setup install to be less dependent on manual intervention
+  and finding files ...
 * Thu Feb 4 2021 sagrudd <stephen@mnemosyne.co.uk>
 - rejig of all python libraries to use `python3-bio` product suffix
 * Mon Feb 1 2021 sagrudd <stephen@mnemosyne.co.uk>

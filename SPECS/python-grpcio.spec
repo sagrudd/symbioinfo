@@ -3,6 +3,7 @@
 %global packrel 1
 %global debug_package %{nil}
 %global _python_bytecompile_errors_terminate_build 0
+%define __brp_python_bytecompile %{nil}
 
 Name:             python-grpcio
 Version:          1.35.0
@@ -11,7 +12,7 @@ Source0:          https://files.pythonhosted.org/packages/20/4b/0b810309628e354f
 License:          Apache Software License (Apache License 2.0)
 URL:              https://pypi.org/project/grpcio/
 Group:            Applications/Bioinformatics
-Summary:          PackYak v0.0.6 build of Python package [grpcio] version [1.35.0]
+Summary:          PackYak automated build of package = grpcio (1.35.0)
 
 %global _description %{expand:
 This workflow has been prepared by the PackYak and description parsing has not
@@ -23,9 +24,12 @@ yet been implemented - this is a TODO
 %package -n python3-bio-%{packname}
 %{?python_provide:%python_provide python3-bio-%{packname}}
 
-Summary:          PackYak v0.0.6 build of Python package [grpcio] version [1.35.0]
-BuildRequires:    python3.8 python3-bio-six
-Requires:         python3.8 python3-bio-six
+Summary:        %{summary}
+Provides:         python3.8dist(grpcio)
+BuildRequires:    python3.8
+BuildRequires:    python3-bio-six
+Requires:         python3.8
+Requires:         python3-bio-six
 
 %description -n python3-bio-%{packname} %_description
 
@@ -39,10 +43,8 @@ CFLAGS="${CFLAGS:-${RPM_OPT_FLAGS}}" LDFLAGS="${LDFLAGS:-${RPM_LD_FLAGS}}"\
 
 %install
 CFLAGS="${CFLAGS:-${RPM_OPT_FLAGS}}" LDFLAGS="${LDFLAGS:-${RPM_LD_FLAGS}}"\
-  /usr/bin/python%{pyversion} setup.py  install -O1 --skip-build --root %{buildroot}
-if ( [ -d %{buildroot}%{_bindir} ] ); then
-    pathfix.py -pni "/usr/bin/python%{pyversion} -s" %{buildroot}/usr/lib/python%{pyversion}/site-packages/ %{buildroot}%{_bindir}/*
-fi
+  /usr/bin/python%{pyversion} setup.py install --single-version-externally-managed -O1 --root=$RPM_BUILD_ROOT --record=INSTALLED_FILES
+sed -i '/\/o-1.35.0/d' ./INSTALLED_FILES
 
 %check
 
@@ -50,13 +52,16 @@ fi
 rm -rf $RPM_BUILD_ROOT
 rm -fR %{_builddir}/%{packname}*
 
-%files -n python3-bio-grpcio
-/usr/lib/python%{pyversion}/site-packages/%{packname}*
-#/usr/bin/*
+%files -n  python3-bio-grpcio -f INSTALLED_FILES
+/usr/lib64/python3.8/site-packages/grpc/_cython/cygrpc.cpython-38-x86_64-linux-gnu.so
+%defattr(-,root,root)
 
 %changelog
-* Thu Feb 4 2021  <>
-- updated [grpcio] package version to [1.35.0-1] by PackYak v0.0.6
+* Sat Feb 13 2021 sagrudd <stephen@mnemosyne.co.uk>
+- first build of [grpcio] version [1.35.0] by PackYak v0.0.7
+* Fri Feb 12 2021 sagrudd <stephen@mnemosyne.co.uk>
+- rework of the python setup install to be less dependent on manual intervention
+  and finding files ...
 * Thu Feb 4 2021 sagrudd <stephen@mnemosyne.co.uk>
 - rejig of all python libraries to use `python3-bio` product suffix
 * Mon Feb 1 2021 sagrudd <stephen@mnemosyne.co.uk>
