@@ -1,17 +1,18 @@
-%global packname PyYAML
+%global packname MarkupSafe
 %global pyversion 3.8
 %global packrel 1
 %global debug_package %{nil}
 %global _python_bytecompile_errors_terminate_build 0
+%define __brp_python_bytecompile %{nil}
 
-Name:             python-pyyaml
-Version:          5.4.1
+Name:             python-MarkupSafe
+Version:          1.1.1
 Release:          %{packrel}%{?dist}
-Source0:          https://files.pythonhosted.org/packages/a0/a4/d63f2d7597e1a4b55aa3b4d6c5b029991d3b824b5bd331af8d4ab1ed687d/PyYAML-5.4.1.tar.gz
-License:          MIT License (MIT)
-URL:              https://pypi.org/project/PyYAML/
+Source0:          https://files.pythonhosted.org/packages/b9/2e/64db92e53b86efccfaea71321f597fa2e1b2bd3853d8ce658568f7a13094/MarkupSafe-1.1.1.tar.gz
+License:          BSD License (BSD-3-Clause)
+URL:              https://pypi.org/project/MarkupSafe/
 Group:            Applications/Bioinformatics
-Summary:          PackYak v0.0.6 build of Python package [PyYAML] version [5.4.1]
+Summary:          PackYak automated build of package = MarkupSafe (1.1.1)
 
 %global _description %{expand:
 This workflow has been prepared by the PackYak and description parsing has not
@@ -23,7 +24,8 @@ yet been implemented - this is a TODO
 %package -n python3-bio-%{packname}
 %{?python_provide:%python_provide python3-bio-%{packname}}
 
-Summary:          PackYak v0.0.6 build of Python package [PyYAML] version [5.4.1]
+Summary:        %{summary}
+Provides:         python3.8dist(MarkupSafe)
 BuildRequires:    python3.8
 Requires:         python3.8
 
@@ -39,10 +41,7 @@ CFLAGS="${CFLAGS:-${RPM_OPT_FLAGS}}" LDFLAGS="${LDFLAGS:-${RPM_LD_FLAGS}}"\
 
 %install
 CFLAGS="${CFLAGS:-${RPM_OPT_FLAGS}}" LDFLAGS="${LDFLAGS:-${RPM_LD_FLAGS}}"\
-  /usr/bin/python%{pyversion} setup.py  install -O1 --skip-build --root %{buildroot}
-if ( [ -d %{buildroot}%{_bindir} ] ); then
-    pathfix.py -pni "/usr/bin/python%{pyversion} -s" %{buildroot}/usr/lib/python%{pyversion}/site-packages/ %{buildroot}%{_bindir}/*
-fi
+  /usr/bin/python%{pyversion} setup.py install --single-version-externally-managed -O1 --root=$RPM_BUILD_ROOT --record=INSTALLED_FILES
 
 %check
 
@@ -50,14 +49,16 @@ fi
 rm -rf $RPM_BUILD_ROOT
 rm -fR %{_builddir}/%{packname}*
 
-%files -n python3-bio-PyYAML
-/usr/lib64/python%{pyversion}/site-packages/%{packname}*
-/usr/lib64/python%{pyversion}/site-packages/_yaml*
-/usr/lib64/python%{pyversion}/site-packages/yaml/*
+%files -n  python3-bio-MarkupSafe -f INSTALLED_FILES
+%defattr(-,root,root)
 
 %changelog
+* Sun Feb 14 2021 sagrudd <stephen@mnemosyne.co.uk>
+- first build of [MarkupSafe] version [1.1.1] by PackYak v0.0.7
+* Fri Feb 12 2021 sagrudd <stephen@mnemosyne.co.uk>
+- rework of the python setup install to be less dependent on manual intervention
+  and finding files ...
 * Thu Feb 4 2021 sagrudd <stephen@mnemosyne.co.uk>
-- updated [PyYAML] package version to [5.4.1-1] by PackYak v0.0.6
 - rejig of all python libraries to use `python3-bio` product suffix
 * Mon Feb 1 2021 sagrudd <stephen@mnemosyne.co.uk>
 - updated the R template for usage in Python deployments
