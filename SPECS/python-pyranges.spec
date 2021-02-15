@@ -5,6 +5,8 @@
 %global _python_bytecompile_errors_terminate_build 0
 %define __brp_python_bytecompile %{nil}
 
+%undefine __brp_mangle_shebangs
+
 Name:             python-pyranges
 Version:          0.0.92
 Release:          %{packrel}%{?dist}

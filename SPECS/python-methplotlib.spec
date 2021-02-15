@@ -5,6 +5,8 @@
 %global _python_bytecompile_errors_terminate_build 0
 %define __brp_python_bytecompile %{nil}
 
+%undefine __brp_mangle_shebangs
+
 Name:             python-methplotlib
 Version:          0.17.0
 Release:          %{packrel}%{?dist}
