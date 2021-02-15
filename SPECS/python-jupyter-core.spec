@@ -36,7 +36,7 @@ Requires:         python3-bio-traitlets
 %description -n python3-bio-%{packname} %_description
 
 %prep
-%autosetup -p1 -n %{packname}-%{version}
+%autosetup -p1 -n jupyter_core-%{version}
 pathfix.py -pni "/usr/bin/python%{pyversion} -s" .
 
 %build
