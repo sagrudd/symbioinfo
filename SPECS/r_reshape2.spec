@@ -11,6 +11,7 @@ License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/web/packages/reshape2/index.html
 Group:            Applications/Bioinformatics
 Summary:          PackYak v0.0.2 build of R-package [reshape2] version [1.4.4]
+Provides:         R(%{packname})
 BuildRequires:    tex(latex) R-core = %{rversion} r_plyr r_rcpp r_stringr
 Requires:         tex(latex) R-core = %{rversion} r_plyr r_rcpp r_stringr
 

@@ -11,6 +11,7 @@ License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/web/packages/plogr/index.html
 Group:            Applications/Bioinformatics
 Summary:          PackYak v0.0.2 build of R-package [plogr] version [0.2.0]
+Provides:         R(%{packname})
 BuildRequires:    tex(latex) R-core = %{rversion}
 Requires:         tex(latex) R-core = %{rversion}
 

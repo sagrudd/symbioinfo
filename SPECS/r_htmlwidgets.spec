@@ -11,6 +11,7 @@ License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/web/packages/htmlwidgets/index.html
 Group:            Applications/Bioinformatics
 Summary:          PackYak v0.0.2 build of R-package [htmlwidgets] version [1.5.3]
+Provides:         R(%{packname})
 BuildRequires:    tex(latex) R-core = %{rversion} r_htmltools r_jsonlite r_yaml
 Requires:         tex(latex) R-core = %{rversion} r_htmltools r_jsonlite r_yaml
 

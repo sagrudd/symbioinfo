@@ -11,6 +11,7 @@ License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/web/packages/cli/index.html
 Group:            Applications/Bioinformatics
 Summary:          PackYak v0.0.4 build of R-package [cli] version [2.3.0]
+Provides:         R(%{packname})
 BuildRequires:    tex(latex) R-core = %{rversion} r_assertthat r_crayon r_glue r_fansi
 Requires:         tex(latex) R-core = %{rversion} r_assertthat r_crayon r_glue r_fansi
 

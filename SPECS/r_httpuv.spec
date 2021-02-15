@@ -11,6 +11,7 @@ License:          GPL-2 | GPL-3 | file LICENSE [expanded from: GPL (≥ 2) | fil
 URL:              https://cran.r-project.org/web/packages/httpuv/index.html
 Group:            Applications/Bioinformatics
 Summary:          PackYak v0.0.4 build of R-package [httpuv] version [1.5.5]
+Provides:         R(%{packname})
 BuildRequires:    tex(latex) R-core = %{rversion} r_rcpp r_r6 r_promises r_later r_bh
 Requires:         tex(latex) R-core = %{rversion} r_rcpp r_r6 r_promises r_later r_bh
 

@@ -11,6 +11,7 @@ License:          Artistic-2.0
 URL:              https://www.bioconductor.org/packages/release/bioc/html/DelayedArray.html
 Group:            Applications/Bioinformatics
 Summary:          PackYak v0.0.5 build of R-package [DelayedArray] version [0.16.1]
+Provides:         R(%{packname})
 BuildRequires:    tex(latex) R-core = %{rversion} r_biocgenerics r_matrixgenerics r_s4vectors r_iranges
 Requires:         tex(latex) R-core = %{rversion} r_biocgenerics r_matrixgenerics r_s4vectors r_iranges
 

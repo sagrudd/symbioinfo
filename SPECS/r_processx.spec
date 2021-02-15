@@ -11,6 +11,7 @@ License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/web/packages/processx/index.html
 Group:            Applications/Bioinformatics
 Summary:          PackYak v0.0.2 build of R-package [processx] version [3.4.5]
+Provides:         R(%{packname})
 BuildRequires:    tex(latex) R-core = %{rversion} r_ps r_r6
 Requires:         tex(latex) R-core = %{rversion} r_ps r_r6
 

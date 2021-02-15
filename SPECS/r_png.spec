@@ -11,6 +11,7 @@ License:          GPL-2 | GPL-3
 URL:              https://cran.r-project.org/web/packages/png/index.html
 Group:            Applications/Bioinformatics
 Summary:          PackYak v0.0.2 build of R-package [png] version [0.1-7]
+Provides:         R(%{packname})
 BuildRequires:    tex(latex) R-core = %{rversion} libpng-devel
 Requires:         tex(latex) R-core = %{rversion} libpng-devel
 

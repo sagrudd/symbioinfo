@@ -11,6 +11,7 @@ License:          GPL-2 | GPL-3
 URL:              https://www.bioconductor.org/packages/release/bioc/html/BiocParallel.html
 Group:            Applications/Bioinformatics
 Summary:          PackYak v0.0.2 build of R-package [BiocParallel] version [1.24.1]
+Provides:         R(%{packname})
 BuildRequires:    tex(latex) R-core = %{rversion} r_futile.logger r_snow r_bh
 Requires:         tex(latex) R-core = %{rversion} r_futile.logger r_snow r_bh
 

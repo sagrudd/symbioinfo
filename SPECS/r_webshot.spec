@@ -11,6 +11,7 @@ License:          GPL-2
 URL:              https://cran.r-project.org/web/packages/webshot/index.html
 Group:            Applications/Bioinformatics
 Summary:          PackYak v0.0.4 build of R-package [webshot] version [0.5.2]
+Provides:         R(%{packname})
 BuildRequires:    tex(latex) R-core = %{rversion} r_magrittr r_jsonlite r_callr ImageMagick
 Requires:         tex(latex) R-core = %{rversion} r_magrittr r_jsonlite r_callr ImageMagick
 

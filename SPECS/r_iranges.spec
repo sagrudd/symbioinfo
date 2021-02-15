@@ -11,6 +11,7 @@ License:          Artistic-2.0
 URL:              https://www.bioconductor.org/packages/release/bioc/html/IRanges.html
 Group:            Applications/Bioinformatics
 Summary:          PackYak v0.0.2 build of R-package [IRanges] version [2.24.1]
+Provides:         R(%{packname})
 BuildRequires:    tex(latex) R-core = %{rversion} r_biocgenerics r_s4vectors
 Requires:         tex(latex) R-core = %{rversion} r_biocgenerics r_s4vectors
 

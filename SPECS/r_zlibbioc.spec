@@ -11,6 +11,7 @@ License:          Artistic-2.0 + file LICENSE
 URL:              https://www.bioconductor.org/packages/release/bioc/html/zlibbioc.html
 Group:            Applications/Bioinformatics
 Summary:          PackYak v0.0.2 build of R-package [zlibbioc] version [1.36.0]
+Provides:         R(%{packname})
 BuildRequires:    tex(latex) R-core = %{rversion}
 Requires:         tex(latex) R-core = %{rversion}
 

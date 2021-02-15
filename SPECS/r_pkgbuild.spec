@@ -11,6 +11,7 @@ License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/web/packages/pkgbuild/index.html
 Group:            Applications/Bioinformatics
 Summary:          PackYak v0.0.2 build of R-package [pkgbuild] version [1.2.0]
+Provides:         R(%{packname})
 BuildRequires:    tex(latex) R-core = %{rversion} r_callr r_cli r_crayon r_desc r_prettyunits r_r6 r_rprojroot r_withr
 Requires:         tex(latex) R-core = %{rversion} r_callr r_cli r_crayon r_desc r_prettyunits r_r6 r_rprojroot r_withr
 

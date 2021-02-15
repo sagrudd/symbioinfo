@@ -11,6 +11,7 @@ License:          LGPL (>= 2)
 URL:              https://www.bioconductor.org/packages/release/bioc/html/affyio.html
 Group:            Applications/Bioinformatics
 Summary:          PackYak v0.0.2 build of R-package [affyio] version [1.60.0]
+Provides:         R(%{packname})
 BuildRequires:    tex(latex) R-core = %{rversion} r_zlibbioc
 Requires:         tex(latex) R-core = %{rversion} r_zlibbioc
 

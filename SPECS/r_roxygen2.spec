@@ -11,6 +11,7 @@ License:          GPL-2 | GPL-3 [expanded from: GPL (≥ 2)]
 URL:              https://cran.r-project.org/web/packages/roxygen2/index.html
 Group:            Applications/Bioinformatics
 Summary:          PackYak v0.0.2 build of R-package [roxygen2] version [7.1.1]
+Provides:         R(%{packname})
 BuildRequires:    tex(latex) R-core = %{rversion} r_brew r_commonmark r_desc r_digest r_knitr r_pkgload r_purrr r_r6 r_rcpp r_rlang r_stringi r_stringr r_xml2
 Requires:         tex(latex) R-core = %{rversion} r_brew r_commonmark r_desc r_digest r_knitr r_pkgload r_purrr r_r6 r_rcpp r_rlang r_stringi r_stringr r_xml2
 

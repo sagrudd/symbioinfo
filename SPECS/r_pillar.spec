@@ -11,6 +11,7 @@ License:          GPL-3
 URL:              https://cran.r-project.org/web/packages/pillar/index.html
 Group:            Applications/Bioinformatics
 Summary:          PackYak v0.0.2 build of R-package [pillar] version [1.4.7]
+Provides:         R(%{packname})
 BuildRequires:    tex(latex) R-core = %{rversion} r_cli r_crayon r_ellipsis r_fansi r_lifecycle r_rlang r_utf8 r_vctrs
 Requires:         tex(latex) R-core = %{rversion} r_cli r_crayon r_ellipsis r_fansi r_lifecycle r_rlang r_utf8 r_vctrs
 

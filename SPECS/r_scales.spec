@@ -11,6 +11,7 @@ License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/web/packages/scales/index.html
 Group:            Applications/Bioinformatics
 Summary:          PackYak v0.0.2 build of R-package [scales] version [1.1.1]
+Provides:         R(%{packname})
 BuildRequires:    tex(latex) R-core = %{rversion} r_farver r_labeling r_lifecycle r_munsell r_r6 r_rcolorbrewer r_viridislite
 Requires:         tex(latex) R-core = %{rversion} r_farver r_labeling r_lifecycle r_munsell r_r6 r_rcolorbrewer r_viridislite
 

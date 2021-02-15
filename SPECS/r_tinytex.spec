@@ -11,6 +11,7 @@ License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/web/packages/tinytex/index.html
 Group:            Applications/Bioinformatics
 Summary:          PackYak v0.0.4 build of R-package [tinytex] version [0.29]
+Provides:         R(%{packname})
 BuildRequires:    tex(latex) R-core = %{rversion} r_xfun
 Requires:         tex(latex) R-core = %{rversion} r_xfun
 

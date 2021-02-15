@@ -11,6 +11,7 @@ License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/web/packages/kableExtra/index.html
 Group:            Applications/Bioinformatics
 Summary:          PackYak v0.0.8 build of R package [kableExtra] version [1.3.2]
+Provides:         R(%{packname})
 BuildRequires:    tex(latex) R-core = %{rversion} r_knitr r_magrittr r_stringr r_xml2 r_rvest r_rmarkdown r_scales r_viridislite r_htmltools r_rstudioapi r_glue r_webshot r_digest
 Requires:         tex(latex) R-core = %{rversion} r_knitr r_magrittr r_stringr r_xml2 r_rvest r_rmarkdown r_scales r_viridislite r_htmltools r_rstudioapi r_glue r_webshot r_digest
 

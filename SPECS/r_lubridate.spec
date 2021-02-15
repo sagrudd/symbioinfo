@@ -11,6 +11,7 @@ License:          GPL-2 | GPL-3 [expanded from: GPL (≥ 2)]
 URL:              https://cran.r-project.org/web/packages/lubridate/index.html
 Group:            Applications/Bioinformatics
 Summary:          PackYak v0.0.2 build of R-package [lubridate] version [1.7.9.2]
+Provides:         R(%{packname})
 BuildRequires:    tex(latex) R-core = %{rversion} r_generics r_rcpp
 Requires:         tex(latex) R-core = %{rversion} r_generics r_rcpp
 

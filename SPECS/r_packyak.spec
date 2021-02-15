@@ -10,6 +10,7 @@ License:          MPL-2.0
 URL:              https://github.com/sagrudd/packyak
 Group:            Applications/Bioinformatics
 Summary:          PackYak v0.0.8
+Provides:         R(%{packname})
 BuildRequires:    tex(latex) R-core = %{rversion} r_cli r_stringr r_r6 r_httr r_rvest r_lubridate r_git2r r_yaml r_tibble
 Requires:         tex(latex) R-core = %{rversion} r_cli r_stringr r_r6 r_httr r_rvest r_lubridate r_git2r r_yaml r_tibble
 

@@ -11,6 +11,7 @@ License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/web/packages/webutils/index.html
 Group:            Applications/Bioinformatics
 Summary:          PackYak v0.0.4 build of R-package [webutils] version [1.1]
+Provides:         R(%{packname})
 BuildRequires:    tex(latex) R-core = %{rversion} r_curl r_jsonlite
 Requires:         tex(latex) R-core = %{rversion} r_curl r_jsonlite
 

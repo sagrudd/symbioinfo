@@ -10,8 +10,8 @@ Source0:          https://cran.r-project.org/web/packages/promises/../../../src/
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/web/packages/promises/index.html
 Group:            Applications/Bioinformatics
-Provides:         R(%{packname})
 Summary:          PackYak v0.0.8 build of R package [promises] version [1.2.0.1]
+Provides:         R(%{packname})
 BuildRequires:    tex(latex) R-core = %{rversion} r_r6 r_rcpp r_later r_rlang r_magrittr
 Requires:         tex(latex) R-core = %{rversion} r_r6 r_rcpp r_later r_rlang r_magrittr
 

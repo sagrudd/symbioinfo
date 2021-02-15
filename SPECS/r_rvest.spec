@@ -11,6 +11,7 @@ License:          GPL-3
 URL:              https://cran.r-project.org/web/packages/rvest/index.html
 Group:            Applications/Bioinformatics
 Summary:          PackYak v0.0.2 build of R-package [rvest] version [0.3.6]
+Provides:         R(%{packname})
 BuildRequires:    tex(latex) R-core = %{rversion} r_xml2 r_httr r_magrittr r_selectr
 Requires:         tex(latex) R-core = %{rversion} r_xml2 r_httr r_magrittr r_selectr
 

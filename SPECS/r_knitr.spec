@@ -11,6 +11,7 @@ License:          GPL-2 | GPL-3 [expanded from: GPL]
 URL:              https://cran.r-project.org/web/packages/knitr/index.html
 Group:            Applications/Bioinformatics
 Summary:          PackYak v0.0.5 build of R-package [knitr] version [1.31]
+Provides:         R(%{packname})
 BuildRequires:    tex(latex) R-core = %{rversion} r_evaluate r_highr r_markdown r_stringr r_yaml r_xfun
 Requires:         tex(latex) R-core = %{rversion} r_evaluate r_highr r_markdown r_stringr r_yaml r_xfun
 

@@ -11,6 +11,7 @@ License:          Artistic-2.0
 URL:              https://cran.r-project.org/web/packages/emojifont/index.html
 Group:            Applications/Bioinformatics
 Summary:          PackYak v0.0.2 build of R-package [emojifont] version [0.5.3]
+Provides:         R(%{packname})
 BuildRequires:    tex(latex) R-core = %{rversion} r_ggplot2 r_proto r_showtext r_sysfonts
 Requires:         tex(latex) R-core = %{rversion} r_ggplot2 r_proto r_showtext r_sysfonts
 

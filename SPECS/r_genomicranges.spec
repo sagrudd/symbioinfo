@@ -11,6 +11,7 @@ License:          Artistic-2.0
 URL:              https://www.bioconductor.org/packages/release/bioc/html/GenomicRanges.html
 Group:            Applications/Bioinformatics
 Summary:          PackYak v0.0.2 build of R-package [GenomicRanges] version [1.42.0]
+Provides:         R(%{packname})
 BuildRequires:    tex(latex) R-core = %{rversion} r_biocgenerics r_s4vectors r_iranges r_genomeinfodb r_xvector
 Requires:         tex(latex) R-core = %{rversion} r_biocgenerics r_s4vectors r_iranges r_genomeinfodb r_xvector
 

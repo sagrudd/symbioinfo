@@ -11,6 +11,7 @@ License:          GPL-2 | GPL-3 [expanded from: GPL (≥ 2)]
 URL:              https://cran.r-project.org/web/packages/digest/index.html
 Group:            Applications/Bioinformatics
 Summary:          PackYak v0.0.2 build of R-package [digest] version [0.6.27]
+Provides:         R(%{packname})
 BuildRequires:    tex(latex) R-core = %{rversion}
 Requires:         tex(latex) R-core = %{rversion}
 

@@ -11,7 +11,7 @@ License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/web/packages/gert/index.html
 Group:            Applications/Bioinformatics
 Summary:          PackYak v0.0.8 build of R package [gert] version [1.2.0]
-Provides:        R(gert)
+Provides:         R(%{packname})
 BuildRequires:    tex(latex) R-core = %{rversion} r_askpass r_credentials r_openssl r_rstudioapi r_sys r_zip libgit2
 Requires:         tex(latex) R-core = %{rversion} r_askpass r_credentials r_openssl r_rstudioapi r_sys r_zip libgit2
 

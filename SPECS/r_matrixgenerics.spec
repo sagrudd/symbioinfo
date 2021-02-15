@@ -11,6 +11,7 @@ License:          Artistic-2.0
 URL:              https://www.bioconductor.org/packages/release/bioc/html/MatrixGenerics.html
 Group:            Applications/Bioinformatics
 Summary:          PackYak v0.0.5 build of R-package [MatrixGenerics] version [1.2.1]
+Provides:         R(%{packname})
 BuildRequires:    tex(latex) R-core = %{rversion} r_matrixstats
 Requires:         tex(latex) R-core = %{rversion} r_matrixstats
 

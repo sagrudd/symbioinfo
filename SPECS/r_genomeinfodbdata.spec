@@ -11,6 +11,7 @@ License:          Artistic-2.0
 URL:              https://bioconductor.org/packages/release/data/annotation/html/GenomeInfoDbData.html
 Group:            Applications/Bioinformatics
 Summary:          PackYak v0.0.2 build of R-package [GenomeInfoDbData] version [1.2.4]
+Provides:         R(%{packname})
 BuildRequires:    tex(latex) R-core = %{rversion}
 Requires:         tex(latex) R-core = %{rversion}
 

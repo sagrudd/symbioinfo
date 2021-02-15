@@ -11,6 +11,7 @@ License:          GPL-2 | GPL-3 | file LICENSE [expanded from: GPL (≥ 2) | fil
 URL:              https://cran.r-project.org/web/packages/readr/index.html
 Group:            Applications/Bioinformatics
 Summary:          PackYak v0.0.2 build of R-package [readr] version [1.4.0]
+Provides:         R(%{packname})
 BuildRequires:    tex(latex) R-core = %{rversion} r_cli r_clipr r_crayon r_hms r_rlang r_r6 r_tibble r_lifecycle r_bh r_cpp11
 Requires:         tex(latex) R-core = %{rversion} r_cli r_clipr r_crayon r_hms r_rlang r_r6 r_tibble r_lifecycle r_bh r_cpp11
 

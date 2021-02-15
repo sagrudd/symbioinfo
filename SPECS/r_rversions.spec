@@ -11,6 +11,7 @@ License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/web/packages/rversions/index.html
 Group:            Applications/Bioinformatics
 Summary:          PackYak v0.0.2 build of R-package [rversions] version [2.0.2]
+Provides:         R(%{packname})
 BuildRequires:    tex(latex) R-core = %{rversion} r_curl r_xml2
 Requires:         tex(latex) R-core = %{rversion} r_curl r_xml2
 

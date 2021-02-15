@@ -11,6 +11,7 @@ License:          GPL-3
 URL:              https://cran.r-project.org/web/packages/RPostgres/index.html
 Group:            Applications/Bioinformatics
 Summary:          PackYak v0.0.4 build of R-package [RPostgres] version [1.3.1]
+Provides:         R(%{packname})
 BuildRequires:    tex(latex) R-core = %{rversion} r_bit64 r_blob r_dbi r_hms r_lubridate r_rcpp r_withr r_bh r_plogr
 Requires:         tex(latex) R-core = %{rversion} r_bit64 r_blob r_dbi r_hms r_lubridate r_rcpp r_withr r_bh r_plogr
 

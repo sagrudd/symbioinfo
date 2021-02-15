@@ -13,6 +13,7 @@ License:          LGPL (>= 2)
 URL:              https://www.bioconductor.org/packages/release/bioc/html/Rhtslib.html
 Group:            Applications/Bioinformatics
 Summary:          PackYak v0.0.2 build of R-package [Rhtslib] version [1.22.0]
+Provides:         R(%{packname})
 BuildRequires:    tex(latex) R-core = %{rversion} r_zlibbioc
 Requires:         tex(latex) R-core = %{rversion} r_zlibbioc
 

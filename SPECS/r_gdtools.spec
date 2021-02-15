@@ -11,6 +11,7 @@ License:          GPL-3 | file LICENSE
 URL:              https://cran.r-project.org/web/packages/gdtools/index.html
 Group:            Applications/Bioinformatics
 Summary:          PackYak v0.0.8 build of R package [gdtools] version [0.2.3]
+Provides:         R(%{packname})
 BuildRequires:    tex(latex) R-core = %{rversion} r_rcpp r_systemfonts cairo-devel freetype-devel fontconfig
 Requires:         tex(latex) R-core = %{rversion} r_rcpp r_systemfonts cairo-devel freetype-devel fontconfig
 

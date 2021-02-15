@@ -11,6 +11,7 @@ License:          Artistic-2.0
 URL:              https://www.bioconductor.org/packages/release/bioc/html/ShortRead.html
 Group:            Applications/Bioinformatics
 Summary:          PackYak v0.0.2 build of R-package [ShortRead] version [1.48.0]
+Provides:         R(%{packname})
 BuildRequires:    tex(latex) R-core = %{rversion} r_biocgenerics r_biocparallel r_biostrings r_rsamtools r_genomicalignments r_biobase r_s4vectors r_iranges r_genomeinfodb r_genomicranges r_hwriter r_zlibbioc r_latticeextra r_xvector r_rhtslib
 Requires:         tex(latex) R-core = %{rversion} r_biocgenerics r_biocparallel r_biostrings r_rsamtools r_genomicalignments r_biobase r_s4vectors r_iranges r_genomeinfodb r_genomicranges r_hwriter r_zlibbioc r_latticeextra r_xvector r_rhtslib
 

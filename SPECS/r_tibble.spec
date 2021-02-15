@@ -11,6 +11,7 @@ License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/web/packages/tibble/index.html
 Group:            Applications/Bioinformatics
 Summary:          PackYak v0.0.5 build of R-package [tibble] version [3.0.6]
+Provides:         R(%{packname})
 BuildRequires:    tex(latex) R-core = %{rversion} r_cli r_crayon r_ellipsis r_fansi r_lifecycle r_magrittr r_pillar r_pkgconfig r_rlang r_vctrs
 Requires:         tex(latex) R-core = %{rversion} r_cli r_crayon r_ellipsis r_fansi r_lifecycle r_magrittr r_pillar r_pkgconfig r_rlang r_vctrs
 

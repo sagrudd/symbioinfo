@@ -11,6 +11,7 @@ License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/web/packages/isoband/index.html
 Group:            Applications/Bioinformatics
 Summary:          PackYak v0.0.2 build of R-package [isoband] version [0.2.3]
+Provides:         R(%{packname})
 BuildRequires:    tex(latex) R-core = %{rversion} r_testthat
 Requires:         tex(latex) R-core = %{rversion} r_testthat
 

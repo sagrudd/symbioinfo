@@ -11,6 +11,7 @@ License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/web/packages/ggplot2/index.html
 Group:            Applications/Bioinformatics
 Summary:          PackYak v0.0.2 build of R-package [ggplot2] version [3.3.3]
+Provides:         R(%{packname})
 BuildRequires:    tex(latex) R-core = %{rversion} r_digest r_glue r_gtable r_isoband r_rlang r_scales r_tibble r_withr
 Requires:         tex(latex) R-core = %{rversion} r_digest r_glue r_gtable r_isoband r_rlang r_scales r_tibble r_withr
 

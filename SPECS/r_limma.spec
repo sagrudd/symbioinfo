@@ -11,6 +11,7 @@ License:          GPL (>=2)
 URL:              https://www.bioconductor.org/packages/release/bioc/html/limma.html
 Group:            Applications/Bioinformatics
 Summary:          PackYak v0.0.4 build of R-package [limma] version [3.46.0]
+Provides:         R(%{packname})
 BuildRequires:    tex(latex) R-core = %{rversion}
 Requires:         tex(latex) R-core = %{rversion}
 

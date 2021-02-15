@@ -11,6 +11,7 @@ License:          GPL-2 | GPL-3 [expanded from: GPL (≥ 2)]
 URL:              https://cran.r-project.org/web/packages/devtools/index.html
 Group:            Applications/Bioinformatics
 Summary:          PackYak v0.0.2 build of R-package [devtools] version [2.3.2]
+Provides:         R(%{packname})
 BuildRequires:    tex(latex) R-core = %{rversion} r_usethis r_callr r_cli r_covr r_desc r_dt r_ellipsis r_httr r_jsonlite r_memoise r_pkgbuild r_pkgload r_rcmdcheck r_remotes r_rlang r_roxygen2 r_rstudioapi r_rversions r_sessioninfo r_testthat r_withr
 Requires:         tex(latex) R-core = %{rversion} r_usethis r_callr r_cli r_covr r_desc r_dt r_ellipsis r_httr r_jsonlite r_memoise r_pkgbuild r_pkgload r_rcmdcheck r_remotes r_rlang r_roxygen2 r_rstudioapi r_rversions r_sessioninfo r_testthat r_withr
 

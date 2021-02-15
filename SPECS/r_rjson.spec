@@ -11,6 +11,7 @@ License:          GPL-2
 URL:              https://cran.r-project.org/web/packages/rjson/index.html
 Group:            Applications/Bioinformatics
 Summary:          PackYak v0.0.5 build of R-package [rjson] version [0.2.20]
+Provides:         R(%{packname})
 BuildRequires:    tex(latex) R-core = %{rversion}
 Requires:         tex(latex) R-core = %{rversion}
 

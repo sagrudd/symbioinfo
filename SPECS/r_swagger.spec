@@ -11,6 +11,7 @@ License:          Apache License 2.0 | file LICENSE
 URL:              https://cran.r-project.org/web/packages/swagger/index.html
 Group:            Applications/Bioinformatics
 Summary:          PackYak v0.0.4 build of R-package [swagger] version [3.33.1]
+Provides:         R(%{packname})
 BuildRequires:    tex(latex) R-core = %{rversion}
 Requires:         tex(latex) R-core = %{rversion}
 

@@ -11,6 +11,7 @@ License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/web/packages/waldo/index.html
 Group:            Applications/Bioinformatics
 Summary:          PackYak v0.0.8 build of R package [waldo] version [0.2.4]
+Provides:         R(%{packname})
 BuildRequires:    tex(latex) R-core = %{rversion} r_cli r_diffobj r_fansi r_glue r_rematch2 r_rlang r_tibble
 Requires:         tex(latex) R-core = %{rversion} r_cli r_diffobj r_fansi r_glue r_rematch2 r_rlang r_tibble
 

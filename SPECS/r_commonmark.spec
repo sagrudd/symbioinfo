@@ -11,6 +11,7 @@ License:          BSD_2_clause + file LICENSE
 URL:              https://cran.r-project.org/web/packages/commonmark/index.html
 Group:            Applications/Bioinformatics
 Summary:          PackYak v0.0.2 build of R-package [commonmark] version [1.7]
+Provides:         R(%{packname})
 BuildRequires:    tex(latex) R-core = %{rversion}
 Requires:         tex(latex) R-core = %{rversion}
 

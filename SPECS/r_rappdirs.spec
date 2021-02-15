@@ -11,6 +11,7 @@ License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/web/packages/rappdirs/index.html
 Group:            Applications/Bioinformatics
 Summary:          PackYak v0.0.5 build of R-package [rappdirs] version [0.3.3]
+Provides:         R(%{packname})
 BuildRequires:    tex(latex) R-core = %{rversion}
 Requires:         tex(latex) R-core = %{rversion}
 

@@ -11,6 +11,7 @@ License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/web/packages/crayon/index.html
 Group:            Applications/Bioinformatics
 Summary:          PackYak v0.0.8 build of R package [crayon] version [1.4.1]
+Provides:         R(%{packname})
 BuildRequires:    tex(latex) R-core = %{rversion}
 Requires:         tex(latex) R-core = %{rversion}
 

@@ -11,6 +11,7 @@ License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/web/packages/credentials/index.html
 Group:            Applications/Bioinformatics
 Summary:          PackYak v0.0.2 build of R-package [credentials] version [1.3.0]
+Provides:         R(%{packname})
 BuildRequires:    tex(latex) R-core = %{rversion} r_openssl r_sys r_curl r_jsonlite r_askpass git
 Requires:         tex(latex) R-core = %{rversion} r_openssl r_sys r_curl r_jsonlite r_askpass git
 

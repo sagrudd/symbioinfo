@@ -11,6 +11,7 @@ License:          GPL-2 | GPL-3 [expanded from: GPL (≥ 2)]
 URL:              https://cran.r-project.org/web/packages/withr/index.html
 Group:            Applications/Bioinformatics
 Summary:          PackYak v0.0.5 build of R-package [withr] version [2.4.1]
+Provides:         R(%{packname})
 BuildRequires:    tex(latex) R-core = %{rversion}
 Requires:         tex(latex) R-core = %{rversion}
 

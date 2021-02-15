@@ -11,6 +11,7 @@ License:          Artistic-2.0
 URL:              https://www.bioconductor.org/packages/release/bioc/html/Rhdf5lib.html
 Group:            Applications/Bioinformatics
 Summary:          PackYak v0.0.5 build of R-package [Rhdf5lib] version [1.12.1]
+Provides:         R(%{packname})
 BuildRequires:    tex(latex) R-core = %{rversion}
 Requires:         tex(latex) R-core = %{rversion}
 

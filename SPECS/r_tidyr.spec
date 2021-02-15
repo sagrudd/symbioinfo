@@ -11,6 +11,7 @@ License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/web/packages/tidyr/index.html
 Group:            Applications/Bioinformatics
 Summary:          PackYak v0.0.2 build of R-package [tidyr] version [1.1.2]
+Provides:         R(%{packname})
 BuildRequires:    tex(latex) R-core = %{rversion} r_dplyr r_ellipsis r_glue r_magrittr r_purrr r_rlang r_tibble r_tidyselect r_vctrs r_lifecycle r_cpp11
 Requires:         tex(latex) R-core = %{rversion} r_dplyr r_ellipsis r_glue r_magrittr r_purrr r_rlang r_tibble r_tidyselect r_vctrs r_lifecycle r_cpp11
 

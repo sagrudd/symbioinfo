@@ -11,6 +11,7 @@ License:          LGPL-3
 URL:              https://cran.r-project.org/web/packages/futile.logger/index.html
 Group:            Applications/Bioinformatics
 Summary:          PackYak v0.0.2 build of R-package [futile.logger] version [1.4.3]
+Provides:         R(%{packname})
 BuildRequires:    tex(latex) R-core = %{rversion} r_lambda.r r_futile.options
 Requires:         tex(latex) R-core = %{rversion} r_lambda.r r_futile.options
 

@@ -11,6 +11,7 @@ License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/web/packages/rcmdcheck/index.html
 Group:            Applications/Bioinformatics
 Summary:          PackYak v0.0.2 build of R-package [rcmdcheck] version [1.3.3]
+Provides:         R(%{packname})
 BuildRequires:    tex(latex) R-core = %{rversion} r_callr r_cli r_crayon r_desc r_digest r_pkgbuild r_prettyunits r_r6 r_rprojroot r_sessioninfo r_withr r_xopen
 Requires:         tex(latex) R-core = %{rversion} r_callr r_cli r_crayon r_desc r_digest r_pkgbuild r_prettyunits r_r6 r_rprojroot r_sessioninfo r_withr r_xopen
 

@@ -11,6 +11,7 @@ License:          LGPL-2.1
 URL:              https://cran.r-project.org/web/packages/hwriter/index.html
 Group:            Applications/Bioinformatics
 Summary:          PackYak v0.0.2 build of R-package [hwriter] version [1.3.2]
+Provides:         R(%{packname})
 BuildRequires:    tex(latex) R-core = %{rversion}
 Requires:         tex(latex) R-core = %{rversion}
 

@@ -11,6 +11,7 @@ License:          GPL-3
 URL:              https://cran.r-project.org/web/packages/tidyselect/index.html
 Group:            Applications/Bioinformatics
 Summary:          PackYak v0.0.2 build of R-package [tidyselect] version [1.1.0]
+Provides:         R(%{packname})
 BuildRequires:    tex(latex) R-core = %{rversion} r_ellipsis r_glue r_purrr r_rlang r_vctrs
 Requires:         tex(latex) R-core = %{rversion} r_ellipsis r_glue r_purrr r_rlang r_vctrs
 

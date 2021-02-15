@@ -11,6 +11,7 @@ License:          GPL-2 | GPL-3 [expanded from: GPL (≥ 2)]
 URL:              https://cran.r-project.org/web/packages/latticeExtra/index.html
 Group:            Applications/Bioinformatics
 Summary:          PackYak v0.0.2 build of R-package [latticeExtra] version [0.6-29]
+Provides:         R(%{packname})
 BuildRequires:    tex(latex) R-core = %{rversion} r_png r_jpeg r_rcolorbrewer
 Requires:         tex(latex) R-core = %{rversion} r_png r_jpeg r_rcolorbrewer
 

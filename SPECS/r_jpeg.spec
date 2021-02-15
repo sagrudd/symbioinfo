@@ -11,6 +11,7 @@ License:          GPL-2 | GPL-3
 URL:              https://cran.r-project.org/web/packages/jpeg/index.html
 Group:            Applications/Bioinformatics
 Summary:          PackYak v0.0.2 build of R-package [jpeg] version [0.1-8.1]
+Provides:         R(%{packname})
 BuildRequires:    tex(latex) R-core = %{rversion} libjpeg-turbo
 Requires:         tex(latex) R-core = %{rversion} libjpeg-turbo
 

@@ -11,6 +11,7 @@ License:          GPL-2
 URL:              https://cran.r-project.org/web/packages/git2r/index.html
 Group:            Applications/Bioinformatics
 Summary:          PackYak v0.0.2 build of R-package [git2r] version [0.28.0]
+Provides:         R(%{packname})
 BuildRequires:    tex(latex) R-core = %{rversion}
 Requires:         tex(latex) R-core = %{rversion}
 

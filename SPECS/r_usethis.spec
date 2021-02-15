@@ -11,6 +11,7 @@ License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/web/packages/usethis/index.html
 Group:            Applications/Bioinformatics
 Summary:          PackYak v0.0.8 build of R package [usethis] version [2.0.1]
+Provides:         R(%{packname})
 BuildRequires:    tex(latex) R-core = %{rversion} r_cli r_clipr r_crayon r_curl r_desc r_fs r_gert r_gh r_glue r_jsonlite r_lifecycle r_purrr r_rappdirs r_rlang r_rprojroot r_rstudioapi r_whisker r_withr r_yaml
 Requires:         tex(latex) R-core = %{rversion} r_cli r_clipr r_crayon r_curl r_desc r_fs r_gert r_gh r_glue r_jsonlite r_lifecycle r_purrr r_rappdirs r_rlang r_rprojroot r_rstudioapi r_whisker r_withr r_yaml
 

@@ -11,6 +11,7 @@ License:          GPL-3
 URL:              https://cran.r-project.org/web/packages/covr/index.html
 Group:            Applications/Bioinformatics
 Summary:          PackYak v0.0.2 build of R-package [covr] version [3.5.1]
+Provides:         R(%{packname})
 BuildRequires:    tex(latex) R-core = %{rversion} r_digest r_jsonlite r_rex r_httr r_crayon r_withr r_yaml
 Requires:         tex(latex) R-core = %{rversion} r_digest r_jsonlite r_rex r_httr r_crayon r_withr r_yaml
 

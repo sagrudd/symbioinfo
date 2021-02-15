@@ -11,6 +11,7 @@ License:          GPL-3
 URL:              https://cran.r-project.org/web/packages/rmarkdown/index.html
 Group:            Applications/Bioinformatics
 Summary:          PackYak v0.0.2 build of R-package [rmarkdown] version [2.6]
+Provides:         R(%{packname})
 BuildRequires:    tex(latex) R-core = %{rversion} r_knitr r_yaml r_htmltools r_evaluate r_jsonlite r_tinytex r_xfun r_stringr pandoc
 Requires:         tex(latex) R-core = %{rversion} r_knitr r_yaml r_htmltools r_evaluate r_jsonlite r_tinytex r_xfun r_stringr pandoc
 

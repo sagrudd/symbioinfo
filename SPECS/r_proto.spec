@@ -11,6 +11,7 @@ License:          GPL-2
 URL:              https://cran.r-project.org/web/packages/proto/index.html
 Group:            Applications/Bioinformatics
 Summary:          PackYak v0.0.2 build of R-package [proto] version [1.0.0]
+Provides:         R(%{packname})
 BuildRequires:    tex(latex) R-core = %{rversion}
 Requires:         tex(latex) R-core = %{rversion}
 

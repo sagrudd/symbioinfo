@@ -11,6 +11,7 @@ License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/web/packages/plumber/index.html
 Group:            Applications/Bioinformatics
 Summary:          PackYak v0.0.4 build of R-package [plumber] version [1.0.0]
+Provides:         R(%{packname})
 BuildRequires:    tex(latex) R-core = %{rversion} r_r6 r_stringi r_jsonlite r_webutils r_httpuv r_crayon r_promises r_sodium r_swagger r_magrittr r_mime r_lifecycle
 Requires:         tex(latex) R-core = %{rversion} r_r6 r_stringi r_jsonlite r_webutils r_httpuv r_crayon r_promises r_sodium r_swagger r_magrittr r_mime r_lifecycle
 

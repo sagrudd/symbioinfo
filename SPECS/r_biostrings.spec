@@ -11,6 +11,7 @@ License:          Artistic-2.0
 URL:              https://www.bioconductor.org/packages/release/bioc/html/Biostrings.html
 Group:            Applications/Bioinformatics
 Summary:          PackYak v0.0.2 build of R-package [Biostrings] version [2.58.0]
+Provides:         R(%{packname})
 BuildRequires:    tex(latex) R-core = %{rversion} r_biocgenerics r_s4vectors r_iranges r_xvector r_crayon
 Requires:         tex(latex) R-core = %{rversion} r_biocgenerics r_s4vectors r_iranges r_xvector r_crayon
 

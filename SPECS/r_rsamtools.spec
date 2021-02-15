@@ -11,6 +11,7 @@ License:          Artistic-2.0 | file LICENSE
 URL:              https://www.bioconductor.org/packages/release/bioc/html/Rsamtools.html
 Group:            Applications/Bioinformatics
 Summary:          PackYak v0.0.2 build of R-package [Rsamtools] version [2.6.0]
+Provides:         R(%{packname})
 BuildRequires:    tex(latex) R-core = %{rversion} r_genomeinfodb r_genomicranges r_biostrings r_biocgenerics r_s4vectors r_iranges r_xvector r_zlibbioc r_bitops r_biocparallel r_rhtslib
 Requires:         tex(latex) R-core = %{rversion} r_genomeinfodb r_genomicranges r_biostrings r_biocgenerics r_s4vectors r_iranges r_xvector r_zlibbioc r_bitops r_biocparallel r_rhtslib
 

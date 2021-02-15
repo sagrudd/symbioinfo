@@ -11,6 +11,7 @@ License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/web/packages/keyring/index.html
 Group:            Applications/Bioinformatics
 Summary:          PackYak v0.0.2 build of R-package [keyring] version [1.1.0]
+Provides:         R(%{packname})
 BuildRequires:    tex(latex) R-core = %{rversion} r_assertthat r_getpass r_openssl r_r6 r_sodium r_yaml r_filelock r_rappdirs
 Requires:         tex(latex) R-core = %{rversion} r_assertthat r_getpass r_openssl r_r6 r_sodium r_yaml r_filelock r_rappdirs
 

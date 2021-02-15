@@ -11,6 +11,7 @@ License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/web/packages/dbplyr/index.html
 Group:            Applications/Bioinformatics
 Summary:          PackYak v0.0.8 build of R package [dbplyr] version [2.1.0]
+Provides:         R(%{packname})
 BuildRequires:    tex(latex) R-core = %{rversion} r_assertthat r_dbi r_dplyr r_glue r_lifecycle r_magrittr r_purrr r_r6 r_rlang r_tibble r_tidyselect r_blob r_withr
 Requires:         tex(latex) R-core = %{rversion} r_assertthat r_dbi r_dplyr r_glue r_lifecycle r_magrittr r_purrr r_r6 r_rlang r_tibble r_tidyselect r_blob r_withr
 

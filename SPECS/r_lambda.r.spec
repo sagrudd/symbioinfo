@@ -11,6 +11,7 @@ License:          LGPL-3
 URL:              https://cran.r-project.org/web/packages/lambda.r/index.html
 Group:            Applications/Bioinformatics
 Summary:          PackYak v0.0.2 build of R-package [lambda.r] version [1.2.4]
+Provides:         R(%{packname})
 BuildRequires:    tex(latex) R-core = %{rversion} r_formatr
 Requires:         tex(latex) R-core = %{rversion} r_formatr
 

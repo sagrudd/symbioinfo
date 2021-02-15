@@ -11,6 +11,7 @@ License:          GPL-2 | GPL-3 [expanded from: GPL (≥ 2)]
 URL:              https://cran.r-project.org/web/packages/aws.s3/index.html
 Group:            Applications/Bioinformatics
 Summary:          PackYak v0.0.2 build of R-package [aws.s3] version [0.3.21]
+Provides:         R(%{packname})
 BuildRequires:    tex(latex) R-core = %{rversion} r_curl r_httr r_xml2 r_base64enc r_digest r_aws.signature
 Requires:         tex(latex) R-core = %{rversion} r_curl r_httr r_xml2 r_base64enc r_digest r_aws.signature
 

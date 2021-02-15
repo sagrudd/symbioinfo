@@ -11,6 +11,7 @@ License:          GPL (>=2)
 URL:              https://www.bioconductor.org/packages/release/bioc/html/edgeR.html
 Group:            Applications/Bioinformatics
 Summary:          PackYak v0.0.4 build of R-package [edgeR] version [3.32.1]
+Provides:         R(%{packname})
 BuildRequires:    tex(latex) R-core = %{rversion} r_limma r_locfit r_rcpp
 Requires:         tex(latex) R-core = %{rversion} r_limma r_locfit r_rcpp
 

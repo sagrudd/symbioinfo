@@ -11,6 +11,7 @@ License:          GPL-3 | file LICENSE
 URL:              https://cran.r-project.org/web/packages/ggsci/index.html
 Group:            Applications/Bioinformatics
 Summary:          PackYak v0.0.4 build of R-package [ggsci] version [2.9]
+Provides:         R(%{packname})
 BuildRequires:    tex(latex) R-core = %{rversion} r_scales r_ggplot2
 Requires:         tex(latex) R-core = %{rversion} r_scales r_ggplot2
 

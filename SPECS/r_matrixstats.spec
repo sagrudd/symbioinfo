@@ -11,6 +11,7 @@ License:          Artistic-2.0
 URL:              https://cran.r-project.org/web/packages/matrixStats/index.html
 Group:            Applications/Bioinformatics
 Summary:          PackYak v0.0.5 build of R-package [matrixStats] version [0.58.0]
+Provides:         R(%{packname})
 BuildRequires:    tex(latex) R-core = %{rversion}
 Requires:         tex(latex) R-core = %{rversion}
 

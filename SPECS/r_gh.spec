@@ -11,6 +11,7 @@ License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/web/packages/gh/index.html
 Group:            Applications/Bioinformatics
 Summary:          PackYak v0.0.2 build of R-package [gh] version [1.2.0]
+Provides:         R(%{packname})
 BuildRequires:    tex(latex) R-core = %{rversion} r_cli r_gitcreds r_httr r_ini r_jsonlite
 Requires:         tex(latex) R-core = %{rversion} r_cli r_gitcreds r_httr r_ini r_jsonlite
 

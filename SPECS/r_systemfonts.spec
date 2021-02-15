@@ -11,6 +11,7 @@ License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/web/packages/systemfonts/index.html
 Group:            Applications/Bioinformatics
 Summary:          PackYak v0.0.8 build of R package [systemfonts] version [1.0.1]
+Provides:         R(%{packname})
 BuildRequires:    tex(latex) R-core = %{rversion} r_cpp11
 Requires:         tex(latex) R-core = %{rversion} r_cpp11
 

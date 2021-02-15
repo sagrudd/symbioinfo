@@ -11,6 +11,7 @@ License:          Apache License (≥ 2.0)
 URL:              https://cran.r-project.org/web/packages/showtext/index.html
 Group:            Applications/Bioinformatics
 Summary:          PackYak v0.0.2 build of R-package [showtext] version [0.9-2]
+Provides:         R(%{packname})
 BuildRequires:    tex(latex) R-core = %{rversion} r_sysfonts r_showtextdb zlib-devel libpng-devel freetype
 Requires:         tex(latex) R-core = %{rversion} r_sysfonts r_showtextdb zlib-devel libpng-devel freetype
 

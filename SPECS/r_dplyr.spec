@@ -10,8 +10,8 @@ Source0:          https://cran.r-project.org/web/packages/dplyr/../../../src/con
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/web/packages/dplyr/index.html
 Group:            Applications/Bioinformatics
-Provides:       R(dplyr)
 Summary:          PackYak v0.0.8 build of R package [dplyr] version [1.0.4]
+Provides:         R(%{packname})
 BuildRequires:    tex(latex) R-core = %{rversion} r_ellipsis r_generics r_glue r_lifecycle r_magrittr r_r6 r_rlang r_tibble r_tidyselect r_vctrs
 Requires:         tex(latex) R-core = %{rversion} r_ellipsis r_generics r_glue r_lifecycle r_magrittr r_r6 r_rlang r_tibble r_tidyselect r_vctrs
 
