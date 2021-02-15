@@ -98,6 +98,8 @@ CFLAGS="${CFLAGS:-${RPM_OPT_FLAGS}}" LDFLAGS="${LDFLAGS:-${RPM_LD_FLAGS}}"\
 %install
 CFLAGS="${CFLAGS:-${RPM_OPT_FLAGS}}" LDFLAGS="${LDFLAGS:-${RPM_LD_FLAGS}}"\
   /usr/bin/python%{pyversion} setup.py install --single-version-externally-managed -O1 --root=$RPM_BUILD_ROOT --record=INSTALLED_FILES
+rm -f $RPM_BUILD_ROOT/usr/lib/python3.8/site-packages/scripts/test.sh
+sed -i '/site-packages\/scripts\/test.sh/d' ./INSTALLED_FILES
 
 %check
 
