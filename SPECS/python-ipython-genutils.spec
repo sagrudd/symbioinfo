@@ -32,7 +32,7 @@ Requires:         python3.8
 %description -n python3-bio-%{packname} %_description
 
 %prep
-%autosetup -p1 -n %{packname}-%{version}
+%autosetup -p1 -n ipython_genutils-%{version}
 pathfix.py -pni "/usr/bin/python%{pyversion} -s" .
 
 %build
@@ -41,7 +41,7 @@ CFLAGS="${CFLAGS:-${RPM_OPT_FLAGS}}" LDFLAGS="${LDFLAGS:-${RPM_LD_FLAGS}}"\
 
 %install
 CFLAGS="${CFLAGS:-${RPM_OPT_FLAGS}}" LDFLAGS="${LDFLAGS:-${RPM_LD_FLAGS}}"\
-  /usr/bin/python%{pyversion} setup.py install --single-version-externally-managed -O1 --root=$RPM_BUILD_ROOT --record=INSTALLED_FILES
+  /usr/bin/python%{pyversion} setup.py install -O1 --root=$RPM_BUILD_ROOT --record=INSTALLED_FILES
 
 %check
 
