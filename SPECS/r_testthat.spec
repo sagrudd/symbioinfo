@@ -11,6 +11,7 @@ License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/web/packages/testthat/index.html
 Group:            Applications/Bioinformatics
 Summary:          PackYak v0.0.8 build of R package [testthat] version [3.0.2]
+Provides:         R(%{packname})
 BuildRequires:    tex(latex) R-core = %{rversion} r_brio r_callr r_cli r_crayon r_desc r_digest r_ellipsis r_evaluate r_jsonlite r_lifecycle r_magrittr r_pkgload r_praise r_processx r_ps r_r6 r_rlang r_waldo r_withr
 Requires:         tex(latex) R-core = %{rversion} r_brio r_callr r_cli r_crayon r_desc r_digest r_ellipsis r_evaluate r_jsonlite r_lifecycle r_magrittr r_pkgload r_praise r_processx r_ps r_r6 r_rlang r_waldo r_withr
 

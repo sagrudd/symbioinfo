@@ -1,6 +1,6 @@
 %global packname packyak
 %global rversion  4.0.3
-%global packrel 1
+%global packrel 2
 %global debug_package %{nil}
 
 Name:             r_packyak

@@ -11,8 +11,9 @@ License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/web/packages/gert/index.html
 Group:            Applications/Bioinformatics
 Summary:          PackYak v0.0.8 build of R package [gert] version [1.2.0]
-BuildRequires:    tex(latex) R-core = %{rversion} r_askpass r_credentials r_openssl r_rstudioapi r_zip libgit2
-Requires:         tex(latex) R-core = %{rversion} r_askpass r_credentials r_openssl r_rstudioapi r_zip libgit2
+Provides:        R(gert)
+BuildRequires:    tex(latex) R-core = %{rversion} r_askpass r_credentials r_openssl r_rstudioapi r_sys r_zip libgit2
+Requires:         tex(latex) R-core = %{rversion} r_askpass r_credentials r_openssl r_rstudioapi r_sys r_zip libgit2
 
 %description
 
@@ -42,10 +43,6 @@ rm -fR %{_builddir}/%{packname}*
 %changelog
 * Mon Feb 15 2021 sagrudd <stephen@mnemosyne.co.uk>
 - updated [gert] package version to [1.2.0-1] by PackYak v0.0.8
-* Sun Jan 31 2021 sagrudd <stephen@mnemosyne.co.uk>
-- updated [gert] package version to [1.1.0-1] by PackYak v0.0.5
-* Fri Jan 15 2021 sagrudd <stephen@mnemosyne.co.uk>
-- updated [gert] package version to [1.0.2-1] by PackYak v0.0.2
 - updated to R version [4.0.3]
 * Mon Jan 11 2021 Stephen Rudd <stephen@mnemosyne.co.uk>
 - resurrecting the symbioinfo concept for arm64 usage

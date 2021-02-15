@@ -11,6 +11,7 @@ License:          GPL-2 | GPL-3 [expanded from: GPL]
 URL:              https://cran.r-project.org/web/packages/mime/index.html
 Group:            Applications/Bioinformatics
 Summary:          PackYak v0.0.8 build of R package [mime] version [0.10]
+Provides:       R(mime)
 BuildRequires:    tex(latex) R-core = %{rversion}
 Requires:         tex(latex) R-core = %{rversion}
 
