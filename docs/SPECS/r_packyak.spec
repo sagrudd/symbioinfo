@@ -1,10 +1,10 @@
 %global packname packyak
 %global rversion  4.0.3
-%global packrel 1
+%global packrel 7
 %global debug_package %{nil}
 
 Name:             r_packyak
-Version:          0.0.5
+Version:          0.0.7
 Release:          %{packrel}%{?dist}
 License:          MPL-2.0
 URL:              https://github.com/sagrudd/packyak
