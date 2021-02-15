@@ -1,18 +1,18 @@
-%global packname mime
+%global packname svglite
 %global rversion  4.0.3
 %global packrel 1
 %global debug_package %{nil}
 
-Name:             r_mime
-Version:          0.10
+Name:             r_svglite
+Version:          1.2.3.2
 Release:          %{packrel}%{?dist}
-Source0:          https://cran.r-project.org/web/packages/mime/../../../src/contrib/mime_0.10.tar.gz
-License:          GPL-2 | GPL-3 [expanded from: GPL]
-URL:              https://cran.r-project.org/web/packages/mime/index.html
+Source0:          https://cran.r-project.org/web/packages/svglite/../../../src/contrib/svglite_1.2.3.2.tar.gz
+License:          GPL-2 | GPL-3 [expanded from: GPL (≥ 2)]
+URL:              https://cran.r-project.org/web/packages/svglite/index.html
 Group:            Applications/Bioinformatics
-Summary:          PackYak v0.0.8 build of R package [mime] version [0.10]
-BuildRequires:    tex(latex) R-core = %{rversion}
-Requires:         tex(latex) R-core = %{rversion}
+Summary:          PackYak v0.0.8 build of R package [svglite] version [1.2.3.2]
+BuildRequires:    tex(latex) R-core = %{rversion} r_rcpp r_gdtools r_bh
+Requires:         tex(latex) R-core = %{rversion} r_rcpp r_gdtools r_bh
 
 %description
 
@@ -41,9 +41,7 @@ rm -fR %{_builddir}/%{packname}*
 
 %changelog
 * Mon Feb 15 2021 sagrudd <stephen@mnemosyne.co.uk>
-- updated [mime] package version to [0.10-1] by PackYak v0.0.8
-* Fri Jan 15 2021 sagrudd <stephen@mnemosyne.co.uk>
-- updated [mime] package version to [0.9-1] by PackYak v0.0.2
+- updated [svglite] package version to [1.2.3.2-1] by PackYak v0.0.8
 - updated to R version [4.0.3]
 * Mon Jan 11 2021 Stephen Rudd <stephen@mnemosyne.co.uk>
 - resurrecting the symbioinfo concept for arm64 usage

@@ -4,13 +4,13 @@
 %global debug_package %{nil}
 
 Name:             r_dplyr
-Version:          1.0.3
+Version:          1.0.4
 Release:          %{packrel}%{?dist}
-Source0:          https://cran.r-project.org/web/packages/dplyr/../../../src/contrib/dplyr_1.0.3.tar.gz
+Source0:          https://cran.r-project.org/web/packages/dplyr/../../../src/contrib/dplyr_1.0.4.tar.gz
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/web/packages/dplyr/index.html
 Group:            Applications/Bioinformatics
-Summary:          PackYak v0.0.2 build of R-package [dplyr] version [1.0.3]
+Summary:          PackYak v0.0.8 build of R package [dplyr] version [1.0.4]
 BuildRequires:    tex(latex) R-core = %{rversion} r_ellipsis r_generics r_glue r_lifecycle r_magrittr r_r6 r_rlang r_tibble r_tidyselect r_vctrs
 Requires:         tex(latex) R-core = %{rversion} r_ellipsis r_generics r_glue r_lifecycle r_magrittr r_r6 r_rlang r_tibble r_tidyselect r_vctrs
 
@@ -40,6 +40,8 @@ rm -fR %{_builddir}/%{packname}*
 /usr/lib64/R/library/%{packname}
 
 %changelog
+* Mon Feb 15 2021 sagrudd <stephen@mnemosyne.co.uk>
+- updated [dplyr] package version to [1.0.4-1] by PackYak v0.0.8
 * Sat Jan 16 2021 sagrudd <stephen@mnemosyne.co.uk>
 - updated [dplyr] package version to [1.0.3-1] by PackYak v0.0.2
 - updated to R version [4.0.3]

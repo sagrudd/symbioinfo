@@ -4,13 +4,13 @@
 %global debug_package %{nil}
 
 Name:             r_testthat
-Version:          3.0.1
+Version:          3.0.2
 Release:          %{packrel}%{?dist}
-Source0:          https://cran.r-project.org/web/packages/testthat/../../../src/contrib/testthat_3.0.1.tar.gz
+Source0:          https://cran.r-project.org/web/packages/testthat/../../../src/contrib/testthat_3.0.2.tar.gz
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/web/packages/testthat/index.html
 Group:            Applications/Bioinformatics
-Summary:          PackYak v0.0.2 build of R-package [testthat] version [3.0.1]
+Summary:          PackYak v0.0.8 build of R package [testthat] version [3.0.2]
 BuildRequires:    tex(latex) R-core = %{rversion} r_brio r_callr r_cli r_crayon r_desc r_digest r_ellipsis r_evaluate r_jsonlite r_lifecycle r_magrittr r_pkgload r_praise r_processx r_ps r_r6 r_rlang r_waldo r_withr
 Requires:         tex(latex) R-core = %{rversion} r_brio r_callr r_cli r_crayon r_desc r_digest r_ellipsis r_evaluate r_jsonlite r_lifecycle r_magrittr r_pkgload r_praise r_processx r_ps r_r6 r_rlang r_waldo r_withr
 
@@ -40,6 +40,8 @@ rm -fR %{_builddir}/%{packname}*
 /usr/lib64/R/library/%{packname}
 
 %changelog
+* Mon Feb 15 2021 sagrudd <stephen@mnemosyne.co.uk>
+- updated [testthat] package version to [3.0.2-1] by PackYak v0.0.8
 * Fri Jan 15 2021 sagrudd <stephen@mnemosyne.co.uk>
 - updated [testthat] package version to [3.0.1-1] by PackYak v0.0.2
 - updated to R version [4.0.3]

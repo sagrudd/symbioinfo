@@ -4,13 +4,13 @@
 %global debug_package %{nil}
 
 Name:             r_crayon
-Version:          1.4.0
+Version:          1.4.1
 Release:          %{packrel}%{?dist}
-Source0:          https://cran.r-project.org/web/packages/crayon/../../../src/contrib/crayon_1.4.0.tar.gz
+Source0:          https://cran.r-project.org/web/packages/crayon/../../../src/contrib/crayon_1.4.1.tar.gz
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/web/packages/crayon/index.html
 Group:            Applications/Bioinformatics
-Summary:          PackYak v0.0.5 build of R-package [crayon] version [1.4.0]
+Summary:          PackYak v0.0.8 build of R package [crayon] version [1.4.1]
 BuildRequires:    tex(latex) R-core = %{rversion}
 Requires:         tex(latex) R-core = %{rversion}
 
@@ -40,6 +40,8 @@ rm -fR %{_builddir}/%{packname}*
 /usr/lib64/R/library/%{packname}
 
 %changelog
+* Mon Feb 15 2021 sagrudd <stephen@mnemosyne.co.uk>
+- updated [crayon] package version to [1.4.1-1] by PackYak v0.0.8
 * Sun Jan 31 2021 sagrudd <stephen@mnemosyne.co.uk>
 - updated [crayon] package version to [1.4.0-1] by PackYak v0.0.5
 * Fri Jan 15 2021 sagrudd <stephen@mnemosyne.co.uk>

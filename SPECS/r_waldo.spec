@@ -4,13 +4,13 @@
 %global debug_package %{nil}
 
 Name:             r_waldo
-Version:          0.2.3
+Version:          0.2.4
 Release:          %{packrel}%{?dist}
-Source0:          https://cran.r-project.org/web/packages/waldo/../../../src/contrib/waldo_0.2.3.tar.gz
+Source0:          https://cran.r-project.org/web/packages/waldo/../../../src/contrib/waldo_0.2.4.tar.gz
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/web/packages/waldo/index.html
 Group:            Applications/Bioinformatics
-Summary:          PackYak v0.0.2 build of R-package [waldo] version [0.2.3]
+Summary:          PackYak v0.0.8 build of R package [waldo] version [0.2.4]
 BuildRequires:    tex(latex) R-core = %{rversion} r_cli r_diffobj r_fansi r_glue r_rematch2 r_rlang r_tibble
 Requires:         tex(latex) R-core = %{rversion} r_cli r_diffobj r_fansi r_glue r_rematch2 r_rlang r_tibble
 
@@ -40,6 +40,8 @@ rm -fR %{_builddir}/%{packname}*
 /usr/lib64/R/library/%{packname}
 
 %changelog
+* Mon Feb 15 2021 sagrudd <stephen@mnemosyne.co.uk>
+- updated [waldo] package version to [0.2.4-1] by PackYak v0.0.8
 * Fri Jan 15 2021 sagrudd <stephen@mnemosyne.co.uk>
 - updated [waldo] package version to [0.2.3-1] by PackYak v0.0.2
 - updated to R version [4.0.3]

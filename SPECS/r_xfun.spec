@@ -4,13 +4,13 @@
 %global debug_package %{nil}
 
 Name:             r_xfun
-Version:          0.20
+Version:          0.21
 Release:          %{packrel}%{?dist}
-Source0:          https://cran.r-project.org/web/packages/xfun/../../../src/contrib/xfun_0.20.tar.gz
+Source0:          https://cran.r-project.org/web/packages/xfun/../../../src/contrib/xfun_0.21.tar.gz
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/web/packages/xfun/index.html
 Group:            Applications/Bioinformatics
-Summary:          PackYak v0.0.2 build of R-package [xfun] version [0.20]
+Summary:          PackYak v0.0.8 build of R package [xfun] version [0.21]
 BuildRequires:    tex(latex) R-core = %{rversion}
 Requires:         tex(latex) R-core = %{rversion}
 
@@ -40,6 +40,8 @@ rm -fR %{_builddir}/%{packname}*
 /usr/lib64/R/library/%{packname}
 
 %changelog
+* Mon Feb 15 2021 sagrudd <stephen@mnemosyne.co.uk>
+- updated [xfun] package version to [0.21-1] by PackYak v0.0.8
 * Fri Jan 15 2021 sagrudd <stephen@mnemosyne.co.uk>
 - updated [xfun] package version to [0.20-1] by PackYak v0.0.2
 - updated to R version [4.0.3]

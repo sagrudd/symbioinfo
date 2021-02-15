@@ -1,18 +1,18 @@
-%global packname mime
+%global packname gdtools
 %global rversion  4.0.3
 %global packrel 1
 %global debug_package %{nil}
 
-Name:             r_mime
-Version:          0.10
+Name:             r_gdtools
+Version:          0.2.3
 Release:          %{packrel}%{?dist}
-Source0:          https://cran.r-project.org/web/packages/mime/../../../src/contrib/mime_0.10.tar.gz
-License:          GPL-2 | GPL-3 [expanded from: GPL]
-URL:              https://cran.r-project.org/web/packages/mime/index.html
+Source0:          https://cran.r-project.org/web/packages/gdtools/../../../src/contrib/gdtools_0.2.3.tar.gz
+License:          GPL-3 | file LICENSE
+URL:              https://cran.r-project.org/web/packages/gdtools/index.html
 Group:            Applications/Bioinformatics
-Summary:          PackYak v0.0.8 build of R package [mime] version [0.10]
-BuildRequires:    tex(latex) R-core = %{rversion}
-Requires:         tex(latex) R-core = %{rversion}
+Summary:          PackYak v0.0.8 build of R package [gdtools] version [0.2.3]
+BuildRequires:    tex(latex) R-core = %{rversion} r_rcpp r_systemfonts cairo-devel freetype-devel fontconfig
+Requires:         tex(latex) R-core = %{rversion} r_rcpp r_systemfonts cairo-devel freetype-devel fontconfig
 
 %description
 
@@ -41,9 +41,7 @@ rm -fR %{_builddir}/%{packname}*
 
 %changelog
 * Mon Feb 15 2021 sagrudd <stephen@mnemosyne.co.uk>
-- updated [mime] package version to [0.10-1] by PackYak v0.0.8
-* Fri Jan 15 2021 sagrudd <stephen@mnemosyne.co.uk>
-- updated [mime] package version to [0.9-1] by PackYak v0.0.2
+- updated [gdtools] package version to [0.2.3-1] by PackYak v0.0.8
 - updated to R version [4.0.3]
 * Mon Jan 11 2021 Stephen Rudd <stephen@mnemosyne.co.uk>
 - resurrecting the symbioinfo concept for arm64 usage

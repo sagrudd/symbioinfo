@@ -4,13 +4,13 @@
 %global debug_package %{nil}
 
 Name:             r_dbplyr
-Version:          2.0.0
+Version:          2.1.0
 Release:          %{packrel}%{?dist}
-Source0:          https://cran.r-project.org/web/packages/dbplyr/../../../src/contrib/dbplyr_2.0.0.tar.gz
+Source0:          https://cran.r-project.org/web/packages/dbplyr/../../../src/contrib/dbplyr_2.1.0.tar.gz
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/web/packages/dbplyr/index.html
 Group:            Applications/Bioinformatics
-Summary:          PackYak v0.0.2 build of R-package [dbplyr] version [2.0.0]
+Summary:          PackYak v0.0.8 build of R package [dbplyr] version [2.1.0]
 BuildRequires:    tex(latex) R-core = %{rversion} r_assertthat r_dbi r_dplyr r_glue r_lifecycle r_magrittr r_purrr r_r6 r_rlang r_tibble r_tidyselect r_blob r_withr
 Requires:         tex(latex) R-core = %{rversion} r_assertthat r_dbi r_dplyr r_glue r_lifecycle r_magrittr r_purrr r_r6 r_rlang r_tibble r_tidyselect r_blob r_withr
 
@@ -40,6 +40,8 @@ rm -fR %{_builddir}/%{packname}*
 /usr/lib64/R/library/%{packname}
 
 %changelog
+* Mon Feb 15 2021 sagrudd <stephen@mnemosyne.co.uk>
+- updated [dbplyr] package version to [2.1.0-1] by PackYak v0.0.8
 * Sat Jan 16 2021 sagrudd <stephen@mnemosyne.co.uk>
 - updated [dbplyr] package version to [2.0.0-1] by PackYak v0.0.2
 - updated to R version [4.0.3]

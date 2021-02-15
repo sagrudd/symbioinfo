@@ -4,13 +4,13 @@
 %global debug_package %{nil}
 
 Name:             r_promises
-Version:          1.1.1
+Version:          1.2.0.1
 Release:          %{packrel}%{?dist}
-Source0:          https://cran.r-project.org/web/packages/promises/../../../src/contrib/promises_1.1.1.tar.gz
+Source0:          https://cran.r-project.org/web/packages/promises/../../../src/contrib/promises_1.2.0.1.tar.gz
 License:          MIT + file LICENSE
 URL:              https://cran.r-project.org/web/packages/promises/index.html
 Group:            Applications/Bioinformatics
-Summary:          PackYak v0.0.2 build of R-package [promises] version [1.1.1]
+Summary:          PackYak v0.0.8 build of R package [promises] version [1.2.0.1]
 BuildRequires:    tex(latex) R-core = %{rversion} r_r6 r_rcpp r_later r_rlang r_magrittr
 Requires:         tex(latex) R-core = %{rversion} r_r6 r_rcpp r_later r_rlang r_magrittr
 
@@ -40,6 +40,8 @@ rm -fR %{_builddir}/%{packname}*
 /usr/lib64/R/library/%{packname}
 
 %changelog
+* Mon Feb 15 2021 sagrudd <stephen@mnemosyne.co.uk>
+- updated [promises] package version to [1.2.0.1-1] by PackYak v0.0.8
 * Fri Jan 15 2021 sagrudd <stephen@mnemosyne.co.uk>
 - updated [promises] package version to [1.1.1-1] by PackYak v0.0.2
 - updated to R version [4.0.3]
