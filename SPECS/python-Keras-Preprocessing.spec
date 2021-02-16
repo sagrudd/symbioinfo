@@ -1,6 +1,6 @@
 %global packname Keras-Preprocessing
 %global pyversion 3.8
-%global packrel 1
+%global packrel 2
 %global debug_package %{nil}
 %global _python_bytecompile_errors_terminate_build 0
 %define __brp_python_bytecompile %{nil}
@@ -26,6 +26,7 @@ yet been implemented - this is a TODO
 
 Summary:        %{summary}
 Provides:         python3.8dist(Keras-Preprocessing)
+Provides:         python3.8dist(keras-preprocessing)
 BuildRequires:    python3.8
 BuildRequires:    python3-bio-six
 BuildRequires:    python3-bio-numpy
