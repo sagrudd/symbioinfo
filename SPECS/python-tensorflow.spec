@@ -5,10 +5,13 @@
 %global _python_bytecompile_errors_terminate_build 0
 %define __brp_python_bytecompile %{nil}
 
+%undefine __brp_mangle_shebangs
+
 Name:             python-tensorflow
 Version:          2.4.1
 Release:          %{packrel}%{?dist}
-Source0:          https://github.com/tensorflow/tensorflow/archive/v2.4.1.tar.gz
+Source0:          tensorflow-2.5.0-cp38-cp38-linux_aarch64.whl
+Source1:          tensorflow-2.5.0-cp38-cp38-linux_x86_64.whl
 License:          Apache Software License (Apache 2.0)
 URL:              https://pypi.org/project/tensorflow/
 Group:            Applications/Bioinformatics
@@ -102,16 +105,23 @@ Requires:         python3-bio-absl-py
 %description -n python3-bio-%{packname} %_description
 
 %prep
-%autosetup -p1 -n %{packname}-%{version}
-pathfix.py -pni "/usr/bin/python%{pyversion} -s" .
 
 %build
-CFLAGS="${CFLAGS:-${RPM_OPT_FLAGS}}" LDFLAGS="${LDFLAGS:-${RPM_LD_FLAGS}}"\
-  /usr/bin/python%{pyversion} setup.py  build --executable="/usr/bin/python%{pyversion} -s"
 
 %install
-CFLAGS="${CFLAGS:-${RPM_OPT_FLAGS}}" LDFLAGS="${LDFLAGS:-${RPM_LD_FLAGS}}"\
-  /usr/bin/python%{pyversion} setup.py install --single-version-externally-managed -O1 --root=$RPM_BUILD_ROOT --record=INSTALLED_FILES
+
+%ifarch aarch64
+
+python3.8 -m pip install -I %{SOURCE0} --root %{buildroot} --no-deps --no-index --no-warn-script-location
+rm -rfv %{buildroot}/usr/bin/__pycache__
+
+%else
+
+python3.8 -m pip install -I %{SOURCE1} --root %{buildroot} --no-deps --no-index --no-warn-script-location
+rm -rfv %{buildroot}/usr/bin/__pycache__
+
+%endif
+
 
 %check
 
@@ -119,10 +129,14 @@ CFLAGS="${CFLAGS:-${RPM_OPT_FLAGS}}" LDFLAGS="${LDFLAGS:-${RPM_LD_FLAGS}}"\
 rm -rf $RPM_BUILD_ROOT
 rm -fR %{_builddir}/%{packname}*
 
-%files -n  python3-bio-tensorflow -f INSTALLED_FILES
+%files -n  python3-bio-tensorflow
+/usr/lib64/python3.8/site-packages/tensorflow*
+/usr/bin/*
 %defattr(-,root,root)
 
 %changelog
+* Tue Feb 16 2021 sagrudd <stephen@mnemosyne.co.uk>
+- actually have a bespoke build of tensorflow wheel on Raspberrypi ...
 * Sat Feb 13 2021 sagrudd <stephen@mnemosyne.co.uk>
 - first build of [tensorflow] version [2.4.1] by PackYak v0.0.7
 * Fri Feb 12 2021 sagrudd <stephen@mnemosyne.co.uk>
