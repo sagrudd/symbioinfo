@@ -6,14 +6,16 @@
 %define __brp_python_bytecompile %{nil}
 %define __brp_mangle_shebangs %{nil}
 
+%global specfile_lock 1
+
 Name:             python-biopython
-Version:          1.78
+Version:          1.77
 Release:          %{packrel}%{?dist}
-Source0:          https://files.pythonhosted.org/packages/89/c5/7fe326081276f74a4073f6d6b13cfa7a04ba322a3ff1d84027f4773980b8/biopython-1.78.tar.gz
+Source0:          https://files.pythonhosted.org/packages/3d/2f/d9df24de05d651c5e686ee8fea3afe3985c03ef9ca02f4cc1e7ea10aa31e/biopython-1.77.tar.gz
 License:          Freely Distributable
 URL:              https://pypi.org/project/biopython/
 Group:            Applications/Bioinformatics
-Summary:          PackYak automated build of package = biopython (1.78)
+Summary:          PackYak automated build of package = biopython (1.77)
 
 %global _description %{expand:
 This workflow has been prepared by the PackYak and description parsing has not
@@ -55,6 +57,8 @@ rm -fR %{_builddir}/%{packname}*
 %defattr(-,root,root)
 
 %changelog
+* Tue Feb 16 2021 sagrudd <stephen@mnemosyne.co.uk>
+- downgrade of biopython to 1.77 as required by Medaka
 * Fri Feb 12 2021 sagrudd <stephen@mnemosyne.co.uk>
 - first build of [biopython] version [1.78] by PackYak v0.0.7
 - rework of the python setup install to be less dependent on manual intervention
