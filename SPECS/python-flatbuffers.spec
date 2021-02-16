@@ -8,7 +8,7 @@
 Name:             python-flatbuffers
 Version:          1.12
 Release:          %{packrel}%{?dist}
-Source0:          https://files.pythonhosted.org/packages/4d/c4/7b995ab9bf0c7eaf10c386d29a03408dfcf72648df4102b1f18896c3aeea/flatbuffers-1.12.tar.gz
+Source0:          https://files.pythonhosted.org/packages/eb/26/712e578c5f14e26ae3314c39a1bdc4eb2ec2f4ddc89b708cf8e0a0d20423/flatbuffers-1.12-py2.py3-none-any.whl
 License:          Apache Software License (Apache 2.0)
 URL:              https://pypi.org/project/flatbuffers/
 Group:            Applications/Bioinformatics
@@ -32,16 +32,12 @@ Requires:         python3.8
 %description -n python3-bio-%{packname} %_description
 
 %prep
-%autosetup -p1 -n %{packname}-%{version}
-pathfix.py -pni "/usr/bin/python%{pyversion} -s" .
 
 %build
-CFLAGS="${CFLAGS:-${RPM_OPT_FLAGS}}" LDFLAGS="${LDFLAGS:-${RPM_LD_FLAGS}}"\
-  /usr/bin/python%{pyversion} setup.py  build --executable="/usr/bin/python%{pyversion} -s"
 
 %install
-CFLAGS="${CFLAGS:-${RPM_OPT_FLAGS}}" LDFLAGS="${LDFLAGS:-${RPM_LD_FLAGS}}"\
-  /usr/bin/python%{pyversion} setup.py install --single-version-externally-managed -O1 --root=$RPM_BUILD_ROOT --record=INSTALLED_FILES
+python3.8 -m pip install -I %{SOURCE0} --root %{buildroot} --no-deps --no-index --no-warn-script-location
+rm -rfv %{buildroot}/usr/bin/__pycache__
 
 %check
 
@@ -49,7 +45,8 @@ CFLAGS="${CFLAGS:-${RPM_OPT_FLAGS}}" LDFLAGS="${LDFLAGS:-${RPM_LD_FLAGS}}"\
 rm -rf $RPM_BUILD_ROOT
 rm -fR %{_builddir}/%{packname}*
 
-%files -n  python3-bio-flatbuffers -f INSTALLED_FILES
+%files -n  python3-bio-flatbuffers
+/usr/lib/python3.8/site-packages/flatbuffers*
 %defattr(-,root,root)
 
 %changelog

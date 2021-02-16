@@ -6,13 +6,13 @@
 %define __brp_python_bytecompile %{nil}
 
 Name:             python-grpcio
-Version:          1.35.0
+Version:          1.34.0
 Release:          %{packrel}%{?dist}
-Source0:          https://files.pythonhosted.org/packages/20/4b/0b810309628e354f53b3c90af063f268d74e49902a41196db27f1fb52f06/grpcio-1.35.0.tar.gz
+Source0:          https://files.pythonhosted.org/packages/35/98/74a430566fdd9d4cc0386322e55306c8928a95da95b1da6fba08641526b5/grpcio-1.34.0.tar.gz
 License:          Apache Software License (Apache License 2.0)
 URL:              https://pypi.org/project/grpcio/
 Group:            Applications/Bioinformatics
-Summary:          PackYak automated build of package = grpcio (1.35.0)
+Summary:          PackYak automated build of package = grpcio (1.34.0)
 
 %global _description %{expand:
 This workflow has been prepared by the PackYak and description parsing has not
@@ -44,7 +44,7 @@ CFLAGS="${CFLAGS:-${RPM_OPT_FLAGS}}" LDFLAGS="${LDFLAGS:-${RPM_LD_FLAGS}}"\
 %install
 CFLAGS="${CFLAGS:-${RPM_OPT_FLAGS}}" LDFLAGS="${LDFLAGS:-${RPM_LD_FLAGS}}"\
   /usr/bin/python%{pyversion} setup.py install --single-version-externally-managed -O1 --root=$RPM_BUILD_ROOT --record=INSTALLED_FILES
-sed -i '/\/o-1.35.0/d' ./INSTALLED_FILES
+sed -i '/\/o-1.34.0/d' ./INSTALLED_FILES
 
 %check
 
@@ -57,6 +57,8 @@ rm -fR %{_builddir}/%{packname}*
 %defattr(-,root,root)
 
 %changelog
+* Tue Feb 16 2021 sagrudd <stephen@mnemosyne.co.uk>
+- downgrade to 1.34.0 for tensorflow
 * Sat Feb 13 2021 sagrudd <stephen@mnemosyne.co.uk>
 - first build of [grpcio] version [1.35.0] by PackYak v0.0.7
 * Fri Feb 12 2021 sagrudd <stephen@mnemosyne.co.uk>

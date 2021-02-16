@@ -5,14 +5,17 @@
 %global _python_bytecompile_errors_terminate_build 0
 %define __brp_python_bytecompile %{nil}
 
+%global specfile_lock 1
+
+
 Name:             python-numpy
-Version:          1.20.1
+Version:          1.19.2
 Release:          %{packrel}%{?dist}
-Source0:          https://files.pythonhosted.org/packages/d2/48/f445be426ccd9b2fb64155ac6730c7212358882e589cd3717477d739d9ff/numpy-1.20.1.zip
+Source0:          https://files.pythonhosted.org/packages/bf/e8/15aea783ea72e2d4e51e3ec365e8dc4a1a32c9e5eb3a6d695b0d58e67cdd/numpy-1.19.2.zip
 License:          BSD License (BSD)
 URL:              https://pypi.org/project/numpy/
 Group:            Applications/Bioinformatics
-Summary:          PackYak automated build of package = numpy (1.20.1)
+Summary:          PackYak automated build of package = numpy (1.19.2)
 
 %global _description %{expand:
 This workflow has been prepared by the PackYak and description parsing has not
@@ -53,6 +56,8 @@ rm -fR %{_builddir}/%{packname}*
 %defattr(-,root,root)
 
 %changelog
+* Tue Feb 16 2021 sagrudd <stephen@mnemosyne.co.uk>
+- downgrade to 1.19.2 for tensorflow
 * Fri Feb 12 2021 sagrudd <stephen@mnemosyne.co.uk>
 - first build of [numpy] version [1.20.1] by PackYak v0.0.7
 - rework of the python setup install to be less dependent on manual intervention

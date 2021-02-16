@@ -12,7 +12,7 @@ Source0:          https://files.pythonhosted.org/packages/22/4e/772004168e23d2ac
 License:          Apache Software License (ASL 2)
 URL:              https://pypi.org/project/rsa/
 Group:            Applications/Bioinformatics
-Summary:          PackYak automated build of package = rsa (4.7)
+Summary:          PackYak automated rebuild of package = rsa (4.7.1)
 
 %global _description %{expand:
 This workflow has been prepared by the PackYak and description parsing has not
