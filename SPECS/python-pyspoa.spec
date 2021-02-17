@@ -30,23 +30,23 @@ Requires:         python3.8
 %description -n python3-bio-%{packname} %_description
 
 %prep
-rm -fR pyspoa-0.0.4
-git clone --recursive https://github.com/nanoporetech/pyspoa.git pyspoa-0.0.5
-cd pyspoa-0.0.5
+rm -fR %{packname}-%{version}
+git clone --recursive https://github.com/nanoporetech/pyspoa.git %{packname}-%{version}
+cd %{packname}-%{version}
 pathfix.py -pni "/usr/bin/python%{pyversion} -s" .
 
 %build
-cd pyspoa-0.0.5
+cd %{packname}-%{version}
 
 mkdir -p src/build
-cd src/build && cmake -D spoa_optimize_for_portability=ON -DCMAKE_BUILD_TYPE=Release -D CMAKE_CXX_FLAGS="-I ../vendor/cereal/include/ -fPIC" .. && make
+cd src/build && cmake -D spoa_optimize_for_portability=OFF -DCMAKE_BUILD_TYPE=Release -D CMAKE_CXX_FLAGS="-I ../vendor/cereal/include/ -fPIC" .. && make
 cd ../..
 
 CFLAGS="${CFLAGS:-${RPM_OPT_FLAGS}}" LDFLAGS="${LDFLAGS:-${RPM_LD_FLAGS}}"\
   /usr/bin/python%{pyversion} setup.py build
 
 %install
-cd pyspoa-0.0.5
+cd %{packname}-%{version}
 CFLAGS="${CFLAGS:-${RPM_OPT_FLAGS}}" LDFLAGS="${LDFLAGS:-${RPM_LD_FLAGS}}"\
   /usr/bin/python%{pyversion} setup.py  install -O1 --root %{buildroot}
 if ( [ -d %{buildroot}%{_bindir} ] ); then

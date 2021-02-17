@@ -40,12 +40,16 @@ Requires:         python3-bio-numpy
 pathfix.py -pni "/usr/bin/python%{pyversion} -s" .
 
 %build
+
+
+sed -i -E "s/1.17.5/1.19.2/g" setup.py
+
 CFLAGS="${CFLAGS:-${RPM_OPT_FLAGS}}" LDFLAGS="${LDFLAGS:-${RPM_LD_FLAGS}}"\
   /usr/bin/python%{pyversion} setup.py  build --executable="/usr/bin/python%{pyversion} -s"
 
 %install
 CFLAGS="${CFLAGS:-${RPM_OPT_FLAGS}}" LDFLAGS="${LDFLAGS:-${RPM_LD_FLAGS}}"\
-  /usr/bin/python%{pyversion} setup.py install --single-version-externally-managed -O1 --root=$RPM_BUILD_ROOT --record=INSTALLED_FILES
+  /usr/bin/python%{pyversion} setup.py install -O1 --root=$RPM_BUILD_ROOT --record=INSTALLED_FILES
 
 %check
 

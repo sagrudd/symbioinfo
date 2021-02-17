@@ -25,6 +25,8 @@ yet been implemented - this is a TODO
 %{?python_provide:%python_provide python3-bio-%{packname}}
 
 Summary:        %{summary}
+Provides:         libc.so.6(GLIBC_2.2.5)(64bit)
+Provides:         libc.so.6(GLIBC_2.4)(64bit)
 Provides:         python3.8dist(ont-fast5-api)
 BuildRequires:    python3.8
 BuildRequires:    python3-bio-pyparsing

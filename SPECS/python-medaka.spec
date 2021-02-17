@@ -153,6 +153,8 @@ pathfix.py -pni "/usr/bin/python%{pyversion} -s" .
 sed -i -E 's/tensorflow==2.2.0/tensorflow>=2.2.0/g' requirements.txt
 sed -i -E 's/biopython>=1.73,<1.77.*/biopython>=1.73/g' requirements.txt
 sed -i -E 's/h5py<3.0.0/h5py/g' requirements.txt
+sed -i -E 's/.-msse3.,//g' build.py
+sed -i -E 's/-msse3 //g' Makefile
 
 CFLAGS="${CFLAGS:-${RPM_OPT_FLAGS}}" LDFLAGS="${LDFLAGS:-${RPM_LD_FLAGS}}"\
   /usr/bin/python%{pyversion} setup.py  build --executable="/usr/bin/python%{pyversion} -s"

@@ -45,7 +45,7 @@ CFLAGS="${CFLAGS:-${RPM_OPT_FLAGS}}" LDFLAGS="${LDFLAGS:-${RPM_LD_FLAGS}}"\
 CFLAGS="${CFLAGS:-${RPM_OPT_FLAGS}}" LDFLAGS="${LDFLAGS:-${RPM_LD_FLAGS}}"\
   /usr/bin/python%{pyversion} setup.py install --single-version-externally-managed -O1 --root=$RPM_BUILD_ROOT --record=INSTALLED_FILES
 sed -i '/\/o-1.34.0/d' ./INSTALLED_FILES
-
+sed -i '/\/-1.34.0/d' ./INSTALLED_FILES
 %check
 
 %clean
@@ -53,7 +53,7 @@ rm -rf $RPM_BUILD_ROOT
 rm -fR %{_builddir}/%{packname}*
 
 %files -n  python3-bio-grpcio -f INSTALLED_FILES
-/usr/lib64/python3.8/site-packages/grpc/_cython/cygrpc.cpython-38-x86_64-linux-gnu.so
+/usr/lib64/python3.8/site-packages/grpc/_cython/cygrpc.cpython-38-*
 %defattr(-,root,root)
 
 %changelog
