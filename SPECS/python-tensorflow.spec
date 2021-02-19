@@ -10,8 +10,8 @@
 Name:             python-tensorflow
 Version:          2.4.1
 Release:          %{packrel}%{?dist}
-Source0:          tensorflow-2.5.0-cp38-cp38-linux_aarch64.whl
-Source1:          tensorflow-2.5.0-cp38-cp38-linux_x86_64.whl
+Source0:          tensorflow-2.4.1-cp38-cp38-linux_aarch64.whl
+Source1:          tensorflow-2.4.1-cp38-cp38-linux_x86_64.whl
 License:          Apache Software License (Apache 2.0)
 URL:              https://pypi.org/project/tensorflow/
 Group:            Applications/Bioinformatics

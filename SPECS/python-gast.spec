@@ -6,9 +6,9 @@
 %define __brp_python_bytecompile %{nil}
 
 Name:             python-gast
-Version:          0.4.0
+Version:          0.3.3
 Release:          %{packrel}%{?dist}
-Source0:          https://files.pythonhosted.org/packages/83/4a/07c7e59cef23fb147454663c3271c21da68ba2ab141427c20548ae5a8a4d/gast-0.4.0.tar.gz
+Source0:          https://files.pythonhosted.org/packages/12/59/eaa15ab9710a20e22225efd042cd2d6a0b559a0656d5baba9641a2a4a921/gast-0.3.3.tar.gz
 License:          BSD License (BSD 3-Clause)
 URL:              https://pypi.org/project/gast/
 Group:            Applications/Bioinformatics
@@ -53,6 +53,8 @@ rm -fR %{_builddir}/%{packname}*
 %defattr(-,root,root)
 
 %changelog
+* Fri Feb 19 2021 sagrudd <stephen@mnemosyne.co.uk>
+- downgrade to v0.3.3 
 * Sat Feb 13 2021 sagrudd <stephen@mnemosyne.co.uk>
 - first build of [gast] version [0.4.0] by PackYak v0.0.7
 * Fri Feb 12 2021 sagrudd <stephen@mnemosyne.co.uk>

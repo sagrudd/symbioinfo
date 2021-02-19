@@ -6,9 +6,9 @@
 %define __brp_python_bytecompile %{nil}
 
 Name:             python-grpcio
-Version:          1.34.0
+Version:          1.32.0
 Release:          %{packrel}%{?dist}
-Source0:          https://files.pythonhosted.org/packages/35/98/74a430566fdd9d4cc0386322e55306c8928a95da95b1da6fba08641526b5/grpcio-1.34.0.tar.gz
+Source0:          https://files.pythonhosted.org/packages/0e/5f/eeb402746a65839acdec78b7e757635f5e446138cc1d68589dfa32cba593/grpcio-1.32.0.tar.gz
 License:          Apache Software License (Apache License 2.0)
 URL:              https://pypi.org/project/grpcio/
 Group:            Applications/Bioinformatics
@@ -44,8 +44,8 @@ CFLAGS="${CFLAGS:-${RPM_OPT_FLAGS}}" LDFLAGS="${LDFLAGS:-${RPM_LD_FLAGS}}"\
 %install
 CFLAGS="${CFLAGS:-${RPM_OPT_FLAGS}}" LDFLAGS="${LDFLAGS:-${RPM_LD_FLAGS}}"\
   /usr/bin/python%{pyversion} setup.py install --single-version-externally-managed -O1 --root=$RPM_BUILD_ROOT --record=INSTALLED_FILES
-sed -i '/\/o-1.34.0/d' ./INSTALLED_FILES
-sed -i '/\/-1.34.0/d' ./INSTALLED_FILES
+sed -i '/\/o-1.32.0/d' ./INSTALLED_FILES
+sed -i '/\/-1.32.0/d' ./INSTALLED_FILES
 %check
 
 %clean
@@ -57,6 +57,8 @@ rm -fR %{_builddir}/%{packname}*
 %defattr(-,root,root)
 
 %changelog
+* Fri Feb 19 2021 sagrudd <stephen@mnemosyne.co.uk>
+- downgrade to 1.32.0 as required by Tensorflow 2.4.1
 * Tue Feb 16 2021 sagrudd <stephen@mnemosyne.co.uk>
 - downgrade to 1.34.0 for tensorflow
 * Sat Feb 13 2021 sagrudd <stephen@mnemosyne.co.uk>

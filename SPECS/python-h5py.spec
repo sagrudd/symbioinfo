@@ -6,9 +6,9 @@
 %define __brp_python_bytecompile %{nil}
 
 Name:             python-h5py
-Version:          3.1.0
+Version:          2.10.0
 Release:          %{packrel}%{?dist}
-Source0:          https://files.pythonhosted.org/packages/a7/81/20d5d994c91ed8347efda90d32c396ea28254fd8eb9e071e28ee5700ffd5/h5py-3.1.0.tar.gz
+Source0:          https://files.pythonhosted.org/packages/5f/97/a58afbcf40e8abecededd9512978b4e4915374e5b80049af082f49cebe9a/h5py-2.10.0.tar.gz
 License:          BSD License (BSD)
 URL:              https://pypi.org/project/h5py/
 Group:            Applications/Bioinformatics
@@ -61,6 +61,8 @@ rm -fR %{_builddir}/%{packname}*
 %defattr(-,root,root)
 
 %changelog
+* Fri Feb 19 2021 sagrudd <stephen@mnemosyne.co.uk>
+- downgrade to version 2.10.0
 * Sat Feb 13 2021 sagrudd <stephen@mnemosyne.co.uk>
 - first build of [h5py] version [3.1.0] by PackYak v0.0.7
 * Fri Feb 12 2021 sagrudd <stephen@mnemosyne.co.uk>
