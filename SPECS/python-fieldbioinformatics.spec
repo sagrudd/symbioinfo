@@ -6,13 +6,12 @@
 %define __brp_python_bytecompile %{nil}
 
 Name:             python-fieldbioinformatics
-Version:          1.2.1
+Version:          1.3.0dev
 Release:          %{packrel}%{?dist}
-Source0:          https://github.com/artic-network/fieldbioinformatics/archive/1.2.1.tar.gz
 License:          MIT
 URL:              https://github.com/artic-network/fieldbioinformatics
 Group:            Applications/Bioinformatics
-Summary:          PackYak automated build of package = medaka (1.2.3)
+Summary:          ARTIC network's FieldBioinformatics
 
 %global _description %{expand:
 artic is a pipeline and set of accompanying tools for working with viral nanopore sequencing data, generated from tiling amplicon schemes.
@@ -39,21 +38,29 @@ Summary:        %{summary}
 Provides:         python3.8dist(fieldbioinformatics)
 BuildRequires:    python3.8
 BuildRequires:    python3-bio-medaka
+Requires:         minimap2
+Requires:         samtools
+Requires:         htslib
+Requires:         htslib-tools
 Requires:         python3.8
 Requires:         python3-bio-medaka
 
 %description -n python3-bio-%{packname} %_description
 
 %prep
-%autosetup -p1 -n %{packname}-%{version}
+rm -fR fieldbioinformatics
+git clone https://github.com/artic-network/fieldbioinformatics fieldbioinformatics
+cd fieldbioinformatics
+git checkout 1.3.0-dev
 pathfix.py -pni "/usr/bin/python%{pyversion} -s" .
 
 %build
-
+cd fieldbioinformatics
 CFLAGS="${CFLAGS:-${RPM_OPT_FLAGS}}" LDFLAGS="${LDFLAGS:-${RPM_LD_FLAGS}}"\
   /usr/bin/python%{pyversion} setup.py  build --executable="/usr/bin/python%{pyversion} -s"
 
 %install
+cd fieldbioinformatics
 CFLAGS="${CFLAGS:-${RPM_OPT_FLAGS}}" LDFLAGS="${LDFLAGS:-${RPM_LD_FLAGS}}"\
   /usr/bin/python%{pyversion} setup.py install --single-version-externally-managed -O1 --root=$RPM_BUILD_ROOT --record=INSTALLED_FILES
 
@@ -61,12 +68,14 @@ CFLAGS="${CFLAGS:-${RPM_OPT_FLAGS}}" LDFLAGS="${LDFLAGS:-${RPM_LD_FLAGS}}"\
 
 %clean
 rm -rf $RPM_BUILD_ROOT
-rm -fR %{_builddir}/%{packname}*
+rm -fR %{_builddir}/fieldbioinformatics*
 
-%files -n  python3-bio-fieldbioinformatics -f INSTALLED_FILES
+%files -n  python3-bio-fieldbioinformatics -f fieldbioinformatics/INSTALLED_FILES
 %defattr(-,root,root)
 
 %changelog
+* Mon Feb 22 2021 sagrudd <stephen@mnemosyne.co.uk>
+- update to version 1.3.0dev - removes requirement for longshot
 * Tue Feb 16 2021 sagrudd <stephen@mnemosyne.co.uk>
 - first build of [fieldbioinformatics] version [1.2.1] - borrowed from PackYak template
 * Fri Feb 12 2021 sagrudd <stephen@mnemosyne.co.uk>
